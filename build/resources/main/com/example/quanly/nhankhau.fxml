@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="nhankhauLayout" prefHeight="600.0" prefWidth="880.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quanly.controller.NhankhauController">
+    <AnchorPane prefHeight="60.0" prefWidth="880.0">
+        <Button onAction="#onThemnhankhauButtonClick" layoutX="152.0" layoutY="17.0" mnemonicParsing="false"
+                text="Thêm nhân khẩu" textFill="#130fbd"/>
+        <Button onAction="#onXoanhankhauButtonClick" layoutX="387.0" layoutY="17.0" mnemonicParsing="false"
+                prefHeight="26.0" prefWidth="114.0" text="Xóa nhân khẩu" textFill="#130fbd"/>
+        <Button onAction="#onCapnhatnhankhauButtonClick" layoutX="656.0" layoutY="17.0" mnemonicParsing="false"
+                text="Cập nhật nhân khẩu" textFill="#130fbd"/>
+    </AnchorPane>
+    <AnchorPane prefHeight="60.0" prefWidth="880.0">
+        <TextField layoutX="59.0" layoutY="8.0" prefHeight="46.0" prefWidth="388.0"/>
+        <ComboBox layoutX="488.0" layoutY="7.0" prefHeight="46.0" prefWidth="150.0" promptText="Tên"/>
+        <Button onAction="#onTimkiemButtonClick" layoutX="657.0" layoutY="8.0" mnemonicParsing="false" prefHeight="46.0"
+                prefWidth="113.0" text="Tìm kiếm"/>
+    </AnchorPane>
+    <TableView prefHeight="464.0" prefWidth="880.0">
+        <columns>
+            <TableColumn prefWidth="75.0" text="C1" />
+            <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+    </TableView>
+
+
+</VBox>

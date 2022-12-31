@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane fx:id="borderPane" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quanly.controller.MainController">
+   <top>
+      <VBox prefHeight="120.0" prefWidth="1080.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" prefHeight="120.0" prefWidth="1080.0" style="-fx-background-color: #2ad1ce;" text="Quản Lý Hộ Khẩu" textFill="#233dd1">
+               <font>
+                  <Font size="55.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+   </top>
+   <left>
+      <VBox prefHeight="600.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button onAction="#onHokhauButtonClick" mnemonicParsing="false" prefHeight="150.0" prefWidth="200.0" text="Hộ Khẩu" textFill="#233dd1">
+               <font>
+                  <Font size="30.0" />
+               </font></Button>
+            <Button onAction="#onNhankhauButtonClick" mnemonicParsing="false" prefHeight="150.0" prefWidth="200.0" text="Nhân Khẩu" textFill="#233dd1">
+               <font>
+                  <Font size="30.0" />
+               </font></Button>
+            <Button onAction="#onCovidButtonClick" mnemonicParsing="false" prefHeight="150.0" prefWidth="200.0" text="Covid" textFill="#233dd1">
+               <font>
+                  <Font size="30.0" />
+               </font></Button>
+            <Button mnemonicParsing="false" prefHeight="150.0" prefWidth="200.0" text="Thống Kê" textFill="#233dd1">
+               <font>
+                  <Font size="30.0" />
+               </font></Button>
+         </children>
+      </VBox>
+   </left>
+</BorderPane>
