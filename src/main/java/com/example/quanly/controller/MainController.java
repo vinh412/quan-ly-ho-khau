@@ -29,7 +29,7 @@ public class MainController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         hoKhauBtn.setOnMouseClicked(event ->{
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hokhau.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ho_khau.fxml"));
             Parent root = null;
             try {
                 root = fxmlLoader.load();
@@ -44,7 +44,7 @@ public class MainController implements Initializable {
         });
 
         nhanKhauBtn.setOnMouseClicked(event -> {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("nhankhau.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("nhan_khau.fxml"));
             Parent root = null;
             try {
                 root = fxmlLoader.load();

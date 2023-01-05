@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class NhankhauController implements Initializable {
+public class NhanKhauController implements Initializable {
     @FXML
     private Button themNhanKhauBtn;
     @FXML

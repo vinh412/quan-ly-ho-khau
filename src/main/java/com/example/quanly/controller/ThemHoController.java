@@ -3,11 +3,10 @@ package com.example.quanly.controller;
 import com.example.quanly.Database;
 import com.example.quanly.Popup;
 import com.example.quanly.models.HoKhau;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
-public class ThemhoController {
+public class ThemHoController {
 
     public TextField maHoKhauTF;
     public TextField maKhuVucTF;

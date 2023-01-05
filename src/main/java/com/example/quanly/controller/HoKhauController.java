@@ -10,14 +10,12 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class HokhauController implements Initializable {
+public class HoKhauController implements Initializable {
 
     @FXML
     private Button themHoBtn;
@@ -37,7 +35,7 @@ public class HokhauController implements Initializable {
         themHoBtn.setOnMouseClicked(event -> {
             //them ho
             System.out.println("Them ho clicked");
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("themho.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("them_ho.fxml"));
             Parent root = null;
             try {
                 root = (Parent) fxmlLoader.load();

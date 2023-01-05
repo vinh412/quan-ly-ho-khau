@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox fx:id="hokhauLayout" prefHeight="600.0" prefWidth="880.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quanly.controller.HokhauController">
+<VBox fx:id="hokhauLayout" prefHeight="600.0" prefWidth="880.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quanly.controller.HoKhauController">
     <AnchorPane prefHeight="60.0" prefWidth="880.0">
         <Button fx:id="themHoBtn" layoutX="152.0" layoutY="17.0" mnemonicParsing="false"
                 text="Thêm hộ" textFill="#130fbd"/>
