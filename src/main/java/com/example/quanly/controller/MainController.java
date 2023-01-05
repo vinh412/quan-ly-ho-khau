@@ -3,38 +3,74 @@ package com.example.quanly.controller;
 import com.example.quanly.HelloApplication;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class MainController {
+public class MainController implements Initializable {
     @FXML
     private BorderPane borderPane;
 
     @FXML
-    private void onHokhauButtonClick() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hokhau.fxml"));
-        Parent root = (Parent) fxmlLoader.load();
-        Node node = root.lookup("#hokhauLayout");
-        borderPane.setCenter(node);
-    }
-
+    private Button hoKhauBtn;
     @FXML
-    private void onNhankhauButtonClick() throws IOException{
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("nhankhau.fxml"));
-        Parent root = (Parent) fxmlLoader.load();
-        Node node = root.lookup("#nhankhauLayout");
-        borderPane.setCenter(node);
-    }
-
+    private Button nhanKhauBtn;
     @FXML
-    private void onCovidButtonClick() throws IOException{
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("covid.fxml"));
-        Parent root = (Parent) fxmlLoader.load();
-        Node node = root.lookup("#covidLayout");
-        borderPane.setCenter(node);
-    }
+    private Button covidBtn;
+    @FXML
+    private Button thongKeBtn;
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        hoKhauBtn.setOnMouseClicked(event ->{
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hokhau.fxml"));
+            Parent root = null;
+            try {
+                root = fxmlLoader.load();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Node node = null;
+            if (root != null) {
+                node = root.lookup("#hokhauLayout");
+            }
+            borderPane.setCenter(node);
+        });
+
+        nhanKhauBtn.setOnMouseClicked(event -> {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("nhankhau.fxml"));
+            Parent root = null;
+            try {
+                root = fxmlLoader.load();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Node node = null;
+            if (root != null) {
+                node = root.lookup("#nhankhauLayout");
+            }
+            borderPane.setCenter(node);
+        });
+
+        covidBtn.setOnMouseClicked(event -> {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("covid.fxml"));
+            Parent root = null;
+            try {
+                root = fxmlLoader.load();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Node node = null;
+            if (root != null) {
+                node = root.lookup("#covidLayout");
+            }
+            borderPane.setCenter(node);
+        });
+    }
 }

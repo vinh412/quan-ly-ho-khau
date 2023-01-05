@@ -19,24 +19,24 @@ public class Database {
             e.printStackTrace();
         }
     }
-    public static void insertOne(HoKhau hoKhau){
-        String soHoKhau = hoKhau.soHoKhau;
-        String hoTenChuHo = hoKhau.hoTenChuHo;
-        String soNha = hoKhau.soNha;
-        String duong = hoKhau.duong;
-        String xa = hoKhau.xa;
-        String huyen = hoKhau.huyen;
+    public static void insertHoKhau(HoKhau hoKhau){
+        String maHoKhau = hoKhau.maHoKhau;
+        String maKhuVuc = hoKhau.maKhuVuc;
+        String diaChi = hoKhau.diaChi;
+        String ngayLap = hoKhau.ngayLap;
+        String ngayChuyenDi = hoKhau.ngayChuyenDi;
+        String lyDoChuyen = hoKhau.lyDoChuyen;
 
-        String sql = "INSERT INTO `hokhau` (`SoHoKhau`, `HoTenChuHo`, `SoNha`, `Duong`, `Xa`, `Huyen`)" + "VALUES (?, ?, ?, ?, ?, ?);";
+        String sql = "INSERT INTO `ho_khau` (`maHoKhau`, `maKhuVuc`, `diaChi`, `ngayLap`, `ngayChuyenDi`, `lyDoChuyen`)" + "VALUES (?, ?, ?, ?, ?, ?);";
         PreparedStatement st = null;
         try {
             st = conn.prepareStatement(sql);
-            st.setString (1, soHoKhau);
-            st.setString (2, hoTenChuHo);
-            st.setString (3, soNha);
-            st.setString(4, duong);
-            st.setString(5, xa);
-            st.setString(6, huyen);
+            st.setString (1, maHoKhau);
+            st.setString (2, maKhuVuc);
+            st.setString (3, diaChi);
+            st.setString(4, ngayLap);
+            st.setString(5, ngayChuyenDi);
+            st.setString(6, lyDoChuyen);
             st.execute();
         } catch (SQLException e) {
             e.printStackTrace();

@@ -9,25 +9,25 @@ import javafx.scene.layout.AnchorPane;
 
 public class ThemhoController {
 
-    public TextField soHoKhauTF;
+    public TextField maHoKhauTF;
+    public TextField maKhuVucTF;
+    public TextField diaChiTF;
     public TextField hoTenChuHoTF;
-    public TextField soNhaTF;
-    public TextField duongTF;
-    public TextField xaTF;
-    public TextField huyenTF;
+    public TextField soCMTChuHoTF;
+    public TextField ngayLapTF;
     public AnchorPane themhoLayout;
 
     public void onThemhoButtonClick(){
-        String soHoKhau = soHoKhauTF.getText();
+        String maHoKhau = maHoKhauTF.getText();
+        String maKhuVuc = maKhuVucTF.getText();
+        String diaChi = diaChiTF.getText();
         String hoTenChuHo = hoTenChuHoTF.getText();
-        String soNha = soNhaTF.getText();
-        String duong = duongTF.getText();
-        String xa = xaTF.getText();
-        String huyen = huyenTF.getText();
+        String soCMTChuHo = soCMTChuHoTF.getText();
+        String ngayLap = ngayLapTF.getText();
 
         Database.connect();
-        HoKhau hoKhauMoi = new HoKhau(soHoKhau,hoTenChuHo,soNha,duong,xa,huyen);
-        Database.insertOne(hoKhauMoi);
+        HoKhau hoKhauMoi = new HoKhau(maHoKhau, maKhuVuc, diaChi, ngayLap, null, null);
+        Database.insertHoKhau(hoKhauMoi);
         Database.close();
 
         Popup.close();

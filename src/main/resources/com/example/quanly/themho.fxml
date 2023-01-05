@@ -20,62 +20,62 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label prefHeight="32.0" prefWidth="90.0" text="Số hộ khẩu">
+            <Label prefHeight="32.0" prefWidth="90.0" text="Mã hộ khẩu">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label prefHeight="33.0" prefWidth="97.0" text="Họ tên chủ hộ" GridPane.rowIndex="1">
+            <Label prefHeight="33.0" prefWidth="97.0" text="Mã khu vực" GridPane.rowIndex="1">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label prefHeight="36.0" prefWidth="61.0" text="Số nhà" GridPane.rowIndex="2">
+            <Label prefHeight="36.0" prefWidth="61.0" text="Địa chỉ" GridPane.rowIndex="2">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label prefHeight="26.0" prefWidth="63.0" text="Đường" GridPane.rowIndex="3">
+            <Label prefHeight="26.0" prefWidth="102.0" text="Họ tên chủ hộ" GridPane.rowIndex="3">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label prefHeight="29.0" prefWidth="46.0" text="Xã" GridPane.rowIndex="4">
+            <Label prefHeight="30.0" prefWidth="103.0" text="Số CMT chủ hộ" GridPane.rowIndex="4">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label prefHeight="32.0" prefWidth="61.0" text="Huyện" GridPane.rowIndex="5">
+            <Label prefHeight="32.0" prefWidth="102.0" text="Ngày lập" GridPane.rowIndex="5">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <TextField fx:id="soHoKhauTF" prefHeight="35.0" prefWidth="258.0" GridPane.columnIndex="1">
+            <TextField fx:id="maHoKhauTF" prefHeight="35.0" prefWidth="258.0" GridPane.columnIndex="1">
                <font>
                   <Font size="15.0" />
                </font>
             </TextField>
-            <TextField fx:id="hoTenChuHoTF" prefHeight="35.0" prefWidth="258.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <TextField fx:id="maKhuVucTF" prefHeight="35.0" prefWidth="258.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font size="15.0" />
                </font>
             </TextField>
-            <TextField fx:id="soNhaTF" prefHeight="35.0" prefWidth="258.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <TextField fx:id="diaChiTF" prefHeight="35.0" prefWidth="258.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
                   <Font size="15.0" />
                </font>
             </TextField>
-            <TextField fx:id="duongTF" prefHeight="35.0" prefWidth="258.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <TextField fx:id="hoTenChuHoTF" prefHeight="35.0" prefWidth="258.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <font>
                   <Font size="15.0" />
                </font>
             </TextField>
-            <TextField prefHeight="35.0" prefWidth="258.0" GridPane.columnIndex="1" GridPane.rowIndex="4" fx:id="xaTF">
+            <TextField fx:id="soCMTChuHoTF" prefHeight="35.0" prefWidth="258.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <font>
                   <Font size="15.0" />
                </font>
             </TextField>
-            <TextField fx:id="huyenTF" prefHeight="35.0" prefWidth="258.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+            <TextField fx:id="ngayLapTF" prefHeight="35.0" prefWidth="258.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
                <font>
                   <Font size="15.0" />
                </font>
