@@ -1,84 +1,117 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane fx:id="themnhankhauLayout" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quanly.controller.ThemNhanKhauController">
-   <children>
-      <GridPane layoutX="8.0" layoutY="36.0" prefHeight="406.0" prefWidth="786.0">
-        <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="221.2" minWidth="10.0" prefWidth="221.2" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="94.0" minWidth="10.0" prefWidth="16.19999999999999" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="255.20000000000005" minWidth="10.0" prefWidth="255.20000000000005" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="93.0" minWidth="10.0" prefWidth="15.600000000000023" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <Label text="Họ và tên" />
-            <Label text="Ngày tháng năm sinh" GridPane.rowIndex="1" />
-            <Label text="Nguyên quán" GridPane.rowIndex="2" />
-            <Label text="Dân tộc" GridPane.rowIndex="3" />
-            <Label text="Số CMT/CCCD" GridPane.rowIndex="4" />
-            <Label text="Nơi thường trú" GridPane.rowIndex="5" />
-            <Label text="Trình độ học vấn" GridPane.rowIndex="6" />
-            <Label text="Trình độ ngoại ngữ" GridPane.rowIndex="7" />
-            <Label text="Nghề nghiệp" GridPane.rowIndex="8" />
-            <Label text="(*)" textFill="RED" GridPane.columnIndex="2" />
-            <Label text="(*)" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <Label text="(*)" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <Label text="(*)" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-            <Label text="(*)" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-            <Label text="(*)" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-            <Label text="(*)" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-            <Label text="(*)" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="7" />
-            <Label text="(*)" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="8" />
-            <Label text="Biệt danh" GridPane.columnIndex="3" />
-            <Label text="Giới tính" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <Label text="Tôn giáo" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-            <Label text="Quốc tịch" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-            <Label text="Hộ chiếu số" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-            <Label text="Địa chỉ hiện tại" GridPane.columnIndex="3" GridPane.rowIndex="5" />
-            <Label text="Trình độ chuyên môn" GridPane.columnIndex="3" GridPane.rowIndex="6" />
-            <Label text="Biết tiếng dân tộc" GridPane.columnIndex="3" GridPane.rowIndex="7" />
-            <Label text="Nơi làm việc" GridPane.columnIndex="3" GridPane.rowIndex="8" />
-            <Label GridPane.columnIndex="5" />
-            <Label text="(*)" textFill="RED" GridPane.columnIndex="5" GridPane.rowIndex="2" />
-            <Label text="(*)" textFill="RED" GridPane.columnIndex="5" GridPane.rowIndex="3" />
-            <Label text="(*)" textFill="RED" GridPane.columnIndex="5" GridPane.rowIndex="5" />
-            <Label text="(*)" textFill="RED" GridPane.columnIndex="5" GridPane.rowIndex="6" />
-            <Label text="(*)" textFill="RED" GridPane.columnIndex="5" GridPane.rowIndex="7" />
-            <Label text="(*)" textFill="RED" GridPane.columnIndex="5" GridPane.rowIndex="8" />
-            <TextField GridPane.columnIndex="1" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="7" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="8" />
-            <TextField GridPane.columnIndex="4" />
-            <TextField GridPane.columnIndex="4" GridPane.rowIndex="2" />
-            <TextField GridPane.columnIndex="4" GridPane.rowIndex="3" />
-            <TextField GridPane.columnIndex="4" GridPane.rowIndex="4" />
-            <TextField GridPane.columnIndex="4" GridPane.rowIndex="5" />
-            <TextField GridPane.columnIndex="4" GridPane.rowIndex="6" />
-            <TextField GridPane.columnIndex="4" GridPane.rowIndex="7" />
-            <TextField GridPane.columnIndex="4" GridPane.rowIndex="8" />
-            <ChoiceBox fx:id="choiceBox" prefHeight="26.0" prefWidth="62.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-            <DatePicker fx:id="datePicker" prefHeight="26.0" prefWidth="128.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-         </children>
-      </GridPane>
-   </children>
+<AnchorPane fx:id="themnhankhauLayout" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quanly.controller.ThemNhanKhauController">
+   <ScrollPane layoutX="8.0" layoutY="7.0" prefHeight="435.0" prefWidth="787.0" vbarPolicy="ALWAYS">
+      <content>
+          <GridPane alignment="CENTER" prefHeight="623.0" prefWidth="772.0">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="221.2" minWidth="10.0" prefWidth="221.2" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="94.0" minWidth="10.0" prefWidth="16.19999999999999" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="255.20000000000005" minWidth="10.0" prefWidth="255.20000000000005" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="93.0" minWidth="10.0" prefWidth="15.600000000000023" />
+              </columnConstraints>
+              <rowConstraints>
+               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+              <Label text="Họ và tên" GridPane.rowIndex="1" />
+              <Label prefHeight="41.0" prefWidth="114.0" text="Ngày tháng năm sinh" GridPane.rowIndex="2" />
+              <Label text="Nguyên quán" GridPane.rowIndex="3" />
+              <Label text="Dân tộc" GridPane.rowIndex="4" />
+              <Label text="Số CMT/CCCD" GridPane.rowIndex="5" />
+              <Label text="Nơi thường trú" GridPane.rowIndex="6" />
+              <Label text="Trình độ học vấn" GridPane.rowIndex="7" />
+              <Label text="Trình độ ngoại ngữ" GridPane.rowIndex="8" />
+              <Label text="Nghề nghiệp" GridPane.rowIndex="9" />
+              <Label text="(*)" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+              <Label text="(*)" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+              <Label text="(*)" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+              <Label text="(*)" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+              <Label text="(*)" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+              <Label text="(*)" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+              <Label text="(*)" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+              <Label text="(*)" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+              <Label text="(*)" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+              <Label text="Biệt danh" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+              <Label text="Giới tính" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+              <Label text="Tôn giáo" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+              <Label text="Quốc tịch" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+              <Label text="Hộ chiếu số" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+              <Label text="Địa chỉ hiện tại" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+              <Label text="Trình độ chuyên môn" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+              <Label text="Biết tiếng dân tộc" GridPane.columnIndex="3" GridPane.rowIndex="8" />
+              <Label text="Nơi làm việc" GridPane.columnIndex="3" GridPane.rowIndex="9" />
+              <Label GridPane.columnIndex="5" GridPane.rowIndex="1" />
+              <Label text="(*)" textFill="RED" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+              <Label text="(*)" textFill="RED" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+              <Label text="(*)" textFill="RED" GridPane.columnIndex="5" GridPane.rowIndex="6" />
+              <Label text="(*)" textFill="RED" GridPane.columnIndex="5" GridPane.rowIndex="7" />
+              <Label text="(*)" textFill="RED" GridPane.columnIndex="5" GridPane.rowIndex="8" />
+              <Label text="(*)" textFill="RED" GridPane.columnIndex="5" GridPane.rowIndex="9" />
+              <TextField fx:id="hoTenTF" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+              <TextField fx:id="nguyenQuanTF" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+              <TextField fx:id="danTocTF" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+              <TextField GridPane.columnIndex="1" GridPane.rowIndex="5" />
+              <TextField fx:id="noiThuongTruTF" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+              <TextField fx:id="trinhDoHocVanTF" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+              <TextField fx:id="trinhDoNgoaiNguTF" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+              <TextField fx:id="ngheNghiepTF" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+              <TextField fx:id="bietDanhTF" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+              <TextField fx:id="tonGiaoTF" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+              <TextField fx:id="quocTichTF" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+              <TextField fx:id="soHoChieuTF" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+              <TextField fx:id="diaChiHienNayTF" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+              <TextField fx:id="trinhDoChuyenMonTF" GridPane.columnIndex="4" GridPane.rowIndex="7" />
+              <TextField fx:id="bietTiengDanTocTF" GridPane.columnIndex="4" GridPane.rowIndex="8" />
+              <TextField fx:id="noiLamViecTF" GridPane.columnIndex="4" GridPane.rowIndex="9" />
+              <ChoiceBox fx:id="gioiTinhChoiceBox" prefHeight="26.0" prefWidth="62.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+              <DatePicker fx:id="namSinhDatePicker" prefHeight="26.0" prefWidth="128.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="Nơi sinh" GridPane.rowIndex="10" />
+            <Label text="Ngày chuyển đến" GridPane.rowIndex="11" />
+            <Label text="Ngày chuyển đi" GridPane.rowIndex="12" />
+            <Label text="Địa chỉ mới" GridPane.rowIndex="13" />
+            <TextField fx:id="noiSinhTF" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+            <TextField fx:id="ngayChuyenDenTF" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+            <TextField fx:id="ngayChuyenDiTF" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+            <TextField fx:id="diaChiMoiTF" GridPane.columnIndex="1" GridPane.rowIndex="13" />
+            <TextField fx:id="tienAnTF" GridPane.columnIndex="4" GridPane.rowIndex="10" />
+            <TextField fx:id="lyDoChuyenDenTF" GridPane.columnIndex="4" GridPane.rowIndex="11" />
+            <TextField fx:id="lyDoChuyenDiTF" GridPane.columnIndex="4" GridPane.rowIndex="12" />
+            <TextField fx:id="ghiChuTF" GridPane.columnIndex="4" GridPane.rowIndex="13" />
+            <Label text="Tiền án" GridPane.columnIndex="3" GridPane.rowIndex="10" />
+            <Label text="Lý do chuyển đến" GridPane.columnIndex="3" GridPane.rowIndex="11" />
+            <Label text="Lý do chuyển đi" GridPane.columnIndex="3" GridPane.rowIndex="12" />
+            <Label text="Ghi chú" GridPane.columnIndex="3" GridPane.rowIndex="13" />
+            <Label text="Mã nhân khẩu" />
+            <TextField fx:id="maNhanKhauTF" GridPane.columnIndex="1" />
+          </GridPane>
+      </content>
+   </ScrollPane>
+    <Button fx:id="huyBtn" layoutX="611.0" layoutY="452.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="63.0" text="Hủy" />
+    <Button layoutX="692.0" layoutY="452.0" mnemonicParsing="false" text="Xác nhận" fx:id="xacNhanBtn" />
 </AnchorPane>

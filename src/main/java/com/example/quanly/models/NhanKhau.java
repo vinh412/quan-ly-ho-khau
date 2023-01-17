@@ -27,11 +27,45 @@ public class NhanKhau {
     private String lyDoChuyenDi;
     private String diaChiMoi;
     private String ngayTao;
-    private int idNguoiTao;
+    private Integer idNguoiTao;
     private String ngayXoa;
-    private int idNguoiXoa;
+    private Integer idNguoiXoa;
     private String lyDoXoa;
     private String ghiChu;
+
+    public NhanKhau(String maNhanKhau, String hoTen, String bietDanh, String namSinh, String gioiTinh,
+                    String noiSinh, String nguyenQuan, String danToc, String tonGiao, String quocTich,
+                    String soHoChieu, String noiThuongTru, String diaChiHienNay, String trinhDoHocVan,
+                    String trinhDoChuyenMon, String bietTiengDanToc, String trinhDoNgoaiNgu, String ngheNghiep,
+                    String noiLamViec, String tienAn, String ngayChuyenDen, String lyDoChuyenDen,
+                    String ngayChuyenDi, String lyDoChuyenDi, String diaChiMoi, String ghiChu) {
+        this.maNhanKhau = maNhanKhau;
+        this.hoTen = hoTen;
+        this.bietDanh = bietDanh;
+        this.namSinh = namSinh;
+        this.gioiTinh = gioiTinh;
+        this.noiSinh = noiSinh;
+        this.nguyenQuan = nguyenQuan;
+        this.danToc = danToc;
+        this.tonGiao = tonGiao;
+        this.quocTich = quocTich;
+        this.soHoChieu = soHoChieu;
+        this.noiThuongTru = noiThuongTru;
+        this.diaChiHienNay = diaChiHienNay;
+        this.trinhDoHocVan = trinhDoHocVan;
+        this.trinhDoChuyenMon = trinhDoChuyenMon;
+        this.bietTiengDanToc = bietTiengDanToc;
+        this.trinhDoNgoaiNgu = trinhDoNgoaiNgu;
+        this.ngheNghiep = ngheNghiep;
+        this.noiLamViec = noiLamViec;
+        this.tienAn = tienAn;
+        this.ngayChuyenDen = ngayChuyenDen;
+        this.lyDoChuyenDen = lyDoChuyenDen;
+        this.ngayChuyenDi = ngayChuyenDi;
+        this.lyDoChuyenDi = lyDoChuyenDi;
+        this.diaChiMoi = diaChiMoi;
+        this.ghiChu = ghiChu;
+    }
 
     public String getMaNhanKhau() {
         return maNhanKhau;
@@ -241,11 +275,11 @@ public class NhanKhau {
         this.ngayTao = ngayTao;
     }
 
-    public int getIdNguoiTao() {
+    public Integer getIdNguoiTao() {
         return idNguoiTao;
     }
 
-    public void setIdNguoiTao(int idNguoiTao) {
+    public void setIdNguoiTao(Integer idNguoiTao) {
         this.idNguoiTao = idNguoiTao;
     }
 
@@ -257,11 +291,11 @@ public class NhanKhau {
         this.ngayXoa = ngayXoa;
     }
 
-    public int getIdNguoiXoa() {
+    public Integer getIdNguoiXoa() {
         return idNguoiXoa;
     }
 
-    public void setIdNguoiXoa(int idNguoiXoa) {
+    public void setIdNguoiXoa(Integer idNguoiXoa) {
         this.idNguoiXoa = idNguoiXoa;
     }
 
