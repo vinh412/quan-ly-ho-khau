@@ -1,5 +1,6 @@
 package com.example.quanly;
 
+import com.example.quanly.controller.ho_khau.HoKhauController;
 import com.example.quanly.models.HoKhau;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

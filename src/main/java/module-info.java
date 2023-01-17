@@ -8,4 +8,10 @@ module com.example.quanly {
     exports com.example.quanly;
     exports com.example.quanly.controller;
     opens com.example.quanly.controller to javafx.fxml;
+    exports com.example.quanly.controller.nhan_khau;
+    opens com.example.quanly.controller.nhan_khau to javafx.fxml;
+    exports com.example.quanly.controller.ho_khau;
+    opens com.example.quanly.controller.ho_khau to javafx.fxml;
+    exports com.example.quanly.controller.covid;
+    opens com.example.quanly.controller.covid to javafx.fxml;
 }
