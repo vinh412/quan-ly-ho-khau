@@ -33,38 +33,43 @@ public class HoKhauController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        themHoBtn.setOnMouseClicked(event -> {
-            //them ho
-            System.out.println("Them ho clicked");
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ho_khau/them_ho.fxml"));
-            Parent root = null;
-            try {
-                root = (Parent) fxmlLoader.load();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            Node node = null;
-            if (root != null) {
-                node = root.lookup("#them_ho_layout");
-            }
-            Popup.setLayout(node);
-            Popup.setTitle("Thêm hộ khẩu mới");
-            Popup.show();
-        });
+    }
 
-        suaHoBtn.setOnMouseClicked(event -> {
-            //sua ho
-            System.out.println("Sua ho clicked");
-        });
+    @FXML
+    private void onThemHoBtnClicked(){
+        //them ho
+        System.out.println("Them ho clicked");
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ho_khau/them_ho.fxml"));
+        Parent root = null;
+        try {
+            root = (Parent) fxmlLoader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Node node = null;
+        if (root != null) {
+            node = root.lookup("#them_ho_layout");
+        }
+        Popup.setLayout(node);
+        Popup.setTitle("Thêm hộ khẩu mới");
+        Popup.show();
+    }
 
-        xoaHoBtn.setOnMouseClicked(event -> {
-            //xoa ho
-            System.out.println("Xoa ho clicked");
-        });
+    @FXML
+    private void onSuaHoBtnClicked(){
+        // Sửa hộ
+        System.out.println("Sua ho clicked");
+    }
 
-        timKiemBtn.setOnMouseClicked(event -> {
-            //tim kiem
-            System.out.println("Tim kiem clicked");
-        });
+    @FXML
+    private void onXoaHoBtnClicked(){
+        // Xóa hộ
+        System.out.println("Xoa ho clicked");
+    }
+
+    @FXML
+    private void onTimKiemBtnClicked(){
+        // Tìm kiếm
+        System.out.println("Tim kiem clicked");
     }
 }
