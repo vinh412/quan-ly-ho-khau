@@ -3,8 +3,8 @@ package com.example.quanly.controller.ho_khau;
 import com.example.quanly.Database;
 import com.example.quanly.Popup;
 import com.example.quanly.models.HoKhau;
+import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
 
 public class ThemHoController {
 
@@ -14,9 +14,9 @@ public class ThemHoController {
     public TextField hoTenChuHoTF;
     public TextField soCMTChuHoTF;
     public TextField ngayLapTF;
-    public AnchorPane themhoLayout;
 
-    public void onThemhoButtonClick(){
+    @FXML
+    private void onXacNhanBtnClicked(){
         String maHoKhau = maHoKhauTF.getText();
         String maKhuVuc = maKhuVucTF.getText();
         String diaChi = diaChiTF.getText();
@@ -24,15 +24,16 @@ public class ThemHoController {
         String soCMTChuHo = soCMTChuHoTF.getText();
         String ngayLap = ngayLapTF.getText();
 
-//        Database.connect();
-//        HoKhau hoKhauMoi = new HoKhau(maHoKhau, maKhuVuc, diaChi, ngayLap, null, null);
-//        Database.insertHoKhau(hoKhauMoi);
-//        Database.close();
+        Database.connect();
+        HoKhau hoKhauMoi = new HoKhau(maHoKhau, maKhuVuc, diaChi, ngayLap, null, null);
+        Database.insertHoKhau(hoKhauMoi);
+        Database.close();
 
         Popup.close();
     }
 
-    public void onHuyButtonClick(){
+    @FXML
+    private void onHuyBtnClicked(){
         Popup.close();
     }
 }
