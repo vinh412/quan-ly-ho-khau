@@ -5,17 +5,17 @@
 
 <VBox fx:id="nhan_khau_layout" prefHeight="600.0" prefWidth="880.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quanly.controller.nhan_khau.NhanKhauController">
     <AnchorPane prefHeight="60.0" prefWidth="880.0">
-        <Button fx:id="themNhanKhauBtn" layoutX="14.0" layoutY="17.0" mnemonicParsing="false" onAction="#onThemNhanKhauBtnClicked" text="Thêm nhân khẩu" textFill="#130fbd" />
-        <Button layoutX="137.0" layoutY="17.0" mnemonicParsing="false" onAction="#onXoaNhanKhauBtnClicked" prefHeight="26.0" prefWidth="114.0" text="Xóa nhân khẩu" textFill="#130fbd" fx:id="xoaNhanKhauBtn" />
-        <Button fx:id="capNhatNhanKhauBtn" layoutX="271.0" layoutY="17.0" mnemonicParsing="false" onAction="#onCapNhatNhanKhauBtnClicked" text="Cập nhật nhân khẩu" textFill="#130fbd" />
-      <Button fx:id="tamTruBtn" layoutX="426.0" layoutY="17.0" mnemonicParsing="false" onAction="#onDKTamTruBtnClicked" text="ĐK Tạm trú" />
-      <Button fx:id="tamVangBtn" layoutX="528.0" layoutY="18.0" mnemonicParsing="false" onAction="#onDKTamVangBtnClicked" text="ĐK Tạm vắng" />
-      <Button fx:id="khaiTuBtn" layoutX="649.0" layoutY="18.0" mnemonicParsing="false" onAction="#onKhaiTuBtnClicked" text="Khai tử" />
+        <Button fx:id="themNhanKhauBtn" layoutX="14.0" layoutY="17.0" mnemonicParsing="false" text="Thêm nhân khẩu" textFill="#130fbd" />
+        <Button layoutX="137.0" layoutY="17.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="114.0" text="Xóa nhân khẩu" textFill="#130fbd" fx:id="xoaNhanKhauBtn" />
+        <Button fx:id="capNhatNhanKhauBtn" layoutX="271.0" layoutY="17.0" mnemonicParsing="false" text="Cập nhật nhân khẩu" textFill="#130fbd" />
+      <Button fx:id="tamTruBtn" layoutX="426.0" layoutY="17.0" mnemonicParsing="false" text="ĐK Tạm trú" />
+      <Button fx:id="tamVangBtn" layoutX="528.0" layoutY="18.0" mnemonicParsing="false" text="ĐK Tạm vắng" />
+      <Button fx:id="khaiTuBtn" layoutX="649.0" layoutY="18.0" mnemonicParsing="false" text="Khai tử" />
     </AnchorPane>
     <AnchorPane prefHeight="60.0" prefWidth="880.0">
         <TextField layoutX="59.0" layoutY="8.0" prefHeight="46.0" prefWidth="388.0" />
         <ComboBox layoutX="488.0" layoutY="7.0" prefHeight="46.0" prefWidth="150.0" promptText="Tên" />
-        <Button fx:id="timKiemBtn" layoutX="657.0" layoutY="8.0" mnemonicParsing="false" onAction="#onTimKiemBtnClicked" prefHeight="46.0" prefWidth="113.0" text="Tìm kiếm" />
+        <Button fx:id="timKiemBtn" layoutX="657.0" layoutY="8.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="113.0" text="Tìm kiếm" />
     </AnchorPane>
     <TableView prefHeight="464.0" prefWidth="880.0">
         <columns>

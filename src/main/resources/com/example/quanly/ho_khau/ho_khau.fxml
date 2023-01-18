@@ -5,17 +5,17 @@
 
 <VBox fx:id="ho_khau_layout" prefHeight="600.0" prefWidth="880.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quanly.controller.ho_khau.HoKhauController">
     <AnchorPane prefHeight="60.0" prefWidth="880.0">
-        <Button fx:id="themHoBtn" onAction="#onThemhoBtnClick" layoutX="152.0" layoutY="17.0" mnemonicParsing="false"
+        <Button fx:id="themHoBtn" onAction="#onThemHoBtnClicked" layoutX="152.0" layoutY="17.0" mnemonicParsing="false"
                 text="Thêm hộ" textFill="#130fbd"/>
-        <Button fx:id="suaHoBtn" onAction="#onSuahoBtnClick" layoutX="387.0" layoutY="17.0" mnemonicParsing="false"
+        <Button fx:id="suaHoBtn" onAction="#onSuaHoBtnClicked" layoutX="387.0" layoutY="17.0" mnemonicParsing="false"
                 prefHeight="26.0" prefWidth="114.0" text="Sửa hộ" textFill="#130fbd"/>
-        <Button fx:id="xoaHoBtn" onAction="#onXoahoBtnClick" layoutX="656.0" layoutY="17.0" mnemonicParsing="false"
+        <Button fx:id="xoaHoBtn" onAction="#onXoaHoBtnClicked" layoutX="656.0" layoutY="17.0" mnemonicParsing="false"
                 text="Xóa hộ" textFill="#130fbd"/>
     </AnchorPane>
     <AnchorPane prefHeight="60.0" prefWidth="880.0">
         <TextField fx:id="searchTF" layoutX="59.0" layoutY="8.0" prefHeight="46.0" prefWidth="388.0"/>
         <ComboBox fx:id="comboBox" layoutX="488.0" layoutY="7.0" prefHeight="46.0" prefWidth="150.0"/>
-        <Button fx:id="timKiemBtn" onAction="#onTimKiemBtnClick" layoutX="657.0" layoutY="8.0" mnemonicParsing="false" prefHeight="46.0"
+        <Button fx:id="timKiemBtn" onAction="#onTimKiemBtnClicked" layoutX="657.0" layoutY="8.0" mnemonicParsing="false" prefHeight="46.0"
                 prefWidth="113.0" text="Tìm kiếm"/>
     </AnchorPane>
     <TableView fx:id="tableView" prefHeight="464.0" prefWidth="880.0">

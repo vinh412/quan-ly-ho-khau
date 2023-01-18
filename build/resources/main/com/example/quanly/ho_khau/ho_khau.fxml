@@ -5,14 +5,18 @@
 
 <VBox fx:id="ho_khau_layout" prefHeight="600.0" prefWidth="880.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quanly.controller.ho_khau.HoKhauController">
     <AnchorPane prefHeight="60.0" prefWidth="880.0">
-        <Button fx:id="themHoBtn" layoutX="152.0" layoutY="17.0" mnemonicParsing="false" onAction="#onThemHoBtnClicked" text="Thêm hộ" textFill="#130fbd" />
-        <Button fx:id="suaHoBtn" layoutX="387.0" layoutY="17.0" mnemonicParsing="false" onAction="#onSuaHoBtnClicked" prefHeight="26.0" prefWidth="114.0" text="Sửa hộ" textFill="#130fbd" />
-        <Button layoutX="656.0" layoutY="17.0" mnemonicParsing="false" onAction="#onXoaHoBtnClicked" text="Xóa hộ" textFill="#130fbd" fx:id="xoaHoBtn" />
+        <Button fx:id="themHoBtn" layoutX="152.0" layoutY="17.0" mnemonicParsing="false"
+                text="Thêm hộ" textFill="#130fbd"/>
+        <Button fx:id="suaHoBtn" layoutX="387.0" layoutY="17.0" mnemonicParsing="false"
+                prefHeight="26.0" prefWidth="114.0" text="Sửa hộ" textFill="#130fbd"/>
+        <Button fx:id="xoaHoBtn" layoutX="656.0" layoutY="17.0" mnemonicParsing="false"
+                text="Xóa hộ" textFill="#130fbd"/>
     </AnchorPane>
     <AnchorPane prefHeight="60.0" prefWidth="880.0">
-        <TextField layoutX="59.0" layoutY="8.0" prefHeight="46.0" prefWidth="388.0" />
-        <ComboBox layoutX="488.0" layoutY="7.0" prefHeight="46.0" prefWidth="150.0" promptText="Mã hộ" />
-        <Button fx:id="timKiemBtn" layoutX="657.0" layoutY="8.0" mnemonicParsing="false" onAction="#onTimKiemBtnClicked" prefHeight="46.0" prefWidth="113.0" text="Tìm kiếm" />
+        <TextField layoutX="59.0" layoutY="8.0" prefHeight="46.0" prefWidth="388.0"/>
+        <ComboBox layoutX="488.0" layoutY="7.0" prefHeight="46.0" prefWidth="150.0" promptText="Mã hộ"/>
+        <Button fx:id="timKiemBtn" layoutX="657.0" layoutY="8.0" mnemonicParsing="false" prefHeight="46.0"
+                prefWidth="113.0" text="Tìm kiếm"/>
     </AnchorPane>
     <TableView prefHeight="464.0" prefWidth="880.0">
         <columns>

@@ -1,6 +1,5 @@
 package com.example.quanly.controller.ho_khau;
 
-import com.example.quanly.Database;
 import com.example.quanly.HelloApplication;
 import com.example.quanly.Popup;
 import com.example.quanly.controller.MainController;
@@ -79,7 +78,7 @@ public class HoKhauController implements Initializable {
         tableView.setItems(listview);
     }
 
-    public void onXoahoBtnClick(ActionEvent actionEvent) {
+    public void onXoaHoBtnClicked(ActionEvent actionEvent) {
         System.out.println("Xoa ho "+tableView.getSelectionModel().getSelectedItem());
         HoKhau selectedItem = tableView.getSelectionModel().getSelectedItem();
         if(selectedItem == null) return ;
@@ -87,10 +86,10 @@ public class HoKhauController implements Initializable {
         tableView.getItems().remove(selectedItem);
     }
 
-    public void onSuahoBtnClick(ActionEvent actionEvent) {
+    public void onSuaHoBtnClicked(ActionEvent actionEvent) {
     }
 
-    public void onThemhoBtnClick(ActionEvent actionEvent) {
+    public void onThemHoBtnClicked(ActionEvent actionEvent) {
         System.out.println("Them ho clicked");
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ho_khau/them_ho.fxml"));
         Parent root = null;
@@ -108,7 +107,7 @@ public class HoKhauController implements Initializable {
         Popup.show();
     }
 
-    public void onTimKiemBtnClick(ActionEvent actionEvent) {
+    public void onTimKiemBtnClicked(ActionEvent actionEvent) {
         System.out.println("search by" + comboBox.getValue() + searchTF.getText());
         String field = null;
         switch (comboBox.getValue().toString()){

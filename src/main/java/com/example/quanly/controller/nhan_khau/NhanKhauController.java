@@ -37,24 +37,8 @@ public class NhanKhauController implements Initializable {
     @FXML
     private Button khaiTuBtn;
     @FXML
-    private TextField searchTF;
-    @FXML
-    private ComboBox comboBox;
-    // table view
-    @FXML
-    private TableView<NhanKhau> tableView;
-    @FXML
-    private TableColumn<HoKhau, String> maNhanKhau;
-    @FXML
-    private TableColumn<HoKhau, String> hoTen;
-    @FXML
-    private TableColumn<HoKhau, String> gioiTinh;
-    @FXML
-    private TableColumn<HoKhau, String> namSinh;
-    @FXML
-    private TableColumn<HoKhau, String> diaChiHienNay;
-    ObservableList<NhanKhau> listview = FXCollections.observableArrayList();
-    //
+    private TextField searchTextField;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -75,7 +59,7 @@ public class NhanKhauController implements Initializable {
         tableView.setItems(listview);
     }
 
-    public void onThemNhanKhauBtnClick(ActionEvent actionEvent) {
+    public void onThemNhanKhauBtnClicked(ActionEvent actionEvent) {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("nhan_khau/them_nhan_khau.fxml"));
         Parent root = null;
         try {
@@ -93,7 +77,7 @@ public class NhanKhauController implements Initializable {
         System.out.println("Them nhan khau clicked");
     }
 
-    public void onXoaNhanKhauBtnClick(ActionEvent actionEvent) {
+    public void onXoaNhanKhauBtnClicked(ActionEvent actionEvent) {
         System.out.println("Xoa nhan khau clicked");
         System.out.println("Xoa ho "+tableView.getSelectionModel().getSelectedItem());
         NhanKhau selectedItem = tableView.getSelectionModel().getSelectedItem();
@@ -102,11 +86,11 @@ public class NhanKhauController implements Initializable {
         tableView.getItems().remove(selectedItem);
     }
 
-    public void onCapNhatNhanKhauBtnClick(ActionEvent actionEvent) {
+    public void onCapNhatNhanKhauBtnClicked(ActionEvent actionEvent) {
         System.out.println("Cap nhat nhan khau clicked");
     }
 
-    public void onTamTruBtnClick(ActionEvent actionEvent) {
+    public void onDKTamTruBtnClicked(ActionEvent actionEvent) {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("nhan_khau/tam_tru.fxml"));
         Parent root = null;
         try {
@@ -123,7 +107,7 @@ public class NhanKhauController implements Initializable {
         Popup.show();
     }
 
-    public void onTamVangBtnClick(ActionEvent actionEvent) {
+    public void onDKTamVangBtnClicked(ActionEvent actionEvent) {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("nhan_khau/tam_vang.fxml"));
         Parent root = null;
         try {
@@ -140,7 +124,7 @@ public class NhanKhauController implements Initializable {
         Popup.show();
     }
 
-    public void onKhaiTuBtnClick(ActionEvent actionEvent) {
+    public void onKhaiTuBtnClicked(ActionEvent actionEvent) {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("nhan_khau/khai_tu.fxml"));
         Parent root = null;
         try {
@@ -157,7 +141,7 @@ public class NhanKhauController implements Initializable {
         Popup.show();
     }
 
-    public void onTimKiemBtnClick(ActionEvent actionEvent) {
+    public void onTimKiemBtnClicked(ActionEvent actionEvent) {
         System.out.println("search by" + comboBox.getValue() + searchTF.getText());
         String field = null;
         switch (comboBox.getValue().toString()){
