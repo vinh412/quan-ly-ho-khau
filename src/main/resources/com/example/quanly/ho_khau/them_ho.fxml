@@ -82,8 +82,8 @@
             </TextField>
          </children>
       </GridPane>
-      <Button layoutX="430.0" layoutY="344.0" mnemonicParsing="false" onAction="#onThemhoButtonClick" text="Thêm hộ" />
-      <Button layoutX="349.0" layoutY="343.0" mnemonicParsing="false" onAction="#onHuyButtonClick" prefHeight="26.0" prefWidth="63.0" text="Hủy" />
+      <Button layoutX="430.0" layoutY="344.0" mnemonicParsing="false" onAction="#onXacNhanBtnClick" text="Xác nhận" />
+      <Button layoutX="349.0" layoutY="343.0" mnemonicParsing="false" onAction="#onHuyBtnClick" prefHeight="26.0" prefWidth="63.0" text="Hủy" />
       <Button layoutX="508.0" layoutY="188.0" mnemonicParsing="false" text="Chọn..." />
    </children>
 

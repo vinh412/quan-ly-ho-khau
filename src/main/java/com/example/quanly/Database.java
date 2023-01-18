@@ -131,7 +131,7 @@ public class Database {
             e.printStackTrace();
         }
     }
-    public static ArrayList findHoKhau(String key, String value){
+    public static ArrayList<HoKhau> findHoKhau(String key, String value){
         String sql = null;
         if(key.compareTo("*") == 0 || value.compareTo("") == 0){
             sql = "select * from ho_khau";
@@ -165,7 +165,7 @@ public class Database {
         }
         return result;
     }
-    public static ArrayList findNhanKhau(String key, String value){
+    public static ArrayList<NhanKhau> findNhanKhau(String key, String value){
         String sql = null;
         if(key.compareTo("*") == 0 || value.compareTo("") == 0){
             sql = "select * from nhan_khau";

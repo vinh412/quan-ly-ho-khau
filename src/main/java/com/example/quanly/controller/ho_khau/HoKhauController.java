@@ -3,11 +3,9 @@ package com.example.quanly.controller.ho_khau;
 import com.example.quanly.Database;
 import com.example.quanly.HelloApplication;
 import com.example.quanly.Popup;
-import com.example.quanly.controller.MainController;
 import com.example.quanly.models.HoKhau;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -22,19 +20,10 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class HoKhauController implements Initializable {
-
-    @FXML
-    private Button themHoBtn;
-    @FXML
-    private Button suaHoBtn;
-    @FXML
-    private Button xoaHoBtn;
-    @FXML
-    private Button timKiemBtn;
     @FXML
     private TextField searchTF;
     @FXML
-    private ComboBox comboBox;
+    private ComboBox<String> comboBox;
     // table view
     @FXML
     private TableView<HoKhau> tableView;
@@ -59,7 +48,7 @@ public class HoKhauController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        String items[] = {"Mã hộ khẩu", "ID chủ hộ", "Mã khu vực", "Địa chỉ", "Ngày lập"};
+        String[] items = {"Mã hộ khẩu", "ID chủ hộ", "Mã khu vực", "Địa chỉ", "Ngày lập"};
         comboBox.getItems().addAll(items);
         comboBox.setValue(items[0]);
 
@@ -72,30 +61,18 @@ public class HoKhauController implements Initializable {
         lyDoChuyen.setCellValueFactory(new PropertyValueFactory<>("lyDoChuyen"));
         nguoiThucHien.setCellValueFactory(new PropertyValueFactory<>("nguoiThucHien"));
         ArrayList<HoKhau> list = Database.findHoKhau("*", "");
-        for(int i=0;i<list.size();i++){
-            listview.add(list.get(i));
-        }
+        listview.addAll(list);
         tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         tableView.setItems(listview);
     }
 
-    public void onXoahoBtnClick(ActionEvent actionEvent) {
-        System.out.println("Xoa ho "+tableView.getSelectionModel().getSelectedItem());
-        HoKhau selectedItem = tableView.getSelectionModel().getSelectedItem();
-        if(selectedItem == null) return ;
-        Database.deleteOneHoKhau(selectedItem);
-        tableView.getItems().remove(selectedItem);
-    }
-
-    public void onSuahoBtnClick(ActionEvent actionEvent) {
-    }
-
-    public void onThemhoBtnClick(ActionEvent actionEvent) {
+    @FXML
+    private void onThemHoBtnClick() {
         System.out.println("Them ho clicked");
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ho_khau/them_ho.fxml"));
         Parent root = null;
         try {
-            root = (Parent) fxmlLoader.load();
+            root = fxmlLoader.load();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -108,31 +85,34 @@ public class HoKhauController implements Initializable {
         Popup.show();
     }
 
-    public void onTimKiemBtnClick(ActionEvent actionEvent) {
+    @FXML
+    private void onSuaHoBtnClick() {
+        System.out.println("Sua ho button clicked");
+    }
+
+    @FXML
+    private void onXoaHoBtnClick() {
+        System.out.println("Xoa ho "+tableView.getSelectionModel().getSelectedItem());
+        HoKhau selectedItem = tableView.getSelectionModel().getSelectedItem();
+        if(selectedItem == null) return ;
+        Database.deleteOneHoKhau(selectedItem);
+        tableView.getItems().remove(selectedItem);
+    }
+
+    @FXML
+    private void onTimKiemBtnClick() {
         System.out.println("search by" + comboBox.getValue() + searchTF.getText());
-        String field = null;
-        switch (comboBox.getValue().toString()){
-            case "Mã hộ khẩu":
-                field = "maHoKhau";
-                break;
-            case "ID chủ hộ":
-                field = "idChuHo";
-                break;
-            case "Mã khu vực":
-                field = "maKhuVuc";
-                break;
-            case "Địa chỉ":
-                field = "diaChi";
-                break;
-            case "Ngày lập":
-                field = "ngayLap";
-                break;
-        }
+        String field = switch (comboBox.getValue()) {
+            case "Mã hộ khẩu" -> "maHoKhau";
+            case "ID chủ hộ" -> "idChuHo";
+            case "Mã khu vực" -> "maKhuVuc";
+            case "Địa chỉ" -> "diaChi";
+            case "Ngày lập" -> "ngayLap";
+            default -> null;
+        };
         ArrayList<HoKhau> list = Database.findHoKhau(field, searchTF.getText());
         listview = FXCollections.observableArrayList();
-        for(int i=0;i<list.size();i++){
-            listview.add(list.get(i));
-        }
+        listview.addAll(list);
         tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         tableView.setItems(listview);
     }

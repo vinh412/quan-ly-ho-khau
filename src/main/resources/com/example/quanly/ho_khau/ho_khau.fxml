@@ -5,29 +5,25 @@
 
 <VBox fx:id="ho_khau_layout" prefHeight="600.0" prefWidth="880.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quanly.controller.ho_khau.HoKhauController">
     <AnchorPane prefHeight="60.0" prefWidth="880.0">
-        <Button fx:id="themHoBtn" onAction="#onThemhoBtnClick" layoutX="152.0" layoutY="17.0" mnemonicParsing="false"
-                text="Thêm hộ" textFill="#130fbd"/>
-        <Button fx:id="suaHoBtn" onAction="#onSuahoBtnClick" layoutX="387.0" layoutY="17.0" mnemonicParsing="false"
-                prefHeight="26.0" prefWidth="114.0" text="Sửa hộ" textFill="#130fbd"/>
-        <Button fx:id="xoaHoBtn" onAction="#onXoahoBtnClick" layoutX="656.0" layoutY="17.0" mnemonicParsing="false"
-                text="Xóa hộ" textFill="#130fbd"/>
+        <Button fx:id="themHoBtn" layoutX="152.0" layoutY="17.0" mnemonicParsing="false" onAction="#onThemHoBtnClick" text="Thêm hộ" textFill="#130fbd" />
+        <Button fx:id="suaHoBtn" layoutX="387.0" layoutY="17.0" mnemonicParsing="false" onAction="#onSuaHoBtnClick" prefHeight="26.0" prefWidth="114.0" text="Sửa hộ" textFill="#130fbd" />
+        <Button layoutX="656.0" layoutY="17.0" mnemonicParsing="false" onAction="#onXoaHoBtnClick" text="Xóa hộ" textFill="#130fbd" fx:id="xoaHoBtn" />
     </AnchorPane>
     <AnchorPane prefHeight="60.0" prefWidth="880.0">
-        <TextField fx:id="searchTF" layoutX="59.0" layoutY="8.0" prefHeight="46.0" prefWidth="388.0"/>
-        <ComboBox fx:id="comboBox" layoutX="488.0" layoutY="7.0" prefHeight="46.0" prefWidth="150.0"/>
-        <Button fx:id="timKiemBtn" onAction="#onTimKiemBtnClick" layoutX="657.0" layoutY="8.0" mnemonicParsing="false" prefHeight="46.0"
-                prefWidth="113.0" text="Tìm kiếm"/>
+        <TextField fx:id="searchTF" layoutX="59.0" layoutY="8.0" prefHeight="46.0" prefWidth="388.0" />
+        <ComboBox fx:id="comboBox" layoutX="488.0" layoutY="7.0" prefHeight="46.0" prefWidth="150.0" />
+        <Button fx:id="timKiemBtn" layoutX="657.0" layoutY="8.0" mnemonicParsing="false" onAction="#onTimKiemBtnClick" prefHeight="46.0" prefWidth="113.0" text="Tìm kiếm" />
     </AnchorPane>
     <TableView fx:id="tableView" prefHeight="464.0" prefWidth="880.0">
         <columns>
-            <TableColumn text="Mã hộ khẩu" fx:id="maHoKhau"/>
-            <TableColumn text="ID chủ hộ" fx:id="idChuHo"/>
-            <TableColumn text="Mã khu vực" fx:id="maKhuVuc"/>
-            <TableColumn text="Địa chỉ" fx:id="diaChi" />
-            <TableColumn text="Ngày lập" fx:id="ngayLap"/>
-            <TableColumn text="Ngày chuyển đi" fx:id="ngayChuyenDi"/>
-            <TableColumn text="Lý do chuyển" fx:id="lyDoChuyen"/>
-            <TableColumn text="Người thực hien" fx:id="nguoiThucHien"/>
+            <TableColumn fx:id="maHoKhau" text="Mã hộ khẩu" />
+            <TableColumn fx:id="idChuHo" text="ID chủ hộ" />
+            <TableColumn fx:id="maKhuVuc" text="Mã khu vực" />
+            <TableColumn fx:id="diaChi" text="Địa chỉ" />
+            <TableColumn fx:id="ngayLap" text="Ngày lập" />
+            <TableColumn fx:id="ngayChuyenDi" text="Ngày chuyển đi" />
+            <TableColumn fx:id="lyDoChuyen" text="Lý do chuyển" />
+            <TableColumn fx:id="nguoiThucHien" text="Người thực hien" />
         </columns>
     </TableView>
 
