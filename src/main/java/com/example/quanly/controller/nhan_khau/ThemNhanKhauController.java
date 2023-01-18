@@ -77,45 +77,49 @@ public class ThemNhanKhauController implements Initializable {
         };
         namSinhDatePicker.setConverter(converter);
         namSinhDatePicker.setPromptText("yyyy-MM-dd");
+    }
 
-        xacNhanBtn.setOnMouseClicked(mouseEvent -> {
-            String maNhanKhau = maNhanKhauTF.getText();
-            String hoTen = hoTenTF.getText();
-            String bietDanh = bietDanhTF.getText();
-            String namSinh = namSinhDatePicker.getValue().toString();
-            String gioiTinh = gioiTinhChoiceBox.getValue();
-            String noiSinh = noiSinhTF.getText();
-            String nguyenQuan = nguyenQuanTF.getText();
-            String danToc = danTocTF.getText();
-            String tonGiao = tonGiaoTF.getText();
-            String quocTich = quocTichTF.getText();
-            String soHoChieu = soHoChieuTF.getText();
-            String noiThuongTru = noiThuongTruTF.getText();
-            String diaChiHienNay = diaChiHienNayTF.getText();
-            String trinhDoHocVan = trinhDoHocVanTF.getText();
-            String trinhDoChuyenMon = trinhDoChuyenMonTF.getText();
-            String bietTiengDanToc = bietTiengDanTocTF.getText();
-            String trinhDoNgoaiNgu = trinhDoNgoaiNguTF.getText();
-            String ngheNghiep = ngheNghiepTF.getText();
-            String noiLamViec = noiLamViecTF.getText();
-            String tienAn = tienAnTF.getText();
-            String ngayChuyenDen = null;
-            String lyDoChuyenDen = lyDoChuyenDenTF.getText();
-            String ngayChuyenDi = null;
-            String lyDoChuyenDi = lyDoChuyenDiTF.getText();
-            String diaChiMoi = diaChiMoiTF.getText();
-            String ghiChu = ghiChuTF.getText();
-            NhanKhau nhanKhauMoi = new NhanKhau(maNhanKhau, hoTen, bietDanh, namSinh, gioiTinh, noiSinh, nguyenQuan,
-                    danToc, tonGiao, quocTich, soHoChieu, noiThuongTru, diaChiHienNay, trinhDoHocVan, trinhDoChuyenMon,
-                    bietTiengDanToc, trinhDoNgoaiNgu, ngheNghiep, noiLamViec, tienAn, ngayChuyenDen,
-                    lyDoChuyenDen, ngayChuyenDi, lyDoChuyenDi, diaChiMoi, ghiChu);
-            Database.connect();
-            Database.insertNhanKhau(nhanKhauMoi);
-            Database.close();
+    @FXML
+    private void onXacNhanBtnClicked(){
+        String maNhanKhau = maNhanKhauTF.getText();
+        String hoTen = hoTenTF.getText();
+        String bietDanh = bietDanhTF.getText();
+        String namSinh = namSinhDatePicker.getValue().toString();
+        String gioiTinh = gioiTinhChoiceBox.getValue();
+        String noiSinh = noiSinhTF.getText();
+        String nguyenQuan = nguyenQuanTF.getText();
+        String danToc = danTocTF.getText();
+        String tonGiao = tonGiaoTF.getText();
+        String quocTich = quocTichTF.getText();
+        String soHoChieu = soHoChieuTF.getText();
+        String noiThuongTru = noiThuongTruTF.getText();
+        String diaChiHienNay = diaChiHienNayTF.getText();
+        String trinhDoHocVan = trinhDoHocVanTF.getText();
+        String trinhDoChuyenMon = trinhDoChuyenMonTF.getText();
+        String bietTiengDanToc = bietTiengDanTocTF.getText();
+        String trinhDoNgoaiNgu = trinhDoNgoaiNguTF.getText();
+        String ngheNghiep = ngheNghiepTF.getText();
+        String noiLamViec = noiLamViecTF.getText();
+        String tienAn = tienAnTF.getText();
+        String ngayChuyenDen = null;
+        String lyDoChuyenDen = lyDoChuyenDenTF.getText();
+        String ngayChuyenDi = null;
+        String lyDoChuyenDi = lyDoChuyenDiTF.getText();
+        String diaChiMoi = diaChiMoiTF.getText();
+        String ghiChu = ghiChuTF.getText();
+        NhanKhau nhanKhauMoi = new NhanKhau(maNhanKhau, hoTen, bietDanh, namSinh, gioiTinh, noiSinh, nguyenQuan,
+                danToc, tonGiao, quocTich, soHoChieu, noiThuongTru, diaChiHienNay, trinhDoHocVan, trinhDoChuyenMon,
+                bietTiengDanToc, trinhDoNgoaiNgu, ngheNghiep, noiLamViec, tienAn, ngayChuyenDen,
+                lyDoChuyenDen, ngayChuyenDi, lyDoChuyenDi, diaChiMoi, ghiChu);
+        Database.connect();
+        Database.insertNhanKhau(nhanKhauMoi);
+        Database.close();
 
-            Popup.close();
-        });
+        Popup.close();
+    }
 
-        huyBtn.setOnMouseClicked(mouseEvent -> Popup.close());
+    @FXML
+    private void onHuyBtnClicked(){
+        Popup.close();
     }
 }

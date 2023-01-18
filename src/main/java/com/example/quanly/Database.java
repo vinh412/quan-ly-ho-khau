@@ -6,7 +6,6 @@ import com.example.quanly.models.NhanKhau;
 import java.sql.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 
 public class Database {
     private static Connection conn = null;
@@ -128,98 +127,6 @@ public class Database {
             st.setString(6, lyDoChuyen);
             st.execute();
         } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-    public static ArrayList findHoKhau(String key, String value){
-        String sql = null;
-        if(key.compareTo("*") == 0 || value.compareTo("") == 0){
-            sql = "select * from ho_khau";
-        }else {
-            sql = "select * from ho_khau " +
-                    "where ho_khau." + key + " like " + "'"+value+"%'";
-            // find all rows starting with `value`
-        }
-        ArrayList<HoKhau> result = new ArrayList<>();
-        ResultSet rs = null;
-        PreparedStatement st = null;
-        System.out.println(sql);
-        try{
-            st = conn.prepareStatement(sql);
-            rs = st.executeQuery();
-
-            while(rs.next()){
-                String maHoKhau = rs.getString("maHoKhau");
-                String idChuHo = String.valueOf(rs.getInt("idChuHo"));
-                String maKhuVuc = rs.getString("maKhuVuc");
-                String diaChi = rs.getString("diaChi");
-                String ngayLap = rs.getString("ngayLap");
-                String ngayChuyenDi = rs.getString("ngayChuyenDi");
-                String lyDoChuyen = rs.getString("lyDoChuyen");
-                String nguoiThucHien = rs.getString("nguoiThucHien");
-                HoKhau hoKhau = new HoKhau(maHoKhau, idChuHo, maKhuVuc, diaChi, ngayLap, ngayChuyenDi, lyDoChuyen);
-                result.add(hoKhau);
-            }
-        }catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return result;
-    }
-    public static ArrayList findNhanKhau(String key, String value){
-        String sql = null;
-        if(key.compareTo("*") == 0 || value.compareTo("") == 0){
-            sql = "select * from nhan_khau";
-        }else {
-            sql = "select * from nhan_khau " +
-                    "where nhan_khau." + key + " like " + "'"+value+"%'";
-            // find all rows starting with `value`
-        }
-        ArrayList<NhanKhau> result = new ArrayList<>();
-        ResultSet rs = null;
-        PreparedStatement st = null;
-        System.out.println(sql);
-        try{
-            st = conn.prepareStatement(sql);
-            rs = st.executeQuery();
-
-            while(rs.next()){
-                String maNhanKhau = rs.getString("maNhanKhau");
-                String hoTen = rs.getString("hoTen");
-                String gioiTinh = rs.getString("gioiTinh");
-                String namSinh = rs.getString("namSinh");
-                String diaChiHienNay = rs.getString("diaChiHienNay");
-                int id = rs.getInt("ID");
-                //
-                NhanKhau nhanKhau = new NhanKhau(id, maNhanKhau, hoTen, gioiTinh, namSinh, diaChiHienNay);
-                result.add(nhanKhau);
-            }
-        }catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return result;
-    }
-    public static void deleteOneHoKhau(HoKhau selectedItem) {
-        String sql = "DELETE FROM ho_khau WHERE maHoKhau = ?;";
-        PreparedStatement st = null;
-        try{
-            st = conn.prepareStatement(sql);
-            st.setString(1, selectedItem.getMaHoKhau());
-            System.out.println(st);
-            st.execute();
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
-    }
-
-    public static void deleteOneNhanKhau(NhanKhau selectedItem) {
-        String sql = "DELETE FROM nhan_khau WHERE ID = ?;";
-        PreparedStatement st = null;
-        try{
-            st = conn.prepareStatement(sql);
-            st.setInt(1, selectedItem.getID());
-            System.out.println(st);
-            st.execute();
-        }catch (SQLException e){
             e.printStackTrace();
         }
     }

@@ -7,33 +7,14 @@ public class HoKhau {
     private String ngayLap;
     private String ngayChuyenDi;
     private String lyDoChuyen;
-    private String idChuHo;
-    private String nguoiThucHien;
 
-    public HoKhau(String maHoKhau, String idChuHo, String maKhuVuc, String diaChi, String ngayLap, String ngayChuyenDi, String lyDoChuyen){
+    public HoKhau(String maHoKhau, String maKhuVuc, String diaChi, String ngayLap, String ngayChuyenDi, String lyDoChuyen){
         this.maHoKhau = maHoKhau;
         this.maKhuVuc = maKhuVuc;
         this.diaChi = diaChi;
         this.ngayLap = ngayLap;
         this.ngayChuyenDi = ngayChuyenDi;
         this.lyDoChuyen = lyDoChuyen;
-        this.idChuHo = idChuHo;
-    }
-
-    public String getNguoiThucHien() {
-        return nguoiThucHien;
-    }
-
-    public void setNguoiThucHien(String nguoiThucHien) {
-        this.nguoiThucHien = nguoiThucHien;
-    }
-
-    public String getIdChuHo() {
-        return idChuHo;
-    }
-
-    public void setIdChuHo(String idChuHo) {
-        this.idChuHo = idChuHo;
     }
 
     public String getMaHoKhau() {

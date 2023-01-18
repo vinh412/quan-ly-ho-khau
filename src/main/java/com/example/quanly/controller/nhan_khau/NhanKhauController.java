@@ -34,89 +34,98 @@ public class NhanKhauController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        themNhanKhauBtn.setOnMouseClicked(event -> {
-            //them ho
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("nhan_khau/them_nhan_khau.fxml"));
-            Parent root = null;
-            try {
-                root = fxmlLoader.load();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            Node node = null;
-            if (root != null) {
-                node = root.lookup("#them_nhan_khau_layout");
-            }
-            Popup.setLayout(node);
-            Popup.setTitle("Thêm nhân khẩu mới");
-            Popup.show();
-            System.out.println("Them nhan khau clicked");
-        });
-
-        xoaNhanKhauBtn.setOnMouseClicked(event -> {
-            //xoa nhan khau
-            System.out.println("Xoa nhan khau clicked");
-        });
-
-        capNhatNhanKhauBtn.setOnMouseClicked(event -> {
-            //cap nhat nhan khau
-            System.out.println("Cap nhat nhan khau clicked");
-        });
-
-        tamVangBtn.setOnMouseClicked(even -> {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("nhan_khau/tam_vang.fxml"));
-            Parent root = null;
-            try {
-                root = fxmlLoader.load();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            Node node = null;
-            if (root != null) {
-                node = root.lookup("#tam_vang_layout");
-            }
-            Popup.setLayout(node);
-            Popup.setTitle("Đăng ký tạm vắng");
-            Popup.show();
-        });
-
-        tamTruBtn.setOnMouseClicked(event -> {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("nhan_khau/tam_tru.fxml"));
-            Parent root = null;
-            try {
-                root = fxmlLoader.load();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            Node node = null;
-            if (root != null) {
-                node = root.lookup("#tam_tru_layout");
-            }
-            Popup.setLayout(node);
-            Popup.setTitle("Đăng ký tạm trú");
-            Popup.show();
-        });
-
-        khaiTuBtn.setOnMouseClicked(event -> {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("nhan_khau/khai_tu.fxml"));
-            Parent root = null;
-            try {
-                root = fxmlLoader.load();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            Node node = null;
-            if (root != null) {
-                node = root.lookup("#khai_tu_layout");
-            }
-            Popup.setLayout(node);
-            Popup.setTitle("Khai tử");
-            Popup.show();
-        });
-
-        timKiemBtn.setOnMouseClicked(event -> {
-            //tim kiem
-            System.out.println("Tim kiem clicked");
-        });
     }
+
+    @FXML
+    private void onThemNhanKhauBtnClicked(){
+        //them nhan khau
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("nhan_khau/them_nhan_khau.fxml"));
+        Parent root = null;
+        try {
+            root = fxmlLoader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Node node = null;
+        if (root != null) {
+            node = root.lookup("#them_nhan_khau_layout");
+        }
+        Popup.setLayout(node);
+        Popup.setTitle("Thêm nhân khẩu mới");
+        Popup.show();
+        System.out.println("Them nhan khau clicked");
+    }
+
+    @FXML
+    private void onXoaNhanKhauBtnClicked(){
+        //xoa nhan khau
+        System.out.println("Xoa nhan khau clicked");
+    }
+
+    @FXML
+    private void onCapNhatNhanKhauBtnClicked(){
+        //cap nhat nhan khau
+        System.out.println("Cap nhat nhan khau clicked");
+    }
+
+    @FXML
+    private void onDKTamTruBtnClicked(){
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("nhan_khau/tam_tru.fxml"));
+        Parent root = null;
+        try {
+            root = fxmlLoader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Node node = null;
+        if (root != null) {
+            node = root.lookup("#tam_tru_layout");
+        }
+        Popup.setLayout(node);
+        Popup.setTitle("Đăng ký tạm trú");
+        Popup.show();
+    }
+
+    @FXML
+    private void onDKTamVangBtnClicked(){
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("nhan_khau/tam_vang.fxml"));
+        Parent root = null;
+        try {
+            root = fxmlLoader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Node node = null;
+        if (root != null) {
+            node = root.lookup("#tam_vang_layout");
+        }
+        Popup.setLayout(node);
+        Popup.setTitle("Đăng ký tạm vắng");
+        Popup.show();
+    }
+
+    @FXML
+    private void onKhaiTuBtnClicked(){
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("nhan_khau/khai_tu.fxml"));
+        Parent root = null;
+        try {
+            root = fxmlLoader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Node node = null;
+        if (root != null) {
+            node = root.lookup("#khai_tu_layout");
+        }
+        Popup.setLayout(node);
+        Popup.setTitle("Khai tử");
+        Popup.show();
+    }
+
+    @FXML
+    private void onTimKiemBtnClicked(){
+        //tim kiem
+        System.out.println("Tim kiem clicked");
+    }
+
 }

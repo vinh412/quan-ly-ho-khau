@@ -32,7 +32,6 @@ public class NhanKhau {
     private Integer idNguoiXoa;
     private String lyDoXoa;
     private String ghiChu;
-    private int ID;
 
     public NhanKhau(String maNhanKhau, String hoTen, String bietDanh, String namSinh, String gioiTinh,
                     String noiSinh, String nguyenQuan, String danToc, String tonGiao, String quocTich,
@@ -66,22 +65,6 @@ public class NhanKhau {
         this.lyDoChuyenDi = lyDoChuyenDi;
         this.diaChiMoi = diaChiMoi;
         this.ghiChu = ghiChu;
-    }
-    public NhanKhau(int id, String maNhanKhau, String hoTen, String gioiTinh, String namSinh, String diaChiHienNay){
-        this.maNhanKhau = maNhanKhau;
-        this.hoTen = hoTen;
-        this.gioiTinh = gioiTinh;
-        this.namSinh = namSinh;
-        this.diaChiHienNay = diaChiHienNay;
-        this.ID = id;
-    }
-
-    public int getID() {
-        return ID;
-    }
-
-    public void setID(int ID) {
-        this.ID = ID;
     }
 
     public String getMaNhanKhau() {
