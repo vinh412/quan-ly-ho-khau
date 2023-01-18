@@ -28,57 +28,49 @@ public class MainController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-    }
-    @FXML
-    private void onNhanKhauBtnClicked(){
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("nhan_khau/nhan_khau.fxml"));
-        Parent root = null;
-        try {
-            root = fxmlLoader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        Node node = null;
-        if (root != null) {
-            node = root.lookup("#nhan_khau_layout");
-        }
-        borderPane.setCenter(node);
-    }
+        hoKhauBtn.setOnMouseClicked(event ->{
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ho_khau/ho_khau.fxml"));
+            Parent root = null;
+            try {
+                root = fxmlLoader.load();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Node node = null;
+            if (root != null) {
+                node = root.lookup("#ho_khau_layout");
+            }
+            borderPane.setCenter(node);
+        });
 
-    @FXML
-    private void onHoKhauBtnClicked(){
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ho_khau/ho_khau.fxml"));
-        Parent root = null;
-        try {
-            root = fxmlLoader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        Node node = null;
-        if (root != null) {
-            node = root.lookup("#ho_khau_layout");
-        }
-        borderPane.setCenter(node);
-    }
+        nhanKhauBtn.setOnMouseClicked(event -> {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("nhan_khau/nhan_khau.fxml"));
+            Parent root = null;
+            try {
+                root = fxmlLoader.load();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Node node = null;
+            if (root != null) {
+                node = root.lookup("#nhan_khau_layout");
+            }
+            borderPane.setCenter(node);
+        });
 
-    @FXML
-    private void onCovidBtnClicked(){
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("covid/covid.fxml"));
-        Parent root = null;
-        try {
-            root = fxmlLoader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        Node node = null;
-        if (root != null) {
-            node = root.lookup("#covid_layout");
-        }
-        borderPane.setCenter(node);
-    }
-
-    @FXML
-    private void onThongKeBtnClicked(){
-
+        covidBtn.setOnMouseClicked(event -> {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("covid/covid.fxml"));
+            Parent root = null;
+            try {
+                root = fxmlLoader.load();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Node node = null;
+            if (root != null) {
+                node = root.lookup("#covid_layout");
+            }
+            borderPane.setCenter(node);
+        });
     }
 }
