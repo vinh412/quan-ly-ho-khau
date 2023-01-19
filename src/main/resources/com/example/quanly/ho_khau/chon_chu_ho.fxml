@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="chon_chu_ho_layout" xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.quanly.controller.ho_khau.ChonChuHoController"
+            >
+    <AnchorPane prefHeight="60.0" prefWidth="880.0">
+        <TextField fx:id="searchTF" layoutX="59.0" layoutY="8.0" prefHeight="46.0" prefWidth="388.0" />
+        <ComboBox fx:id="comboBox" layoutX="488.0" layoutY="7.0" prefHeight="46.0" prefWidth="150.0"/>
+        <Button fx:id="timKiemBtn" onAction="#onTimKiemBtnClick" layoutX="657.0" layoutY="8.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="113.0" text="Tìm kiếm" />
+    </AnchorPane>
+    <TableView fx:id="tableView" prefHeight="464.0" prefWidth="880.0">
+        <columns>
+            <TableColumn text="Mã nhân khẩu" fx:id="maNhanKhau"/>
+            <TableColumn text="Họ tên" fx:id="hoTen"/>
+            <TableColumn text="Giới tính" fx:id="gioiTinh"/>
+            <TableColumn text="Năm sinh" fx:id="namSinh" />
+            <TableColumn text="Địa chỉ hiện nay" fx:id="diaChiHienNay"/>
+        </columns>
+    </TableView>
+    <Button fx:id="chonBtn" onAction="#onChonBtnClick" layoutX="657.0" layoutY="8.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="113.0" text="Chọn" />
+</VBox>
+

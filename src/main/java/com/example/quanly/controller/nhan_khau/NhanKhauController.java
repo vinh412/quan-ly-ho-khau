@@ -70,9 +70,10 @@ public class NhanKhauController implements Initializable {
         if (root != null) {
             node = root.lookup("#them_nhan_khau_layout");
         }
-        Popup.setLayout(node);
-        Popup.setTitle("Thêm nhân khẩu mới");
-        Popup.show();
+        Popup popup = new Popup();
+        popup.setLayout(node);
+        popup.setTitle("Thêm nhân khẩu mới");
+        popup.show();
         System.out.println("Them nhan khau clicked");
     }
 
@@ -101,9 +102,10 @@ public class NhanKhauController implements Initializable {
         if (root != null) {
             node = root.lookup("#tam_tru_layout");
         }
-        Popup.setLayout(node);
-        Popup.setTitle("Đăng ký tạm trú");
-        Popup.show();
+        Popup popup = new Popup();
+        popup.setLayout(node);
+        popup.setTitle("Đăng ký tạm trú");
+        popup.show();
     }
 
     public void onTamVangBtnClick() {
@@ -118,9 +120,10 @@ public class NhanKhauController implements Initializable {
         if (root != null) {
             node = root.lookup("#tam_vang_layout");
         }
-        Popup.setLayout(node);
-        Popup.setTitle("Đăng ký tạm vắng");
-        Popup.show();
+        Popup popup = new Popup();
+        popup.setLayout(node);
+        popup.setTitle("Đăng ký tạm vắng");
+        popup.show();
     }
 
     public void onKhaiTuBtnClick() {
@@ -135,9 +138,10 @@ public class NhanKhauController implements Initializable {
         if (root != null) {
             node = root.lookup("#khai_tu_layout");
         }
-        Popup.setLayout(node);
-        Popup.setTitle("Khai tử");
-        Popup.show();
+        Popup popup = new Popup();
+        popup.setLayout(node);
+        popup.setTitle("Khai tử");
+        popup.show();
     }
 
     public void onTimKiemBtnClick() {

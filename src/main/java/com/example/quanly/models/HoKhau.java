@@ -1,5 +1,7 @@
 package com.example.quanly.models;
 
+import java.time.LocalDate;
+
 public class HoKhau {
     private String maHoKhau;
     private String maKhuVuc;
@@ -9,7 +11,9 @@ public class HoKhau {
     private String lyDoChuyen;
     private String idChuHo;
     private String nguoiThucHien;
+    private NhanKhau chuHo;
 
+    // construct `ho_khau` from data in database
     public HoKhau(String maHoKhau, String idChuHo, String maKhuVuc, String diaChi, String ngayLap, String ngayChuyenDi, String lyDoChuyen){
         this.maHoKhau = maHoKhau;
         this.maKhuVuc = maKhuVuc;
@@ -18,6 +22,25 @@ public class HoKhau {
         this.ngayChuyenDi = ngayChuyenDi;
         this.lyDoChuyen = lyDoChuyen;
         this.idChuHo = idChuHo;
+    }
+    // construct `ho_khau` from application
+    public HoKhau(String maHoKhau, NhanKhau chuHo, String maKhuVuc, String diaChi, String ngayChuyenDi, String lyDoChuyen){
+        this.maHoKhau = maHoKhau;
+        this.maKhuVuc = maKhuVuc;
+        this.diaChi = diaChi;
+        this.ngayLap = LocalDate.now().toString();
+        this.ngayChuyenDi = ngayChuyenDi;
+        this.lyDoChuyen = lyDoChuyen;
+        this.idChuHo = String.valueOf(chuHo.getID());
+        this.chuHo = chuHo;
+    }
+
+    public NhanKhau getChuHo() {
+        return chuHo;
+    }
+
+    public void setChuHo(NhanKhau chuHo) {
+        this.chuHo = chuHo;
     }
 
     public String getNguoiThucHien() {

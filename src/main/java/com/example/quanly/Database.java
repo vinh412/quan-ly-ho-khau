@@ -116,22 +116,24 @@ public class Database {
         String ngayChuyenDi = hoKhau.getNgayChuyenDi();
         String lyDoChuyen = hoKhau.getLyDoChuyen();
 
-        String sql = "INSERT INTO `ho_khau` (`maHoKhau`, `maKhuVuc`, `diaChi`, `ngayLap`, `ngayChuyenDi`, `lyDoChuyen`)" + "VALUES (?, ?, ?, ?, ?, ?);";
+        String sql = "INSERT INTO `ho_khau` (`maHoKhau`, `idChuHo`, `maKhuVuc`, `diaChi`, `ngayLap`, `ngayChuyenDi`, `lyDoChuyen`)" + "VALUES (?, ?, ?, ?, ?, ?, ?);";
         PreparedStatement st;
         try {
             st = conn.prepareStatement(sql);
             st.setString (1, maHoKhau);
-            st.setString (2, maKhuVuc);
-            st.setString (3, diaChi);
-            st.setString(4, ngayLap);
-            st.setString(5, ngayChuyenDi);
-            st.setString(6, lyDoChuyen);
+            st.setInt(2, hoKhau.getChuHo().getID());
+            st.setString (3, maKhuVuc);
+            st.setString (4, diaChi);
+            st.setDate(5, Date.valueOf(ngayLap));
+            st.setNull(6, Types.DATE);
+            st.setString(7, "");
             st.execute();
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        System.out.println("them ho");
     }
-    public static ArrayList<HoKhau> findHoKhau(String key, String value){
+    public static ArrayList findHoKhau(String key, String value){
         String sql = null;
         if(key.compareTo("*") == 0 || value.compareTo("") == 0){
             sql = "select * from ho_khau";
@@ -165,7 +167,7 @@ public class Database {
         }
         return result;
     }
-    public static ArrayList<NhanKhau> findNhanKhau(String key, String value){
+    public static ArrayList findNhanKhau(String key, String value){
         String sql = null;
         if(key.compareTo("*") == 0 || value.compareTo("") == 0){
             sql = "select * from nhan_khau";

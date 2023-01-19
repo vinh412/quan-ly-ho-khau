@@ -19,19 +19,19 @@
    <left>
       <VBox prefHeight="600.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="hoKhauBtn" mnemonicParsing="false" onAction="#onHoKhauBtnClick" prefHeight="150.0" prefWidth="200.0" text="Hộ Khẩu" textFill="#233dd1">
+            <Button fx:id="hoKhauBtn" mnemonicParsing="false" prefHeight="150.0" prefWidth="200.0" text="Hộ Khẩu" textFill="#233dd1">
                <font>
                   <Font size="30.0" />
                </font></Button>
-            <Button fx:id="nhanKhauBtn" mnemonicParsing="false" onAction="#onNhanKhauBtnClick" prefHeight="150.0" prefWidth="200.0" text="Nhân Khẩu" textFill="#233dd1">
+            <Button fx:id="nhanKhauBtn" mnemonicParsing="false" prefHeight="150.0" prefWidth="200.0" text="Nhân Khẩu" textFill="#233dd1">
                <font>
                   <Font size="30.0" />
                </font></Button>
-            <Button fx:id="covidBtn" mnemonicParsing="false" onAction="#onCovidBtnClick" prefHeight="150.0" prefWidth="200.0" text="Covid" textFill="#233dd1">
+            <Button fx:id="covidBtn" mnemonicParsing="false" prefHeight="150.0" prefWidth="200.0" text="Covid" textFill="#233dd1">
                <font>
                   <Font size="30.0" />
                </font></Button>
-            <Button fx:id="thongKeBtn" mnemonicParsing="false" onAction="#onThongKeBtnClick" prefHeight="150.0" prefWidth="200.0" text="Thống Kê" textFill="#233dd1">
+            <Button fx:id="thongKeBtn" mnemonicParsing="false" prefHeight="150.0" prefWidth="200.0" text="Thống Kê" textFill="#233dd1">
                <font>
                   <Font size="30.0" />
                </font></Button>

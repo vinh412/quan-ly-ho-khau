@@ -80,23 +80,10 @@ public class HoKhauController implements Initializable {
         if (root != null) {
             node = root.lookup("#them_ho_layout");
         }
-        Popup.setLayout(node);
-        Popup.setTitle("Thêm hộ khẩu mới");
-        Popup.show();
-    }
-
-    @FXML
-    private void onSuaHoBtnClick() {
-        System.out.println("Sua ho button clicked");
-    }
-
-    @FXML
-    private void onXoaHoBtnClick() {
-        System.out.println("Xoa ho "+tableView.getSelectionModel().getSelectedItem());
-        HoKhau selectedItem = tableView.getSelectionModel().getSelectedItem();
-        if(selectedItem == null) return ;
-        Database.deleteOneHoKhau(selectedItem);
-        tableView.getItems().remove(selectedItem);
+        Popup popup = new Popup();
+        popup.setLayout(node);
+        popup.setTitle("Thêm hộ khẩu mới");
+        popup.show();
     }
 
     @FXML

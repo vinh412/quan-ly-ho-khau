@@ -4,11 +4,14 @@ import com.example.quanly.Database;
 import com.example.quanly.Popup;
 import com.example.quanly.models.NhanKhau;
 import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import javafx.util.StringConverter;
 
 import java.net.URL;
@@ -46,6 +49,7 @@ public class ThemNhanKhauController implements Initializable {
     public TextField diaChiMoiTF;
     public TextField ghiChuTF;
 
+    public Button huyBtn;
     public void initialize(URL location, ResourceBundle resources) {
         gioiTinhChoiceBox.setItems(FXCollections.observableArrayList("Nam", "Nữ"));
         namSinhDatePicker.setValue(LocalDate.now());
@@ -109,11 +113,11 @@ public class ThemNhanKhauController implements Initializable {
         Database.insertNhanKhau(nhanKhauMoi);
         Database.close();
 
-        Popup.close();
-    }
+        }
 
-    @FXML
-    private void onHuyBtnClick(){
-        Popup.close();
+
+    public void onHuyBtnClick(ActionEvent actionEvent) {
+        Stage stage  = (Stage) huyBtn.getScene().getWindow();
+        stage.close();
     }
 }
