@@ -5,25 +5,39 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class Popup {
-    private static Stage stage;
-    private static Node node;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
-    public static void setLayout(Node node){
-        Popup.node = node;
-        Group root = new Group(Popup.node);
+public class Popup {
+    private Stage stage;
+    private Node node;
+    private static int id = 0;
+    private int popupId;
+    private static ArrayList<Popup> popupArrayList = new ArrayList<>();
+    public Popup(){
+        this.popupId = Popup.id;
+        Popup.id ++;
+        popupArrayList.add(this);
+    }
+    public void setLayout(Node node){
+        this.node = node;
+        Group root = new Group(this.node);
         Scene scene = new Scene(root);
         stage = new Stage();
         stage.setScene(scene);
     }
 
-    public static void setTitle(String title){
+    public void setTitle(String title){
         stage.setTitle(title);
     }
-    public static void show(){
+    public void show(){
         stage.show();
     }
-    public static void close(){
-        stage.close();
+    public void close(){
+        for(int i=0;i<Popup.popupArrayList.size();i++){
+            if(Popup.popupArrayList.get(i).popupId<=this.popupId){
+                Popup.popupArrayList.get(i).stage.close();
+            }
+        }
     }
 }

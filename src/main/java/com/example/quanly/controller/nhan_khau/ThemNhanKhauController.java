@@ -113,9 +113,7 @@ public class ThemNhanKhauController implements Initializable {
             Database.insertNhanKhau(nhanKhauMoi);
             Database.close();
 
-            Popup.close();
         });
 
-        huyBtn.setOnMouseClicked(mouseEvent -> Popup.close());
     }
 }
