@@ -72,7 +72,7 @@ public class HoKhauController implements Initializable {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ho_khau/them_ho.fxml"));
         Parent root = null;
         try {
-            root = fxmlLoader.load();
+            root = (Parent) fxmlLoader.load();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -102,5 +102,15 @@ public class HoKhauController implements Initializable {
         listview.addAll(list);
         tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         tableView.setItems(listview);
+    }
+
+    @FXML
+    private void onSuaHoBtnClick(){
+
+    }
+
+    @FXML
+    private void onXoaHoBtnClick(){
+
     }
 }

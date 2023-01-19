@@ -35,7 +35,7 @@ public class ThemHoController implements Initializable {
     @FXML
     private Button huyBtn;
     private NhanKhau chuHo;
-    public void onThemHoButtonClick(){
+    public void onThemHoBtnClick(){
         if(this.chuHo == null) return ;
         String maHoKhau = maHoKhauTF.getText();
         String maKhuVuc = maKhuVucTF.getText();

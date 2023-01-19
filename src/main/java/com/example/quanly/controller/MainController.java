@@ -6,7 +6,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
@@ -16,15 +15,6 @@ import java.util.ResourceBundle;
 public class MainController implements Initializable {
     @FXML
     private BorderPane borderPane;
-
-    @FXML
-    private Button hoKhauBtn;
-    @FXML
-    private Button nhanKhauBtn;
-    @FXML
-    private Button covidBtn;
-    @FXML
-    private Button thongKeBtn;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

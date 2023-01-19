@@ -112,6 +112,6 @@
           </GridPane>
       </content>
    </ScrollPane>
-    <Button fx:id="huyBtn" onAction="#onHuyBtnClick" layoutX="611.0" layoutY="452.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="63.0" text="Hủy" />
-    <Button layoutX="692.0" layoutY="452.0" mnemonicParsing="false" text="Xác nhận" fx:id="xacNhanBtn" />
+    <Button fx:id="huyBtn" layoutX="611.0" layoutY="452.0" mnemonicParsing="false" onAction="#onHuyBtnClick" prefHeight="26.0" prefWidth="63.0" text="Hủy" />
+    <Button layoutX="692.0" layoutY="452.0" mnemonicParsing="false" onAction="#onXacNhanBtnClick" text="Xác nhận" fx:id="xacNhanBtn" />
 </AnchorPane>

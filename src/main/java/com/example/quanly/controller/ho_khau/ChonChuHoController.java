@@ -40,7 +40,7 @@ public class ChonChuHoController implements Initializable {
     //
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        String items[] = {"Mã nhân khẩu", "Họ tên", "Địa chỉ hiện nay"};
+        String[] items = {"Mã nhân khẩu", "Họ tên", "Địa chỉ hiện nay"};
         comboBox.getItems().addAll(items);
         comboBox.setValue(items[1]);
 
@@ -50,9 +50,7 @@ public class ChonChuHoController implements Initializable {
         namSinh.setCellValueFactory(new PropertyValueFactory<>("namSinh"));
         diaChiHienNay.setCellValueFactory(new PropertyValueFactory<>("diaChiHienNay"));
         ArrayList<NhanKhau> list = Database.findNhanKhau("*", "");
-        for(int i=0;i<list.size();i++){
-            listview.add(list.get(i));
-        }
+        listview.addAll(list);
         tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         tableView.setItems(listview);
     }
@@ -60,7 +58,7 @@ public class ChonChuHoController implements Initializable {
     public void onTimKiemBtnClick(ActionEvent actionEvent) {
         System.out.println("search by" + comboBox.getValue() + searchTF.getText());
         String field = null;
-        switch (comboBox.getValue().toString()){
+        switch (comboBox.getValue()){
             case "Họ tên":
                 field = "hoTen";
                 break;
@@ -73,9 +71,7 @@ public class ChonChuHoController implements Initializable {
         }
         ArrayList<NhanKhau> list = Database.findNhanKhau(field, searchTF.getText());
         listview = FXCollections.observableArrayList();
-        for(int i=0;i<list.size();i++){
-            listview.add(list.get(i));
-        }
+        listview.addAll(list);
         tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         tableView.setItems(listview);
     }

@@ -62,7 +62,7 @@
             <Button fx:id="chuHoBtn" onAction="#onChuHoBtnClick" mnemonicParsing="false" prefHeight="47.0" prefWidth="95.0" text="Chọn" GridPane.columnIndex="1" GridPane.rowIndex="3" />
          </children>
       </GridPane>
-      <Button layoutX="430.0" layoutY="344.0" mnemonicParsing="false" onAction="#onThemhoButtonClick" text="Thêm hộ" />
+      <Button layoutX="430.0" layoutY="344.0" mnemonicParsing="false" onAction="#onThemHoBtnClick" text="Thêm hộ" />
       <Button fx:id="huyBtn" layoutX="349.0" layoutY="343.0" mnemonicParsing="false" onAction="#onHuyButtonClick" prefHeight="26.0" prefWidth="63.0" text="Hủy" />
    </children>
 
