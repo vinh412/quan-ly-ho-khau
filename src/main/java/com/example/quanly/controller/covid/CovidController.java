@@ -23,9 +23,10 @@ public class CovidController {
         if (root != null) {
             node = root.lookup("#khai_bao_y_te_layout");
         }
-        Popup.setLayout(node);
-        Popup.setTitle("Khai báo y tế");
-        Popup.show();
+        Popup popup = new Popup();
+        popup.setLayout(node);
+        popup.setTitle("Khai báo y tế");
+        popup.show();
         System.out.println("Khai bao y te clicked");
     }
 

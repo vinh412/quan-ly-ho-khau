@@ -21,6 +21,7 @@ public class HelloApplication extends Application {
 
     public static void main(String[] args) {
         Database.connect();
+        System.out.println("Working Directory = " + System.getProperty("user.dir"));
         launch();
         Database.close();
     }

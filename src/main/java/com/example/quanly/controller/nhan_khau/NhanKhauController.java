@@ -7,6 +7,7 @@ import com.example.quanly.models.HoKhau;
 import com.example.quanly.models.NhanKhau;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -22,9 +23,23 @@ import java.util.ResourceBundle;
 
 public class NhanKhauController implements Initializable {
     @FXML
+    private Button themNhanKhauBtn;
+    @FXML
+    private Button xoaNhanKhauBtn;
+    @FXML
+    private Button capNhatNhanKhauBtn;
+    @FXML
+    private Button timKiemBtn;
+    @FXML
+    private Button tamVangBtn;
+    @FXML
+    private Button tamTruBtn;
+    @FXML
+    private Button khaiTuBtn;
+    @FXML
     private TextField searchTF;
     @FXML
-    private ComboBox<String> comboBox;
+    private ComboBox comboBox;
     // table view
     @FXML
     private TableView<NhanKhau> tableView;
@@ -39,11 +54,11 @@ public class NhanKhauController implements Initializable {
     @FXML
     private TableColumn<HoKhau, String> diaChiHienNay;
     ObservableList<NhanKhau> listview = FXCollections.observableArrayList();
-
+    //
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        String[] items = {"Mã nhân khẩu", "Họ tên", "Địa chỉ hiện nay"};
+        String items[] = {"Mã nhân khẩu", "Họ tên", "Địa chỉ hiện nay"};
         comboBox.getItems().addAll(items);
         comboBox.setValue(items[1]);
 
@@ -53,12 +68,14 @@ public class NhanKhauController implements Initializable {
         namSinh.setCellValueFactory(new PropertyValueFactory<>("namSinh"));
         diaChiHienNay.setCellValueFactory(new PropertyValueFactory<>("diaChiHienNay"));
         ArrayList<NhanKhau> list = Database.findNhanKhau("*", "");
-        listview.addAll(list);
+        for(int i=0;i<list.size();i++){
+            listview.add(list.get(i));
+        }
         tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         tableView.setItems(listview);
     }
 
-    public void onThemNhanKhauBtnClick() {
+    public void onThemNhanKhauBtnClick(ActionEvent actionEvent) {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("nhan_khau/them_nhan_khau.fxml"));
         Parent root = null;
         try {
@@ -70,13 +87,14 @@ public class NhanKhauController implements Initializable {
         if (root != null) {
             node = root.lookup("#them_nhan_khau_layout");
         }
-        Popup.setLayout(node);
-        Popup.setTitle("Thêm nhân khẩu mới");
-        Popup.show();
+        Popup popup = new Popup();
+        popup.setLayout(node);
+        popup.setTitle("Thêm nhân khẩu mới");
+        popup.show();
         System.out.println("Them nhan khau clicked");
     }
 
-    public void onXoaNhanKhauBtnClick() {
+    public void onXoaNhanKhauBtnClick(ActionEvent actionEvent) {
         System.out.println("Xoa nhan khau clicked");
         System.out.println("Xoa ho "+tableView.getSelectionModel().getSelectedItem());
         NhanKhau selectedItem = tableView.getSelectionModel().getSelectedItem();
@@ -85,11 +103,11 @@ public class NhanKhauController implements Initializable {
         tableView.getItems().remove(selectedItem);
     }
 
-    public void onCapNhatNhanKhauBtnClick() {
+    public void onCapNhatNhanKhauBtnClick(ActionEvent actionEvent) {
         System.out.println("Cap nhat nhan khau clicked");
     }
 
-    public void onTamTruBtnClick() {
+    public void onTamTruBtnClick(ActionEvent actionEvent) {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("nhan_khau/tam_tru.fxml"));
         Parent root = null;
         try {
@@ -101,12 +119,13 @@ public class NhanKhauController implements Initializable {
         if (root != null) {
             node = root.lookup("#tam_tru_layout");
         }
-        Popup.setLayout(node);
-        Popup.setTitle("Đăng ký tạm trú");
-        Popup.show();
+        Popup popup = new Popup();
+        popup.setLayout(node);
+        popup.setTitle("Đăng ký tạm trú");
+        popup.show();
     }
 
-    public void onTamVangBtnClick() {
+    public void onTamVangBtnClick(ActionEvent actionEvent) {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("nhan_khau/tam_vang.fxml"));
         Parent root = null;
         try {
@@ -118,12 +137,13 @@ public class NhanKhauController implements Initializable {
         if (root != null) {
             node = root.lookup("#tam_vang_layout");
         }
-        Popup.setLayout(node);
-        Popup.setTitle("Đăng ký tạm vắng");
-        Popup.show();
+        Popup popup = new Popup();
+        popup.setLayout(node);
+        popup.setTitle("Đăng ký tạm vắng");
+        popup.show();
     }
 
-    public void onKhaiTuBtnClick() {
+    public void onKhaiTuBtnClick(ActionEvent actionEvent) {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("nhan_khau/khai_tu.fxml"));
         Parent root = null;
         try {
@@ -135,22 +155,31 @@ public class NhanKhauController implements Initializable {
         if (root != null) {
             node = root.lookup("#khai_tu_layout");
         }
-        Popup.setLayout(node);
-        Popup.setTitle("Khai tử");
-        Popup.show();
+        Popup popup = new Popup();
+        popup.setLayout(node);
+        popup.setTitle("Khai tử");
+        popup.show();
     }
 
-    public void onTimKiemBtnClick() {
+    public void onTimKiemBtnClick(ActionEvent actionEvent) {
         System.out.println("search by" + comboBox.getValue() + searchTF.getText());
-        String field = switch (comboBox.getValue()) {
-            case "Họ tên" -> "hoTen";
-            case "Mã nhân khẩu" -> "maNhanKhau";
-            case "Địa chỉ hiện nay" -> "diaChiHienNay";
-            default -> null;
-        };
+        String field = null;
+        switch (comboBox.getValue().toString()){
+            case "Họ tên":
+                field = "hoTen";
+                break;
+            case "Mã nhân khẩu":
+                field = "maNhanKhau";
+                break;
+            case "Địa chỉ hiện nay":
+                field = "diaChiHienNay";
+                break;
+        }
         ArrayList<NhanKhau> list = Database.findNhanKhau(field, searchTF.getText());
         listview = FXCollections.observableArrayList();
-        listview.addAll(list);
+        for(int i=0;i<list.size();i++){
+            listview.add(list.get(i));
+        }
         tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         tableView.setItems(listview);
     }

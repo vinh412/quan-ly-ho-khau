@@ -334,4 +334,7 @@ public class NhanKhau {
 
     public NhanKhau() {
     }
+    public String toString(){
+        return this.hoTen;
+    }
 }
