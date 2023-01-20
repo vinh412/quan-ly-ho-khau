@@ -83,8 +83,8 @@ public class ChonChuHoController implements Initializable {
         Stage stage = (Stage) chonBtn.getScene().getWindow();
         stage.close();
     }
-    private ThemHoController themHoController;
-    public void setParentController(ThemHoController themHoController) {
+    private IChonChuHo themHoController;
+    public void setParentController(IChonChuHo themHoController) {
         this.themHoController = themHoController;
     }
 }

@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 import javafx.util.StringConverter;
 
 import java.net.URL;
+import java.sql.Date;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
@@ -82,7 +83,7 @@ public class ThemNhanKhauController implements Initializable {
         String maNhanKhau = maNhanKhauTF.getText();
         String hoTen = hoTenTF.getText();
         String bietDanh = bietDanhTF.getText();
-        String namSinh = namSinhDatePicker.getValue().toString();
+        LocalDate namSinh = namSinhDatePicker.getValue();
         String gioiTinh = gioiTinhChoiceBox.getValue();
         String noiSinh = noiSinhTF.getText();
         String nguyenQuan = nguyenQuanTF.getText();
@@ -109,9 +110,8 @@ public class ThemNhanKhauController implements Initializable {
                 danToc, tonGiao, quocTich, soHoChieu, noiThuongTru, diaChiHienNay, trinhDoHocVan, trinhDoChuyenMon,
                 bietTiengDanToc, trinhDoNgoaiNgu, ngheNghiep, noiLamViec, tienAn, ngayChuyenDen,
                 lyDoChuyenDen, ngayChuyenDi, lyDoChuyenDi, diaChiMoi, ghiChu);
-        Database.connect();
+
         Database.insertNhanKhau(nhanKhauMoi);
-        Database.close();
 
         }
 

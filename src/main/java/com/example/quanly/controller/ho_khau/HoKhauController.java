@@ -6,6 +6,7 @@ import com.example.quanly.Popup;
 import com.example.quanly.models.HoKhau;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -67,19 +68,11 @@ public class HoKhauController implements Initializable {
     }
 
     @FXML
-    private void onThemHoBtnClick() {
+    private void onThemHoBtnClick() throws IOException {
         System.out.println("Them ho clicked");
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ho_khau/them_ho.fxml"));
-        Parent root = null;
-        try {
-            root = (Parent) fxmlLoader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        Node node = null;
-        if (root != null) {
-            node = root.lookup("#them_ho_layout");
-        }
+        Parent root = (Parent) fxmlLoader.load();
+        Node node = root.lookup("#them_ho_layout");
         Popup popup = new Popup();
         popup.setLayout(node);
         popup.setTitle("Thêm hộ khẩu mới");
@@ -105,12 +98,30 @@ public class HoKhauController implements Initializable {
     }
 
     @FXML
-    private void onSuaHoBtnClick(){
+    private void onSuaHoBtnClick() throws IOException {
+        HoKhau selectedItem = tableView.getSelectionModel().getSelectedItem();
+        if(selectedItem == null) return ;
 
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ho_khau/sua_ho.fxml"));
+        SuaHoController suaHoController = new SuaHoController(selectedItem);
+        fxmlLoader.setController(suaHoController);
+        Parent root = (Parent) fxmlLoader.load();
+        Node node = null;
+        if (root != null) {
+            node = root.lookup("#sua_ho_layout");
+        }
+        Popup popup = new Popup();
+        popup.setLayout(node);
+        popup.setTitle("Thêm hộ khẩu mới");
+        popup.show();
     }
 
     @FXML
-    private void onXoaHoBtnClick(){
-
+    private void onXoaHoBtnClick(ActionEvent actionEvent) {
+        System.out.println("Xoa ho "+tableView.getSelectionModel().getSelectedItem());
+        HoKhau selectedItem = tableView.getSelectionModel().getSelectedItem();
+        if(selectedItem == null) return ;
+        Database.deleteOneHoKhau(selectedItem);
+        tableView.getItems().remove(selectedItem);
     }
 }
