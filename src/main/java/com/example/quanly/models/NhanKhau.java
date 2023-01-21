@@ -1,10 +1,13 @@
 package com.example.quanly.models;
 
+import java.sql.Date;
+import java.time.LocalDate;
+
 public class NhanKhau {
     private String maNhanKhau;
     private String hoTen;
     private String bietDanh;
-    private String namSinh;
+    private LocalDate namSinh;
     private String gioiTinh;
     private String noiSinh;
     private String nguyenQuan;
@@ -34,7 +37,7 @@ public class NhanKhau {
     private String ghiChu;
     private int ID;
 
-    public NhanKhau(String maNhanKhau, String hoTen, String bietDanh, String namSinh, String gioiTinh,
+    public NhanKhau(String maNhanKhau, String hoTen, String bietDanh, LocalDate namSinh, String gioiTinh,
                     String noiSinh, String nguyenQuan, String danToc, String tonGiao, String quocTich,
                     String soHoChieu, String noiThuongTru, String diaChiHienNay, String trinhDoHocVan,
                     String trinhDoChuyenMon, String bietTiengDanToc, String trinhDoNgoaiNgu, String ngheNghiep,
@@ -67,13 +70,40 @@ public class NhanKhau {
         this.diaChiMoi = diaChiMoi;
         this.ghiChu = ghiChu;
     }
-    public NhanKhau(int id, String maNhanKhau, String hoTen, String gioiTinh, String namSinh, String diaChiHienNay){
+    // construct object with data from database
+    public NhanKhau(int ID, String maNhanKhau, String hoTen, String bietDanh, LocalDate namSinh, String gioiTinh,
+                    String noiSinh, String nguyenQuan, String danToc, String tonGiao, String quocTich,
+                    String soHoChieu, String noiThuongTru, String diaChiHienNay, String trinhDoHocVan,
+                    String trinhDoChuyenMon, String bietTiengDanToc, String trinhDoNgoaiNgu, String ngheNghiep,
+                    String noiLamViec, String tienAn, String ngayChuyenDen, String lyDoChuyenDen,
+                    String ngayChuyenDi, String lyDoChuyenDi, String diaChiMoi, String ghiChu) {
+        this.ID = ID;
         this.maNhanKhau = maNhanKhau;
         this.hoTen = hoTen;
-        this.gioiTinh = gioiTinh;
+        this.bietDanh = bietDanh;
         this.namSinh = namSinh;
+        this.gioiTinh = gioiTinh;
+        this.noiSinh = noiSinh;
+        this.nguyenQuan = nguyenQuan;
+        this.danToc = danToc;
+        this.tonGiao = tonGiao;
+        this.quocTich = quocTich;
+        this.soHoChieu = soHoChieu;
+        this.noiThuongTru = noiThuongTru;
         this.diaChiHienNay = diaChiHienNay;
-        this.ID = id;
+        this.trinhDoHocVan = trinhDoHocVan;
+        this.trinhDoChuyenMon = trinhDoChuyenMon;
+        this.bietTiengDanToc = bietTiengDanToc;
+        this.trinhDoNgoaiNgu = trinhDoNgoaiNgu;
+        this.ngheNghiep = ngheNghiep;
+        this.noiLamViec = noiLamViec;
+        this.tienAn = tienAn;
+        this.ngayChuyenDen = ngayChuyenDen;
+        this.lyDoChuyenDen = lyDoChuyenDen;
+        this.ngayChuyenDi = ngayChuyenDi;
+        this.lyDoChuyenDi = lyDoChuyenDi;
+        this.diaChiMoi = diaChiMoi;
+        this.ghiChu = ghiChu;
     }
 
     public int getID() {
@@ -108,11 +138,11 @@ public class NhanKhau {
         this.bietDanh = bietDanh;
     }
 
-    public String getNamSinh() {
+    public LocalDate getNamSinh() {
         return namSinh;
     }
 
-    public void setNamSinh(String namSinh) {
+    public void setNamSinh(LocalDate namSinh) {
         this.namSinh = namSinh;
     }
 

@@ -20,7 +20,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ThemHoController implements Initializable {
+public class ThemHoController implements Initializable, IChonChuHo {
 
     public TextField maHoKhauTF;
     public TextField maKhuVucTF;
@@ -41,7 +41,7 @@ public class ThemHoController implements Initializable {
         String maKhuVuc = maKhuVucTF.getText();
         String diaChi = diaChiTF.getText();
         HoKhau hoKhau = new HoKhau(maHoKhau, this.chuHo, maKhuVuc, diaChi, "", "");
-        Database.insertHoKhau(hoKhau);
+        Database.insertOneHoKhau(hoKhau);
         Stage stage  = (Stage) huyBtn.getScene().getWindow();
         stage.close();
     }

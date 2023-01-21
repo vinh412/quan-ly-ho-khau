@@ -9,12 +9,13 @@ public class HoKhau {
     private String ngayLap;
     private String ngayChuyenDi;
     private String lyDoChuyen;
-    private String idChuHo;
+    private int idChuHo;
     private String nguoiThucHien;
     private NhanKhau chuHo;
-
+    private int ID;
     // construct `ho_khau` from data in database
-    public HoKhau(String maHoKhau, String idChuHo, String maKhuVuc, String diaChi, String ngayLap, String ngayChuyenDi, String lyDoChuyen){
+    public HoKhau(int ID, String maHoKhau, int idChuHo, String maKhuVuc, String diaChi, String ngayLap, String ngayChuyenDi, String lyDoChuyen){
+        this.ID = ID;
         this.maHoKhau = maHoKhau;
         this.maKhuVuc = maKhuVuc;
         this.diaChi = diaChi;
@@ -31,8 +32,16 @@ public class HoKhau {
         this.ngayLap = LocalDate.now().toString();
         this.ngayChuyenDi = ngayChuyenDi;
         this.lyDoChuyen = lyDoChuyen;
-        this.idChuHo = String.valueOf(chuHo.getID());
+        this.idChuHo = chuHo.getID();
         this.chuHo = chuHo;
+    }
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
     }
 
     public NhanKhau getChuHo() {
@@ -51,11 +60,11 @@ public class HoKhau {
         this.nguoiThucHien = nguoiThucHien;
     }
 
-    public String getIdChuHo() {
+    public int getIdChuHo() {
         return idChuHo;
     }
 
-    public void setIdChuHo(String idChuHo) {
+    public void setIdChuHo(int idChuHo) {
         this.idChuHo = idChuHo;
     }
 

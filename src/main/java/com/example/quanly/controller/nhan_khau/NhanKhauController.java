@@ -88,10 +88,34 @@ public class NhanKhauController implements Initializable {
 
     public void onCapNhatNhanKhauBtnClick() {
         System.out.println("Cap nhat nhan khau clicked");
+        NhanKhau selectedItem = tableView.getSelectionModel().getSelectedItem();
+        if(selectedItem == null) return ;
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("nhan_khau/cap_nhat_nhan_khau.fxml"));
+        CapNhatNhanKhauController capNhatNhanKhauController = new CapNhatNhanKhauController(selectedItem);
+        fxmlLoader.setController(capNhatNhanKhauController);
+        Parent root = null;
+        try {
+            root = fxmlLoader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Node node = null;
+        if (root != null) {
+            node = root.lookup("#them_nhan_khau_layout");
+        }
+        Popup popup = new Popup();
+        popup.setLayout(node);
+        popup.setTitle("Thêm nhân khẩu mới");
+        popup.show();
+        System.out.println("Them nhan khau clicked");
     }
 
     public void onTamTruBtnClick() {
+        NhanKhau selectedItem = tableView.getSelectionModel().getSelectedItem();
+        if(selectedItem == null) return ;
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("nhan_khau/tam_tru.fxml"));
+        TamTruController tamTruController = new TamTruController(selectedItem);
+        fxmlLoader.setController(tamTruController);
         Parent root = null;
         try {
             root = fxmlLoader.load();
@@ -109,7 +133,11 @@ public class NhanKhauController implements Initializable {
     }
 
     public void onTamVangBtnClick() {
+        NhanKhau selectedItem = tableView.getSelectionModel().getSelectedItem();
+        if(selectedItem == null) return ;
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("nhan_khau/tam_vang.fxml"));
+        TamVangController tamVangController = new TamVangController(selectedItem);
+        fxmlLoader.setController(tamVangController);
         Parent root = null;
         try {
             root = fxmlLoader.load();
@@ -127,7 +155,11 @@ public class NhanKhauController implements Initializable {
     }
 
     public void onKhaiTuBtnClick() {
+        NhanKhau selectedItem = tableView.getSelectionModel().getSelectedItem();
+        if(selectedItem == null) return ;
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("nhan_khau/khai_tu.fxml"));
+        KhaiTuController khaiTuController = new KhaiTuController(selectedItem);
+        fxmlLoader.setController(khaiTuController);
         Parent root = null;
         try {
             root = fxmlLoader.load();

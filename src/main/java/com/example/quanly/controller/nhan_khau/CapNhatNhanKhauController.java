@@ -13,14 +13,15 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
+import javafx.util.converter.LocalDateStringConverter;
 
 import java.net.URL;
-import java.sql.Date;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
-public class ThemNhanKhauController implements Initializable {
+public class CapNhatNhanKhauController implements Initializable {
     public TextField maNhanKhauTF;
     public TextField hoTenTF;
     public TextField bietDanhTF;
@@ -51,35 +52,43 @@ public class ThemNhanKhauController implements Initializable {
     public TextField ghiChuTF;
 
     public Button huyBtn;
+    NhanKhau nhanKhauSua;
+    public CapNhatNhanKhauController(NhanKhau nhanKhauSua){
+        this.nhanKhauSua = nhanKhauSua;
+    }
     public void initialize(URL location, ResourceBundle resources) {
         gioiTinhChoiceBox.setItems(FXCollections.observableArrayList("Nam", "Nữ"));
-        namSinhDatePicker.setValue(LocalDate.now());
+        gioiTinhChoiceBox.setValue(this.nhanKhauSua.getGioiTinh());
+        namSinhDatePicker.setValue(nhanKhauSua.getNamSinh());
 
-        // Converter
-        StringConverter<LocalDate> converter = new StringConverter<>() {
-            final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-            @Override
-            public String toString(LocalDate date) {
-                if(date != null)
-                    return dateTimeFormatter.format(date);
-                else
-                    return "";
-            }
-
-            @Override
-            public LocalDate fromString(String string) {
-                if(string != null && !string.isEmpty())
-                    return LocalDate.parse(string, dateTimeFormatter);
-                else
-                    return null;
-            }
-        };
-        namSinhDatePicker.setConverter(converter);
-        namSinhDatePicker.setPromptText("yyyy-MM-dd");
+        maNhanKhauTF.setText(this.nhanKhauSua.getMaNhanKhau());
+        hoTenTF.setText(this.nhanKhauSua.getHoTen());
+        bietDanhTF.setText(this.nhanKhauSua.getBietDanh());
+        nguyenQuanTF.setText(this.nhanKhauSua.getNguyenQuan());
+        danTocTF.setText(this.nhanKhauSua.getDanToc());
+        tonGiaoTF.setText(this.nhanKhauSua.getTonGiao());
+        quocTichTF.setText(this.nhanKhauSua.getQuocTich());
+        soHoChieuTF.setText(this.nhanKhauSua.getSoHoChieu());
+        noiThuongTruTF.setText(this.nhanKhauSua.getNoiThuongTru());
+        diaChiHienNayTF.setText(this.nhanKhauSua.getDiaChiHienNay());
+        trinhDoHocVanTF.setText(this.nhanKhauSua.getTrinhDoHocVan());
+        trinhDoChuyenMonTF.setText(this.nhanKhauSua.getTrinhDoChuyenMon());
+        bietTiengDanTocTF.setText(this.nhanKhauSua.getBietTiengDanToc());
+        trinhDoNgoaiNguTF.setText(this.nhanKhauSua.getTrinhDoNgoaiNgu());
+        ngheNghiepTF.setText(this.nhanKhauSua.getNgheNghiep());
+        noiLamViecTF.setText(this.nhanKhauSua.getNoiLamViec());
+        noiSinhTF.setText(this.nhanKhauSua.getNoiSinh());
+        tienAnTF.setText(this.nhanKhauSua.getTienAn());
+        ngayChuyenDenTF.setText(this.nhanKhauSua.getNgayChuyenDen());
+        lyDoChuyenDenTF.setText(this.nhanKhauSua.getLyDoChuyenDen());
+        ngayChuyenDiTF.setText(this.nhanKhauSua.getNgayChuyenDi());
+        lyDoChuyenDiTF.setText(this.nhanKhauSua.getLyDoChuyenDi());
+        diaChiMoiTF.setText(this.nhanKhauSua.getDiaChiMoi());
+        ghiChuTF.setText(this.nhanKhauSua.getGhiChu());
     }
 
     @FXML
-    private void onXacNhanBtnClick(){
+    private void onCapNhatBtnClick(){
         String maNhanKhau = maNhanKhauTF.getText();
         String hoTen = hoTenTF.getText();
         String bietDanh = bietDanhTF.getText();
@@ -111,9 +120,10 @@ public class ThemNhanKhauController implements Initializable {
                 bietTiengDanToc, trinhDoNgoaiNgu, ngheNghiep, noiLamViec, tienAn, ngayChuyenDen,
                 lyDoChuyenDen, ngayChuyenDi, lyDoChuyenDi, diaChiMoi, ghiChu);
 
-        Database.insertOneNhanKhau(nhanKhauMoi);
+        Database.updateOneNhanhKhau(nhanKhauSua, nhanKhauMoi);
 
-        }
+        this.onHuyBtnClick(null);
+    }
 
 
     public void onHuyBtnClick(ActionEvent actionEvent) {
