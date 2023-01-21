@@ -111,7 +111,11 @@ public class NhanKhauController implements Initializable {
     }
 
     public void onTamTruBtnClick() {
+        NhanKhau selectedItem = tableView.getSelectionModel().getSelectedItem();
+        if(selectedItem == null) return ;
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("nhan_khau/tam_tru.fxml"));
+        TamTruController tamTruController = new TamTruController(selectedItem);
+        fxmlLoader.setController(tamTruController);
         Parent root = null;
         try {
             root = fxmlLoader.load();
@@ -129,7 +133,11 @@ public class NhanKhauController implements Initializable {
     }
 
     public void onTamVangBtnClick() {
+        NhanKhau selectedItem = tableView.getSelectionModel().getSelectedItem();
+        if(selectedItem == null) return ;
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("nhan_khau/tam_vang.fxml"));
+        TamVangController tamVangController = new TamVangController(selectedItem);
+        fxmlLoader.setController(tamVangController);
         Parent root = null;
         try {
             root = fxmlLoader.load();
@@ -147,7 +155,11 @@ public class NhanKhauController implements Initializable {
     }
 
     public void onKhaiTuBtnClick() {
+        NhanKhau selectedItem = tableView.getSelectionModel().getSelectedItem();
+        if(selectedItem == null) return ;
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("nhan_khau/khai_tu.fxml"));
+        KhaiTuController khaiTuController = new KhaiTuController(selectedItem);
+        fxmlLoader.setController(khaiTuController);
         Parent root = null;
         try {
             root = fxmlLoader.load();

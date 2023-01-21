@@ -1,7 +1,6 @@
 package com.example.quanly;
 
-import com.example.quanly.models.HoKhau;
-import com.example.quanly.models.NhanKhau;
+import com.example.quanly.models.*;
 
 import java.sql.*;
 import java.time.LocalDate;
@@ -31,7 +30,7 @@ public class Database {
         }
     }
 
-    public static void insertNhanKhau(NhanKhau nhanKhau){
+    public static void insertOneNhanKhau(NhanKhau nhanKhau){
         DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
         String maNhanKhau = nhanKhau.getMaNhanKhau();
@@ -108,7 +107,7 @@ public class Database {
         }
     }
 
-    public static void insertHoKhau(HoKhau hoKhau){
+    public static void insertOneHoKhau(HoKhau hoKhau){
         String maHoKhau = hoKhau.getMaHoKhau();
         String maKhuVuc = hoKhau.getMaKhuVuc();
         String diaChi = hoKhau.getDiaChi();
@@ -403,6 +402,85 @@ public class Database {
             st.setString(26, nhanKhauMoi.getNgayTao());
             st.setString(27, nhanKhauMoi.getGhiChu());
             st.setInt(28, nhanKhauSua.getID());
+            st.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void insertOneGiayTamVang(GiayTamVang giayTamVang) {
+        int idNhanKhau = giayTamVang.getNhanKhau().getID();
+        String maGiayTamVang = giayTamVang.getMaGiayTamVang();
+        String noiTamtru = giayTamVang.getNoiTamtru();
+        LocalDate tuNgay = giayTamVang.getTuNgay();
+        LocalDate denNgay = giayTamVang.getDenNgay();
+        String lyDo = giayTamVang.getLyDo();
+
+        String sql = "INSERT INTO `tam_vang` (`idNhanKhau`, `maGiayTamVang`, `noiTamtru`, `tuNgay`, `denNgay`, `lyDo`)" + "VALUES (?, ?, ?, ?, ?, ?);";
+        PreparedStatement st;
+        try {
+            st = conn.prepareStatement(sql);
+            st.setInt (1, idNhanKhau);
+            st.setString(2, maGiayTamVang);
+            st.setString (3, noiTamtru);
+            st.setDate (4, Date.valueOf(tuNgay));
+            st.setDate(5, Date.valueOf(denNgay));
+            st.setString(6, lyDo);
+            System.out.println(st);
+            st.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void insertOneGiayTamTru(GiayTamTru giayTamTru) {
+        int idNhanKhau = giayTamTru.getNhanKhau().getID();
+        String maGiay = giayTamTru.getMaGiayTamTru();
+        String diaChiThuongTru = giayTamTru.getDiaChiThuongTru();
+        String diaChiTamTru = giayTamTru.getDiaChiTamTru();
+        String soDienThoaiNguoiDangKy = giayTamTru.getSoDienThoaiNguoiDangKy();
+        LocalDate tuNgay = giayTamTru.getTuNgay();
+        LocalDate denNgay = giayTamTru.getDenNgay();
+        String lyDo = giayTamTru.getLyDo();
+
+        String sql = "INSERT INTO `tam_tru` (`idNhanKhau`, `maGiayTamTru`, `diaChiThuongTru`, `diaChiTamTru`, `soDienThoaiNguoiDangKy`, `tuNgay`, `denNgay`, `lyDo`) " + "VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
+        PreparedStatement st;
+        try {
+            st = conn.prepareStatement(sql);
+            st.setInt (1, idNhanKhau);
+            st.setString(2, maGiay);
+            st.setString (3, diaChiThuongTru);
+            st.setString (4, diaChiTamTru);
+            st.setString (5, soDienThoaiNguoiDangKy);
+            st.setDate (6, Date.valueOf(tuNgay));
+            st.setDate(7, Date.valueOf(denNgay));
+            st.setString(8, lyDo);
+            System.out.println(st);
+            st.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void insertOneGiayKhaiTu(GiayKhaiTu giayKhaiTu) {
+        int idNguoiChet = giayKhaiTu.getNhanKhau().getID();
+        String maGiay = giayKhaiTu.getSoGiayKhaiTu();
+        int idNguoiKhai = giayKhaiTu.getIdNguoiKhai();
+        LocalDate ngayKhai = giayKhaiTu.getNgayKhai();
+        LocalDate ngayChet = giayKhaiTu.getNgayChet();
+        String lyDo = giayKhaiTu.getLyDoChet();
+
+        String sql = "INSERT INTO `khai_tu` (`soGiayKhaiTu`, `idNguoiKhai`, `idNguoiChet`, `ngayKhai`, `ngayChet`, `lyDoChet`) " + "VALUES (?, ?, ?, ?, ?, ?);";
+        PreparedStatement st;
+        try {
+            st = conn.prepareStatement(sql);
+            st.setString (1, maGiay);
+            st.setInt(2, idNguoiKhai);
+            st.setInt (3, idNguoiChet);
+            st.setDate (4, Date.valueOf(ngayKhai));
+            st.setDate (5, Date.valueOf(ngayChet));
+            st.setString(6, lyDo);
+            System.out.println(st);
             st.execute();
         } catch (SQLException e) {
             e.printStackTrace();

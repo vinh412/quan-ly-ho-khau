@@ -111,7 +111,7 @@ public class ThemNhanKhauController implements Initializable {
                 bietTiengDanToc, trinhDoNgoaiNgu, ngheNghiep, noiLamViec, tienAn, ngayChuyenDen,
                 lyDoChuyenDen, ngayChuyenDi, lyDoChuyenDi, diaChiMoi, ghiChu);
 
-        Database.insertNhanKhau(nhanKhauMoi);
+        Database.insertOneNhanKhau(nhanKhauMoi);
 
         }
 

@@ -41,7 +41,7 @@ public class ThemHoController implements Initializable, IChonChuHo {
         String maKhuVuc = maKhuVucTF.getText();
         String diaChi = diaChiTF.getText();
         HoKhau hoKhau = new HoKhau(maHoKhau, this.chuHo, maKhuVuc, diaChi, "", "");
-        Database.insertHoKhau(hoKhau);
+        Database.insertOneHoKhau(hoKhau);
         Stage stage  = (Stage) huyBtn.getScene().getWindow();
         stage.close();
     }
