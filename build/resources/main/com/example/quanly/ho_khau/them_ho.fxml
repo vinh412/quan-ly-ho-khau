@@ -2,6 +2,8 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -9,7 +11,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="them_ho_layout" prefHeight="300.0" prefWidth="399.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quanly.controller.ho_khau.ThemHoController">
+<AnchorPane fx:id="them_ho_layout" prefHeight="297.0" prefWidth="744.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quanly.controller.ho_khau.ThemHoController">
     <children>
       <GridPane layoutX="11.0" layoutY="8.0" prefHeight="235.0" prefWidth="370.0">
         <columnConstraints>
@@ -63,6 +65,22 @@
       </GridPane>
       <Button layoutX="317.0" layoutY="256.0" mnemonicParsing="false" onAction="#onThemHoBtnClick" text="Thêm hộ" />
       <Button fx:id="huyBtn" layoutX="236.0" layoutY="256.0" mnemonicParsing="false" onAction="#onHuyButtonClick" prefHeight="26.0" prefWidth="63.0" text="Hủy" />
+
+      <TableView fx:id="tableView" layoutX="428.0" layoutY="56.0" prefHeight="183.0" prefWidth="289.0">
+          <columns>
+              <TableColumn text="Họ tên" fx:id="hoTen"/>
+              <TableColumn text="Giới tính" fx:id="gioiTinh"/>
+              <TableColumn text="Năm sinh" fx:id="namSinh" />
+              <TableColumn text="Địa chỉ hiện nay" fx:id="diaChiHienNay"/>
+          </columns>
+      </TableView>
+      <Label layoutX="428.0" layoutY="14.0" prefHeight="32.0" prefWidth="90.0" text="Thành viên">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Button fx:id="xoaBtn" onAction="#onXoaBtnClick" layoutX="594.0" layoutY="17.0" mnemonicParsing="false" text="Xóa" />
+      <Button fx:id="themBtn" onAction="#onThemBtnClick" layoutX="659.0" layoutY="17.0" mnemonicParsing="false" text="Thêm" />
    </children>
 
 </AnchorPane>

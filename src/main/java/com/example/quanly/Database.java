@@ -486,4 +486,20 @@ public class Database {
             e.printStackTrace();
         }
     }
+
+    public static void insertOneThanhVienTrongHo(ThanhVienTrongHo thanhVienTrongHo) {
+        ArrayList<HoKhau> hoKhau = Database.findHoKhau("idChuHo", thanhVienTrongHo.getChuHo().getID());
+        String sql = "insert into `thanh_vien_cua_ho` (`idNhanKhau`, `idHoKhau`, `quanHeVoiChuHo`) values (?, ?, ?)";
+        PreparedStatement st;
+        try{
+            st = conn.prepareStatement(sql);
+            st.setInt(1, thanhVienTrongHo.getThanhVien().getID());
+            st.setInt(2, hoKhau.get(0).getID());
+            st.setString(3, thanhVienTrongHo.getQuanHeVoiChuHo());
+            System.out.println(st);
+            st.execute();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

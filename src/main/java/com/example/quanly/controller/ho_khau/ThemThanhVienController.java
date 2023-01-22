@@ -16,7 +16,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class ChonChuHoController implements Initializable {
+public class ThemThanhVienController implements Initializable {
     @FXML
     private TextField searchTF;
     @FXML
@@ -36,6 +36,8 @@ public class ChonChuHoController implements Initializable {
     private TableColumn<HoKhau, String> diaChiHienNay;
     @FXML
     private Button chonBtn;
+    @FXML
+    private TextField quanHeTF;
     ObservableList<NhanKhau> listview = FXCollections.observableArrayList();
     //
     @Override
@@ -53,6 +55,17 @@ public class ChonChuHoController implements Initializable {
         listview.addAll(list);
         tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         tableView.setItems(listview);
+    }
+    IChonThanhVien themHoController;
+    public void setParentController(IChonThanhVien themHoController) {
+        this.themHoController = themHoController;
+    }
+    public void onChonBtnClick(ActionEvent actionEvent) {
+        NhanKhau selectedItem = tableView.getSelectionModel().getSelectedItem();
+        if(selectedItem == null || this.quanHeTF.getText().equals("")) return;
+        themHoController.onThanhVienReceived(selectedItem, this.quanHeTF.getText());
+        Stage stage = (Stage) chonBtn.getScene().getWindow();
+        stage.close();
     }
     @FXML
     public void onTimKiemBtnClick(ActionEvent actionEvent) {
@@ -74,17 +87,5 @@ public class ChonChuHoController implements Initializable {
         listview.addAll(list);
         tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         tableView.setItems(listview);
-    }
-
-    public void onChonBtnClick(ActionEvent actionEvent) {
-        NhanKhau selectedItem = tableView.getSelectionModel().getSelectedItem();
-        if(selectedItem == null) return;
-        themHoController.onChuHoReceived(selectedItem);
-        Stage stage = (Stage) chonBtn.getScene().getWindow();
-        stage.close();
-    }
-    private IChonChuHo themHoController;
-    public void setParentController(IChonChuHo themHoController) {
-        this.themHoController = themHoController;
     }
 }
