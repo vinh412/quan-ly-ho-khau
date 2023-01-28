@@ -380,7 +380,12 @@ public class NhanKhau {
 
     public NhanKhau() {
     }
-    public String toString(){
-        return this.hoTen;
+
+    @Override
+    public String toString() {
+        return "NhanKhau{" +
+                "hoTen='" + hoTen + '\'' +
+                ", namSinh=" + namSinh +
+                '}';
     }
 }

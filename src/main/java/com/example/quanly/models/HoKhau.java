@@ -115,5 +115,6 @@ public class HoKhau {
     public void setLyDoChuyen(String lyDoChuyen) {
         this.lyDoChuyen = lyDoChuyen;
     }
+
 }
 

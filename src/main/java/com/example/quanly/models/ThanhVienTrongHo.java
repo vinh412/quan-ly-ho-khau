@@ -18,6 +18,14 @@ public class ThanhVienTrongHo {
         this.thanhVien = thanhVien;
     }
 
+    @Override
+    public String toString() {
+        return "ThanhVienTrongHo{" +
+                "thanhVien=" + thanhVien +
+                ", chuHo=" + chuHo +
+                '}';
+    }
+
     public NhanKhau getChuHo() {
         return chuHo;
     }

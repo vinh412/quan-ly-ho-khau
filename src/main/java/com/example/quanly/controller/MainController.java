@@ -1,6 +1,7 @@
 package com.example.quanly.controller;
 
 import com.example.quanly.HelloApplication;
+import com.example.quanly.models.User;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -13,6 +14,10 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class MainController implements Initializable {
+    public static User currentUser;
+    public MainController(User user){
+        this.currentUser = user;
+    }
     @FXML
     private BorderPane borderPane;
 
