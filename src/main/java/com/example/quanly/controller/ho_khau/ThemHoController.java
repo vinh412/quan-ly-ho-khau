@@ -37,15 +37,15 @@ public class ThemHoController implements Initializable, IChonChuHo, IChonThanhVi
     @FXML
     private TableView<NhanKhau> tableView;
     @FXML
-    private TableColumn<HoKhau, String> maNhanKhau;
+    private TableColumn<NhanKhau, String> maNhanKhau;
     @FXML
-    private TableColumn<HoKhau, String> hoTen;
+    private TableColumn<NhanKhau, String> hoTen;
     @FXML
-    private TableColumn<HoKhau, String> gioiTinh;
+    private TableColumn<NhanKhau, String> gioiTinh;
     @FXML
-    private TableColumn<HoKhau, String> namSinh;
+    private TableColumn<NhanKhau, String> namSinh;
     @FXML
-    private TableColumn<HoKhau, String> diaChiHienNay;
+    private TableColumn<NhanKhau, String> diaChiHienNay;
     ObservableList<NhanKhau> listview = FXCollections.observableArrayList();
     private ArrayList<NhanKhau> thanhVien = new ArrayList<>();
     //

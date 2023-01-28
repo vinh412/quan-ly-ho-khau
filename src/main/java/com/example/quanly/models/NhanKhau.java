@@ -105,6 +105,22 @@ public class NhanKhau {
         this.diaChiMoi = diaChiMoi;
         this.ghiChu = ghiChu;
     }
+    private String quanHeVoiChuHo;
+
+    public String getQuanHeVoiChuHo() {
+        return quanHeVoiChuHo;
+    }
+
+    public void setQuanHeVoiChuHo(String quanHeVoiChuHo) {
+        this.quanHeVoiChuHo = quanHeVoiChuHo;
+    }
+
+    public NhanKhau(int id, String hoTen, LocalDate namSinh, String quanHe) {
+        this.ID = id;
+        this.hoTen = hoTen;
+        this.namSinh = namSinh;
+        this.quanHeVoiChuHo = quanHe;
+    }
 
     public int getID() {
         return ID;

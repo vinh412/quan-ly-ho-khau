@@ -315,6 +315,31 @@ public class Database {
         }
         return result;
     }
+    public static ArrayList<NhanKhau> getThanhVienList(int idHoKhau){
+        String sql = "SELECT * FROM nhan_khau, thanh_vien_cua_ho " +
+                "WHERE nhan_khau.id = thanh_vien_cua_ho.idNhanKhau " +
+                "and thanh_vien_cua_ho.idHoKhau = ?";
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        ArrayList<NhanKhau> result = new ArrayList<>();
+        try{
+            st = conn.prepareStatement(sql);
+            st.setInt(1, idHoKhau);
+            System.out.println(st);
+            rs = st.executeQuery();
+            while(rs.next()){
+                int ID = rs.getInt("ID");
+                String hoTen = rs.getString("hoTen");
+                LocalDate namSinh = rs.getDate("namSinh").toLocalDate();
+                String quanHe = rs.getString("quanHeVoiCHuHo");
+                NhanKhau thanhVien = new NhanKhau(ID, hoTen, namSinh, quanHe);
+                result.add(thanhVien);
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return result;
+    }
     public static void deleteOneHoKhau(HoKhau selectedItem) {
         String sql = "DELETE FROM ho_khau WHERE maHoKhau = ?;";
         PreparedStatement st = null;
@@ -500,6 +525,46 @@ public class Database {
             st.execute();
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        }
+    }
+    public static void insertOneThanhVienTrongHo(int idHoKhau, int idNhanKhau, String quanHe) {
+        String sql = "insert into `thanh_vien_cua_ho` (`idNhanKhau`, `idHoKhau`, `quanHeVoiChuHo`) values (?, ?, ?)";
+        PreparedStatement st;
+        try{
+            st = conn.prepareStatement(sql);
+            st.setInt(1, idNhanKhau);
+            st.setInt(2, idHoKhau);
+            st.setString(3, quanHe);
+            System.out.println(st);
+            st.execute();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public static void deleteOneThanhVienTrongHo(int idHoKhau, int idNhanKhau){
+        String sql = "DELETE FROM thanh_vien_cua_ho WHERE idHoKhau = ? and idNhanKhau = ?;";
+        PreparedStatement st = null;
+        try{
+            st = conn.prepareStatement(sql);
+            st.setInt(1, idHoKhau);
+            st.setInt(2, idNhanKhau);
+            System.out.println(st);
+            st.execute();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    public static void deleteAllThanhVienTrongHo(int idHoKhau) {
+        String sql = "DELETE FROM thanh_vien_cua_ho WHERE idHoKhau = ?";
+        PreparedStatement st = null;
+        try{
+            st = conn.prepareStatement(sql);
+            st.setInt(1, idHoKhau);
+            System.out.println(st);
+            st.execute();
+        }catch (SQLException e){
+            e.printStackTrace();
         }
     }
 }
