@@ -79,7 +79,7 @@ public class SuaHoController implements Initializable, IChonChuHo {
 
 
     @Override
-    public void onDataReceived(NhanKhau chuHo) {
+    public void onChuHoReceived(NhanKhau chuHo) {
         if(chuHo == null) return ;
         this.chuHo = chuHo;
         chuHoBtn.setText(this.chuHo.getHoTen());

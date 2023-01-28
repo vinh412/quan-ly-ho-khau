@@ -122,6 +122,24 @@ public class HoKhauController implements Initializable {
         HoKhau selectedItem = tableView.getSelectionModel().getSelectedItem();
         if(selectedItem == null) return ;
         Database.deleteOneHoKhau(selectedItem);
+        Database.deleteAllThanhVienTrongHo(selectedItem.getID());
         tableView.getItems().remove(selectedItem);
+    }
+
+    public void onTachHoBtnClick(ActionEvent actionEvent) throws IOException {
+        HoKhau selectedItem = tableView.getSelectionModel().getSelectedItem();
+        if(selectedItem == null) return ;
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ho_khau/tach_ho.fxml"));
+        TachHoController tachHoController = new TachHoController(selectedItem);
+        fxmlLoader.setController(tachHoController);
+        Parent root = (Parent) fxmlLoader.load();
+        Node node = null;
+        if (root != null) {
+            node = root.lookup("#tach_ho_layout");
+        }
+        Popup popup = new Popup();
+        popup.setLayout(node);
+        popup.setTitle("Tách hộ khẩu");
+        popup.show();
     }
 }
