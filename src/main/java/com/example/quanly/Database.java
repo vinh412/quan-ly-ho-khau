@@ -2,6 +2,7 @@ package com.example.quanly;
 
 import com.example.quanly.models.CachLy;
 import com.example.quanly.models.HoKhau;
+import com.example.quanly.models.KhaiBaoYTe;
 import com.example.quanly.models.NhanKhau;
 
 import java.sql.*;
@@ -477,5 +478,46 @@ public class Database {
             e.printStackTrace();
         }
         return result;
+    }
+
+    public static void addOneKhaiBaoYTe(KhaiBaoYTe khaiBaoYTe){
+
+        String queryString = "INSERT INTO `phieu_khai_bao_y_te` (`maPhieuKhaiBaoYTe`, `idNhanKhau`, `thoiGianKhaiBao`, " +
+                "`tiepXucVoiNguoiBenh`, `diVeTuVungDich`, `tiepXucVoiNguoiDiVeTuVungDich`, `daDenQuocGia`, `sot`, `ho`, " +
+                "`khoTho`, `viemPhoi`, `dauHong`, `metMoi`, `benhGanManTinh`, `benhMauManTinh`, `benhPhoiManTinh`, " +
+                "`benhThanManTinh`, `benhTimMach`, `huyetApCao`, `HIVSuyGiamMienDich`, `nguoiNhanGhepTang`, `tieuDuong`, " +
+                "`ungThu`, `coThai`)" +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+        PreparedStatement st;
+        try {
+            st = conn.prepareStatement(queryString);
+            st.setString (1, khaiBaoYTe.getMaPhieuKhaiBaoYTe());
+            st.setInt(2, khaiBaoYTe.getIdNhanKhau());
+            st.setDate (3, Date.valueOf(khaiBaoYTe.getThoiGianKhaiBao()));
+            st.setBoolean (4, khaiBaoYTe.isTiepXucVoiNguoiBenhKhong());
+            st.setBoolean(5, khaiBaoYTe.isDiVeTuVungDichKhong());
+            st.setBoolean(6, khaiBaoYTe.isTiepXucVoiNguoiDiVeTuVungDichKhong());
+            st.setString(7, khaiBaoYTe.getDaDenQuocGia());
+            st.setBoolean (8, khaiBaoYTe.isSot());
+            st.setBoolean(9, khaiBaoYTe.isHo());
+            st.setBoolean(10, khaiBaoYTe.isKhoTho());
+            st.setBoolean (11, khaiBaoYTe.isViemPhoi());
+            st.setBoolean(12, khaiBaoYTe.isDauHong());
+            st.setBoolean(13, khaiBaoYTe.isMetMoi());
+            st.setBoolean (14, khaiBaoYTe.isBenhGanManTinh());
+            st.setBoolean(15, khaiBaoYTe.isBenhMauManTinh());
+            st.setBoolean(16, khaiBaoYTe.isBenhPhoiManTinh());
+            st.setBoolean (17, khaiBaoYTe.isBenhThanManTinh());
+            st.setBoolean(18, khaiBaoYTe.isBenhTimMach());
+            st.setBoolean(19, khaiBaoYTe.isHuyetApCao());
+            st.setBoolean (20, khaiBaoYTe.isHivSuyGiamMienDich());
+            st.setBoolean(21, khaiBaoYTe.isNguoiNhanGhepTang());
+            st.setBoolean(22, khaiBaoYTe.isTieuDuong());
+            st.setBoolean (23, khaiBaoYTe.isUngThu());
+            st.setBoolean(24, khaiBaoYTe.isCoThai());
+            st.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

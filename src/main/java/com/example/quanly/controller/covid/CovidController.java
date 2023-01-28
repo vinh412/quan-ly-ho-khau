@@ -4,6 +4,7 @@ import com.example.quanly.Database;
 import com.example.quanly.HelloApplication;
 import com.example.quanly.Popup;
 import com.example.quanly.models.CachLy;
+import com.example.quanly.models.KhaiBaoYTe;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -53,22 +54,26 @@ public class CovidController {
     }
     @FXML
     private void onKhaiBaoYTeBtnClick(){
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("covid/khai_bao_y_te.fxml"));
-        Parent root = null;
         try {
-            root = fxmlLoader.load();
+            // load the fxml file and create a new popup dialog
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("covid/khai_bao_y_te.fxml"));
+            DialogPane khaiBaoYTeDialogPane = fxmlLoader.load();
+
+            Dialog<ButtonType> dialog = new Dialog<>();
+            dialog.setDialogPane(khaiBaoYTeDialogPane);
+            dialog.setTitle("Khai báo y tế");
+
+            KhaiBaoYTeController khaiBaoYTeController = fxmlLoader.getController();
+
+            Optional<ButtonType> clickedButton = dialog.showAndWait();
+            if(clickedButton.get() == ButtonType.OK){
+                KhaiBaoYTe newKhaiBaoYTe = khaiBaoYTeController.getKhaiBaoYTe();
+                Database.addOneKhaiBaoYTe(newKhaiBaoYTe);
+                System.out.println("OK clicked");
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Node node = null;
-        if (root != null) {
-            node = root.lookup("#khai_bao_y_te_layout");
-        }
-        Popup popup = new Popup();
-        popup.setLayout(node);
-        popup.setTitle("Khai báo y tế");
-        popup.show();
-        System.out.println("Khai bao y te clicked");
     }
 
     @FXML

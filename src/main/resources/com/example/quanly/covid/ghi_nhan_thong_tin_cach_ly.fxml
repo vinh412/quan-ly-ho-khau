@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<DialogPane xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quanly.controller.covid.GhiNhanThongTinCachLyController">
+<DialogPane fx:id="dialogPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quanly.controller.covid.GhiNhanThongTinCachLyController">
    <content>
       <GridPane prefHeight="257.0" prefWidth="306.0">
           <columnConstraints>
@@ -27,7 +27,7 @@
               <Label text="Đến ngày" GridPane.rowIndex="5" />
               <Label text="Mức độ cách ly" GridPane.rowIndex="6" />
               <TextField fx:id="maCachLyTF" GridPane.columnIndex="1" />
-              <Button fx:id="chonNhanKhauBtn" mnemonicParsing="false" text="Chọn..." GridPane.columnIndex="1" GridPane.rowIndex="1" />
+              <Button fx:id="chonNhanKhauBtn" mnemonicParsing="false" onAction="#onChonNhanKhauBtnClick" text="Chọn..." GridPane.columnIndex="1" GridPane.rowIndex="1" />
               <TextField fx:id="diaDiemCachLyTF" GridPane.columnIndex="1" GridPane.rowIndex="3" />
               <ChoiceBox fx:id="mucDoCachLyChoiceBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
               <DatePicker fx:id="tuNgayDatePicker" GridPane.columnIndex="1" GridPane.rowIndex="4" />

@@ -4,7 +4,7 @@ public class KhaiBaoYTe {
     private int id;
     private String maPhieuKhaiBaoYTe;
     private int idNhanKhau;
-    private String ngayKhaiBao;
+    private String thoiGianKhaiBao;
     private boolean tiepXucVoiNguoiBenhKhong;
     private boolean diVeTuVungDichKhong;
     private boolean tiepXucVoiNguoiDiVeTuVungDichKhong;
@@ -39,7 +39,7 @@ public class KhaiBaoYTe {
         this.id = id;
         this.maPhieuKhaiBaoYTe = maPhieuKhaiBaoYTe;
         this.idNhanKhau = idNhanKhau;
-        this.ngayKhaiBao = ngayKhaiBao;
+        this.thoiGianKhaiBao = ngayKhaiBao;
         this.tiepXucVoiNguoiBenhKhong = tiepXucVoiNguoiBenhKhong;
         this.diVeTuVungDichKhong = diVeTuVungDichKhong;
         this.tiepXucVoiNguoiDiVeTuVungDichKhong = tiepXucVoiNguoiDiVeTuVungDichKhong;
@@ -87,12 +87,12 @@ public class KhaiBaoYTe {
         this.idNhanKhau = idNhanKhau;
     }
 
-    public String getNgayKhaiBao() {
-        return ngayKhaiBao;
+    public String getThoiGianKhaiBao() {
+        return thoiGianKhaiBao;
     }
 
-    public void setNgayKhaiBao(String ngayKhaiBao) {
-        this.ngayKhaiBao = ngayKhaiBao;
+    public void setThoiGianKhaiBao(String thoiGianKhaiBao) {
+        this.thoiGianKhaiBao = thoiGianKhaiBao;
     }
 
     public boolean isTiepXucVoiNguoiBenhKhong() {

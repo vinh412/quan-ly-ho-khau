@@ -1,22 +1,31 @@
 package com.example.quanly.controller.covid;
 
+import com.example.quanly.Database;
+import com.example.quanly.HelloApplication;
+import com.example.quanly.controller.nhan_khau.ChonNhanKhauController;
 import com.example.quanly.models.CachLy;
+import com.example.quanly.models.NhanKhau;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.*;
 import javafx.util.StringConverter;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Optional;
 
 public class GhiNhanThongTinCachLyController {
+    @FXML
+    private DialogPane dialogPane;
+    private NhanKhau selectedNhanKhau;
     @FXML
     private TextField maCachLyTF;
     @FXML
     private Button chonNhanKhauBtn;
+    @FXML
+    private Label hoTenLB;
     @FXML
     private TextField diaDiemCachLyTF;
     @FXML
@@ -58,6 +67,30 @@ public class GhiNhanThongTinCachLyController {
     }
 
     public CachLy getCachLy(){
-        return new CachLy(-1, maCachLyTF.getText(), 26, LocalDate.now().toString(), diaDiemCachLyTF.getText(), tuNgayDatePicker.getValue().toString(), denNgayDatePicker.getValue().toString(), mucDoCachLyChoiceBox.getValue());
+        return new CachLy(-1, maCachLyTF.getText(), selectedNhanKhau.getID(), LocalDate.now().toString(), diaDiemCachLyTF.getText(), tuNgayDatePicker.getValue().toString(), denNgayDatePicker.getValue().toString(), mucDoCachLyChoiceBox.getValue());
+    }
+    @FXML
+    private void onChonNhanKhauBtnClick(){
+        try {
+            // load the fxml file and create a new popup dialog
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("nhan_khau/chon_nhan_khau.fxml"));
+            DialogPane chonNhanKhauDialogPane = fxmlLoader.load();
+
+            Dialog<ButtonType> dialog = new Dialog<>();
+            dialog.setDialogPane(chonNhanKhauDialogPane);
+            dialog.setTitle("Chọn nhân khẩu");
+
+            ChonNhanKhauController chonNhanKhauController = fxmlLoader.getController();
+            Optional<ButtonType> clickedButton = dialog.showAndWait();
+            if(clickedButton.get() == ButtonType.OK){
+                this.selectedNhanKhau = chonNhanKhauController.getSelectedNhanKhau();
+                if(selectedNhanKhau != null){
+                    hoTenLB.setText(selectedNhanKhau.getHoTen());
+                }
+                System.out.println("OK clicked");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
