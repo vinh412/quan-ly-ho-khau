@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<ScrollPane fx:id="khai_bao_y_te_layout" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="623.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<ScrollPane fx:id="khai_bao_y_te_layout" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="623.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quanly.controller.covid.KhaiBaoYTeController">
    <content>
       <AnchorPane prefHeight="840.0" prefWidth="606.0">
          <children>
@@ -30,10 +30,10 @@
                   <Label text="Địa chỉ thường chú" GridPane.rowIndex="1" />
                   <Label prefHeight="18.0" prefWidth="58.0" text="Năm sinh" GridPane.columnIndex="2" />
                   <Label text="Giới tính" GridPane.columnIndex="4" />
-                  <TextArea minHeight="10.0" prefHeight="10.0" prefWidth="100.0" GridPane.columnIndex="1" />
-                  <TextArea minHeight="10.0" prefHeight="10.0" prefWidth="500.0" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.rowIndex="1" />
-                  <TextArea minHeight="10.0" prefHeight="10.0" prefWidth="179.0" GridPane.columnIndex="3" />
-                  <TextArea minHeight="10.0" prefHeight="10.0" prefWidth="100.0" GridPane.columnIndex="5" />
+                  <Label fx:id="hoTenLB" GridPane.columnIndex="1" />
+                  <Label fx:id="diaChiThuongTruLB" prefHeight="18.0" prefWidth="297.0" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.rowIndex="1" />
+                  <Label fx:id="namSinhLB" GridPane.columnIndex="3" />
+                  <Label fx:id="gioiTinhLB" GridPane.columnIndex="5" />
                </children>
             </GridPane>
             <Label layoutX="14.0" layoutY="114.0" text="2. Thông tin bệnh cá nhân">
@@ -58,12 +58,21 @@
                   <Label text="Không" GridPane.columnIndex="2" />
                   <Label text="Có đi về từ vùng có dịch COVID-19 không?" GridPane.rowIndex="2" />
                   <Label text="Có tiếp xúc với trường hợp đi về từ vùng dịch không?" GridPane.rowIndex="3" />
-                  <RadioButton mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <RadioButton mnemonicParsing="false" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                  <RadioButton mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <RadioButton mnemonicParsing="false" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                  <RadioButton mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <RadioButton mnemonicParsing="false" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                  <RadioButton fx:id="coTiepXucF0RB" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="row1" />
+                     </toggleGroup></RadioButton>
+                  <RadioButton fx:id="khongTiepXucF0RB" mnemonicParsing="false" selected="true" toggleGroup="$row1" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <RadioButton fx:id="coDiVeRB" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="row2" />
+                     </toggleGroup></RadioButton>
+                  <RadioButton fx:id="khongDiVeRB" mnemonicParsing="false" selected="true" toggleGroup="$row2" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <RadioButton fx:id="coTiepXucVungDichRB" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="row3" />
+                     </toggleGroup></RadioButton>
+                  <RadioButton fx:id="khongTiepXucVungDichRB" mnemonicParsing="false" selected="true" toggleGroup="$row3" GridPane.columnIndex="2" GridPane.rowIndex="3" />
                </children>
             </GridPane>
             <Label layoutX="48.0" layoutY="147.0" text="Trong vòng 14 ngày, Anh/chị:">
@@ -76,7 +85,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <TextField layoutX="48.0" layoutY="324.0" prefHeight="26.0" prefWidth="484.0" />
+            <TextField fx:id="daDenQuocGiaTF" layoutX="48.0" layoutY="324.0" prefHeight="26.0" prefWidth="484.0" />
             <SplitPane dividerPositions="0.4999999999999999" layoutX="6.0" layoutY="356.0" prefHeight="425.0" prefWidth="600.0">
               <items>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="300.0" prefWidth="300.0">
@@ -106,12 +115,12 @@
                               <Label text="Viêm phổi" GridPane.rowIndex="3" />
                               <Label text="Đau họng" GridPane.rowIndex="4" />
                               <Label text="Mệt mỏi" GridPane.rowIndex="5" />
-                              <CheckBox mnemonicParsing="false" GridPane.columnIndex="1" />
-                              <CheckBox mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                              <CheckBox mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                              <CheckBox mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                              <CheckBox mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                              <CheckBox mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                              <CheckBox fx:id="sotCB" mnemonicParsing="false" GridPane.columnIndex="1" />
+                              <CheckBox fx:id="hoCB" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <CheckBox fx:id="khoThoCB" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <CheckBox fx:id="viemPhoiCB" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <CheckBox fx:id="dauHongCB" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <CheckBox fx:id="metMoiCB" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                            </children>
                         </GridPane>
                      </children>
@@ -153,24 +162,25 @@
                               <Label text="Tiểu đường" GridPane.rowIndex="8" />
                               <Label text="Có thai" GridPane.rowIndex="10" />
                               <Label text="Ung thư" GridPane.rowIndex="9" />
-                              <CheckBox mnemonicParsing="false" GridPane.columnIndex="1" />
-                              <CheckBox mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                              <CheckBox mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                              <CheckBox mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                              <CheckBox mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                              <CheckBox mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                              <CheckBox mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                              <CheckBox mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-                              <CheckBox mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-                              <CheckBox mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="10" />
-                              <CheckBox mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                              <CheckBox fx:id="benhGanManTinhCB" mnemonicParsing="false" GridPane.columnIndex="1" />
+                              <CheckBox fx:id="benhMauManTinhCB" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <CheckBox fx:id="benhPhoiManTinhCB" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <CheckBox fx:id="benhThanManTinhCB" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <CheckBox fx:id="benhTimMachCB" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <CheckBox fx:id="huyetApCaoCB" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                              <CheckBox fx:id="hivSuyGiamMienDichCB" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                              <CheckBox fx:id="nguoiNhanGhepTangCB" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                              <CheckBox fx:id="tieuDuongCB" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                              <CheckBox fx:id="coThaiCB" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                              <CheckBox fx:id="ungThuCB" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="9" />
                            </children>
                         </GridPane>
                      </children>
                   </AnchorPane>
               </items>
             </SplitPane>
-            <CheckBox layoutX="14.0" layoutY="801.0" mnemonicParsing="false" text="Tôi cam kết những thông tin khai báo là đúng sự thật" />
+            <CheckBox fx:id="camKetCB" layoutX="14.0" layoutY="801.0" mnemonicParsing="false" text="Tôi cam kết những thông tin khai báo là đúng sự thật" />
+            <Button fx:id="chonNhanKhauBtn" layoutX="153.0" layoutY="10.0" mnemonicParsing="false" text="Chọn..." />
          </children>
 
       </AnchorPane>

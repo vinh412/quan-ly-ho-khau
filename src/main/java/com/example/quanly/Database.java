@@ -1,5 +1,6 @@
 package com.example.quanly;
 
+import com.example.quanly.models.CachLy;
 import com.example.quanly.models.HoKhau;
 import com.example.quanly.models.NhanKhau;
 
@@ -7,6 +8,7 @@ import java.sql.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Database {
     private static Connection conn = null;
@@ -407,5 +409,73 @@ public class Database {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void addOneCachLy(CachLy cachLy){
+
+        String queryString = "INSERT INTO `cach_ly` (`maCachLy`, `idNhanKhau`, `thoiGianKhaiBao`, `diaDiemCachLy`, `tuNgay`, `denNgay`, `mucDoCachLy`)" +
+                "VALUES (?, ?, ?, ?, ?, ?, ?);";
+        PreparedStatement st;
+        try {
+            st = conn.prepareStatement(queryString);
+            st.setString (1, cachLy.getMaCachLy());
+            st.setInt(2, cachLy.getIdNhanKhau());
+            st.setDate (3, Date.valueOf(cachLy.getThoiGianKhaiBao()));
+            st.setString (4, cachLy.getDiaDiemCachLy());
+            st.setDate(5, Date.valueOf(cachLy.getTuNgay()));
+            st.setDate(6, Date.valueOf(cachLy.getDenNgay()));
+            st.setString(7, cachLy.getMucDoCachLy());
+            st.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void deleteOneCachLy(CachLy cachLy){
+        String sql = "DELETE FROM cach_ly WHERE ID = ?;";
+        PreparedStatement st = null;
+        try{
+            st = conn.prepareStatement(sql);
+            st.setInt(1, cachLy.getID());
+            System.out.println(st);
+            st.execute();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    public static List<CachLy> findCachLy(String key, String value){
+        String sql = null;
+        if(key.compareTo("*") == 0 || value.compareTo("") == 0){
+            sql = "select * from cach_ly";
+        }else {
+            sql = "select * from cach_ly " +
+                    "where cach_ly." + key + " like " + "'"+value+"%'";
+            // find all rows starting with `value`
+        }
+        List<CachLy> result = new ArrayList<>();
+        ResultSet rs = null;
+        PreparedStatement st = null;
+        System.out.println(sql);
+        try{
+            st = conn.prepareStatement(sql);
+            rs = st.executeQuery();
+
+            while(rs.next()){
+                String maCachLy = rs.getString("maCachLy");
+                int idNhanKhau = rs.getInt("idNhanKhau");
+                String thoiGianKhaibao = rs.getDate("thoiGianKhaiBao").toLocalDate().toString();
+                String diaDiemCachLy = rs.getString("diaDiemCachLy");
+                String tuNgay = rs.getDate("tuNgay").toLocalDate().toString();
+                String denNgay = rs.getDate("denNgay").toLocalDate().toString();
+                String mucDoCachLy = rs.getString("mucDoCachLy");
+                int ID = rs.getInt("ID");
+                CachLy cachLy = new CachLy(ID, maCachLy, idNhanKhau, thoiGianKhaibao, diaDiemCachLy, tuNgay, denNgay, mucDoCachLy);
+                result.add(cachLy);
+            }
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
     }
 }
