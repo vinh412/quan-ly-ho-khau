@@ -61,6 +61,8 @@ public class ChonNhanKhauController {
                 //Check whether item is selected
                 if(tableView.getSelectionModel().getSelectedItem() != null)
                     dialogPane.lookupButton(ButtonType.OK).setDisable(false);
+                else
+                    dialogPane.lookupButton(ButtonType.OK).setDisable(true);
             }
         });
     }
