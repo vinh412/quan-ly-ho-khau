@@ -19,62 +19,62 @@
    </top>
    <left>
       <VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-<!--         <ToolBar orientation="VERTICAL" prefHeight="600.0" prefWidth="200.0">-->
-<!--            <items>-->
-               <Button fx:id="trangChuBtn" alignment="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#onHoKhauBtnClick" prefWidth="180.0" text="Trang Chủ" textFill="#233dd1">
-                  <font>
-                     <Font size="30.0" />
-                  </font>
+         <!--         <ToolBar orientation="VERTICAL" prefHeight="600.0" prefWidth="200.0">-->
+         <!--            <items>-->
+         <Button fx:id="trangChuBtn" alignment="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#onHoKhauBtnClick" prefWidth="180.0" text="Trang Chủ" textFill="#233dd1">
+            <font>
+               <Font size="30.0" />
+            </font>
             <VBox.margin>
                <Insets bottom="20.0" top="20.0" />
             </VBox.margin></Button>
-               <Button fx:id="hoKhauBtn" alignment="CENTER" mnemonicParsing="false" onAction="#onHoKhauBtnClick" prefHeight="66.0" prefWidth="180.0" text="Hộ Khẩu" textFill="#233dd1">
-                  <font>
-                     <Font size="30.0" />
-                  </font>
+         <Button fx:id="hoKhauBtn" alignment="CENTER" mnemonicParsing="false" onAction="#onHoKhauBtnClick" prefHeight="66.0" prefWidth="180.0" text="Hộ Khẩu" textFill="#233dd1">
+            <font>
+               <Font size="30.0" />
+            </font>
             <VBox.margin>
                <Insets bottom="20.0" top="20.0" />
             </VBox.margin></Button>
-               <Button fx:id="nhanKhauBtn" alignment="CENTER" mnemonicParsing="false" onAction="#onNhanKhauBtnClick" prefHeight="66.0" prefWidth="180.0" text="Nhân Khẩu" textFill="#233dd1">
-                  <font>
-                     <Font size="28.0" />
-                  </font>
+         <Button fx:id="nhanKhauBtn" alignment="CENTER" mnemonicParsing="false" onAction="#onNhanKhauBtnClick" prefHeight="66.0" prefWidth="180.0" text="Nhân Khẩu" textFill="#233dd1">
+            <font>
+               <Font size="28.0" />
+            </font>
             <VBox.margin>
                <Insets bottom="20.0" top="20.0" />
             </VBox.margin></Button>
-               <Button fx:id="covidBtn" alignment="CENTER" mnemonicParsing="false" onAction="#onCovidBtnClick" prefWidth="180.0" text="Covid" textFill="#233dd1">
-                  <font>
-                     <Font size="30.0" />
-                  </font>
+         <Button fx:id="covidBtn" alignment="CENTER" mnemonicParsing="false" onAction="#onCovidBtnClick" prefWidth="180.0" text="Covid" textFill="#233dd1">
+            <font>
+               <Font size="30.0" />
+            </font>
             <VBox.margin>
                <Insets bottom="20.0" top="20.0" />
             </VBox.margin></Button>
-               <Button fx:id="thongKeBtn" alignment="CENTER" mnemonicParsing="false" onAction="#onThongKeBtnClick" prefWidth="180.0" text="Thống Kê" textFill="#233dd1">
-                  <font>
-                     <Font size="30.0" />
-                  </font>
+         <Button fx:id="thongKeBtn" alignment="CENTER" mnemonicParsing="false" onAction="#onThongKeBtnClick" prefWidth="180.0" text="Thống Kê" textFill="#233dd1">
+            <font>
+               <Font size="30.0" />
+            </font>
             <VBox.margin>
                <Insets bottom="20.0" top="20.0" />
             </VBox.margin></Button>
-<!--            </items>-->
-<!--         </ToolBar>-->
+         <!--            </items>-->
+         <!--         </ToolBar>-->
          <children>
-<!--            <Button fx:id="hoKhauBtn" mnemonicParsing="false" onAction="#onHoKhauBtnClick" prefHeight="150.0" prefWidth="200.0" text="Hộ Khẩu" textFill="#233dd1">-->
-<!--               <font>-->
-<!--                  <Font size="30.0" />-->
-<!--               </font></Button>-->
-<!--            <Button fx:id="nhanKhauBtn" mnemonicParsing="false" onAction="#onNhanKhauBtnClick" prefHeight="150.0" prefWidth="200.0" text="Nhân Khẩu" textFill="#233dd1">-->
-<!--               <font>-->
-<!--                  <Font size="30.0" />-->
-<!--               </font></Button>-->
-<!--            <Button fx:id="covidBtn" mnemonicParsing="false" onAction="#onCovidBtnClick" prefHeight="150.0" prefWidth="200.0" text="Covid" textFill="#233dd1">-->
-<!--               <font>-->
-<!--                  <Font size="30.0" />-->
-<!--               </font></Button>-->
-<!--            <Button fx:id="thongKeBtn" mnemonicParsing="false" onAction="#onThongKeBtnClick" prefHeight="150.0" prefWidth="200.0" text="Thống Kê" textFill="#233dd1">-->
-<!--               <font>-->
-<!--                  <Font size="30.0" />-->
-<!--               </font></Button>-->
+            <!--            <Button fx:id="hoKhauBtn" mnemonicParsing="false" onAction="#onHoKhauBtnClick" prefHeight="150.0" prefWidth="200.0" text="Hộ Khẩu" textFill="#233dd1">-->
+            <!--               <font>-->
+            <!--                  <Font size="30.0" />-->
+            <!--               </font></Button>-->
+            <!--            <Button fx:id="nhanKhauBtn" mnemonicParsing="false" onAction="#onNhanKhauBtnClick" prefHeight="150.0" prefWidth="200.0" text="Nhân Khẩu" textFill="#233dd1">-->
+            <!--               <font>-->
+            <!--                  <Font size="30.0" />-->
+            <!--               </font></Button>-->
+            <!--            <Button fx:id="covidBtn" mnemonicParsing="false" onAction="#onCovidBtnClick" prefHeight="150.0" prefWidth="200.0" text="Covid" textFill="#233dd1">-->
+            <!--               <font>-->
+            <!--                  <Font size="30.0" />-->
+            <!--               </font></Button>-->
+            <!--            <Button fx:id="thongKeBtn" mnemonicParsing="false" onAction="#onThongKeBtnClick" prefHeight="150.0" prefWidth="200.0" text="Thống Kê" textFill="#233dd1">-->
+            <!--               <font>-->
+            <!--                  <Font size="30.0" />-->
+            <!--               </font></Button>-->
          </children>
       </VBox>
    </left>
