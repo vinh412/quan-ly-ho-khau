@@ -2,29 +2,24 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<VBox fx:id="covid_layout" prefHeight="600.0" prefWidth="880.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quanly.controller.covid.CovidController">
+<AnchorPane fx:id="covid_layout" prefHeight="600.0" prefWidth="880.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quanly.controller.covid.CovidController">
 
-    <AnchorPane prefHeight="60.0" prefWidth="880.0">
-        <Button layoutX="77.0" layoutY="17.0" mnemonicParsing="false" onAction="#onKhaiBaoYTeBtnClick" text="Khai báo y tế" textFill="#130fbd" />
-        <Button layoutX="245.0" layoutY="17.0" mnemonicParsing="false" onAction="#onGhiNhanThongTinCachLyBtnClick" prefHeight="26.0" prefWidth="158.0" text="Ghi nhận thông tin cách ly" textFill="#130fbd" />
-        <Button layoutX="484.0" layoutY="17.0" mnemonicParsing="false" onAction="#onThongKeKhaiBaoYTeBtnClick" text="Thống kê khai báo y tế" textFill="#130fbd" />
-      <Button layoutX="707.0" layoutY="17.0" mnemonicParsing="false" onAction="#onThongKeCachLyBtnClick" text="Thống kê cách ly" />
-    </AnchorPane>
-    <AnchorPane prefHeight="60.0" prefWidth="880.0">
-        <TextField fx:id="searchTF" layoutX="59.0" layoutY="8.0" prefHeight="46.0" prefWidth="388.0" />
-        <ComboBox fx:id="comboBox" layoutX="488.0" layoutY="7.0" prefHeight="46.0" prefWidth="150.0" />
-        <Button fx:id="timKiemBtn" layoutX="657.0" layoutY="8.0" mnemonicParsing="false" onAction="#onTimKiemBtnClick" prefHeight="46.0" prefWidth="113.0" text="Tìm kiếm" />
-    </AnchorPane>
-    <TableView fx:id="cachLyTableView" prefHeight="464.0" prefWidth="880.0">
-        <columns>
-            <TableColumn fx:id="maCachLyColumn" text="Mã cách ly" />
-            <TableColumn fx:id="idNhanKhauColumn" text="ID nhân khẩu" />
-            <TableColumn fx:id="thoiGianKhaiBaoColumn" text="Thời gian khai báo" />
-            <TableColumn fx:id="diaDiemCachLyColumn" text="Địa điểm cách ly" />
-            <TableColumn fx:id="tuNgayColumn" text="Từ ngày" />
-            <TableColumn fx:id="denNgayColumn" text="Đến ngày" />
-            <TableColumn fx:id="mucDoCachLyColumn" text="Mức độ cách ly" />
-        </columns>
-    </TableView>
-</VBox>
+    <Button layoutX="286.0" layoutY="65.0" onAction="#onKhaiBaoYTeBtnClick" prefHeight="100.0" prefWidth="300.0" text="Khai báo y tế">
+      <font>
+         <Font name="System Bold" size="20.0" />
+      </font></Button>
+    <Button layoutX="286.0" layoutY="200.0" onAction="#onGhiNhanThongTinCachLyBtnClick" prefHeight="100.0" prefWidth="300.0" text="Ghi nhận thông tin cách ly">
+      <font>
+         <Font name="System Bold" size="20.0" />
+      </font></Button>
+    <Button layoutX="286.0" layoutY="338.0" onAction="#onThongKeKhaiBaoYTeBtnClick" prefHeight="100.0" prefWidth="300.0" text="Thống kê khai báo y tế">
+      <font>
+         <Font name="System Bold" size="20.0" />
+      </font></Button>
+    <Button layoutX="286.0" layoutY="475.0" onAction="#onThongKeCachLyBtnClick" prefHeight="100.0" prefWidth="300.0" text="Thống kê cách ly">
+      <font>
+         <Font name="System Bold" size="20.0" />
+      </font></Button>
+</AnchorPane>
