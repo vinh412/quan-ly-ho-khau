@@ -47,7 +47,7 @@ public class CovidController {
         tuNgayColumn.setCellValueFactory(new PropertyValueFactory<>("tuNgay"));
         denNgayColumn.setCellValueFactory(new PropertyValueFactory<>("denNgay"));
         mucDoCachLyColumn.setCellValueFactory(new PropertyValueFactory<>("mucDoCachLy"));
-        //cachLyList = Database.findCachLy("*","");
+        cachLyList = Database.findCachLy("*","");
         cachLyObservableList.addAll(cachLyList);
         cachLyTableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         cachLyTableView.setItems(cachLyObservableList);
@@ -68,7 +68,7 @@ public class CovidController {
             Optional<ButtonType> clickedButton = dialog.showAndWait();
             if(clickedButton.get() == ButtonType.OK){
                 KhaiBaoYTe newKhaiBaoYTe = khaiBaoYTeController.getKhaiBaoYTe();
-                //Database.addOneKhaiBaoYTe(newKhaiBaoYTe);
+                Database.addOneKhaiBaoYTe(newKhaiBaoYTe);
                 System.out.println("OK clicked");
             }
         } catch (IOException e) {
@@ -92,7 +92,7 @@ public class CovidController {
             Optional<ButtonType> clickedButton = dialog.showAndWait();
             if(clickedButton.get() == ButtonType.OK){
                 CachLy newCachLy = ghiNhanThongTinCachLyController.getCachLy();
-                //Database.addOneCachLy(newCachLy);
+                Database.addOneCachLy(newCachLy);
                 System.out.println("OK clicked");
             }
         } catch (IOException e) {
