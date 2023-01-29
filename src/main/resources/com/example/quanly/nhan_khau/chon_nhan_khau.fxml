@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<DialogPane fx:id="dialogPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quanly.controller.nhan_khau.ChonNhanKhauController">
+   <content>
+      <VBox prefHeight="400.0" prefWidth="600.0">
+          <AnchorPane prefHeight="55.0" prefWidth="772.0">
+              <TextField fx:id="searchTF" layoutX="14.0" layoutY="9.0" prefHeight="34.0" prefWidth="388.0" />
+              <ComboBox fx:id="comboBox" layoutX="428.0" layoutY="9.0" prefHeight="34.0" prefWidth="150.0" />
+              <Button fx:id="timKiemBtn" layoutX="600.0" layoutY="9.0" mnemonicParsing="false" onAction="#onTimKiemBtnClick" prefHeight="34.0" prefWidth="93.0" text="Tìm kiếm" />
+          </AnchorPane>
+          <TableView fx:id="tableView" prefHeight="464.0" prefWidth="880.0">
+              <columns>
+                  <TableColumn fx:id="maNhanKhau" text="Mã nhân khẩu" />
+                  <TableColumn fx:id="hoTen" text="Họ tên" />
+                  <TableColumn fx:id="gioiTinh" text="Giới tính" />
+                  <TableColumn fx:id="namSinh" text="Năm sinh" />
+                  <TableColumn fx:id="diaChiHienNay" text="Địa chỉ hiện nay" />
+              </columns>
+          </TableView>
+      
+      </VBox>
+   </content>
+   <buttonTypes>
+      <ButtonType fx:constant="OK" />
+      <ButtonType fx:constant="CANCEL" />
+   </buttonTypes>
+</DialogPane>

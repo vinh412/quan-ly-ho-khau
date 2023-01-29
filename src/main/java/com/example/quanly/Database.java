@@ -1,11 +1,16 @@
 package com.example.quanly;
 
+import com.example.quanly.models.CachLy;
+import com.example.quanly.models.HoKhau;
+import com.example.quanly.models.KhaiBaoYTe;
+import com.example.quanly.models.NhanKhau;
 import com.example.quanly.models.*;
 
 import java.sql.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Database {
     private static Connection conn = null;
@@ -427,6 +432,115 @@ public class Database {
             st.setString(26, nhanKhauMoi.getNgayTao());
             st.setString(27, nhanKhauMoi.getGhiChu());
             st.setInt(28, nhanKhauSua.getID());
+            st.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void addOneCachLy(CachLy cachLy){
+
+        String queryString = "INSERT INTO `cach_ly` (`maCachLy`, `idNhanKhau`, `thoiGianKhaiBao`, `diaDiemCachLy`, `tuNgay`, `denNgay`, `mucDoCachLy`)" +
+                "VALUES (?, ?, ?, ?, ?, ?, ?);";
+        PreparedStatement st;
+        try {
+            st = conn.prepareStatement(queryString);
+            st.setString (1, cachLy.getMaCachLy());
+            st.setInt(2, cachLy.getIdNhanKhau());
+            st.setDate (3, Date.valueOf(cachLy.getThoiGianKhaiBao()));
+            st.setString (4, cachLy.getDiaDiemCachLy());
+            st.setDate(5, Date.valueOf(cachLy.getTuNgay()));
+            st.setDate(6, Date.valueOf(cachLy.getDenNgay()));
+            st.setString(7, cachLy.getMucDoCachLy());
+            st.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void deleteOneCachLy(CachLy cachLy){
+        String sql = "DELETE FROM cach_ly WHERE ID = ?;";
+        PreparedStatement st = null;
+        try{
+            st = conn.prepareStatement(sql);
+            st.setInt(1, cachLy.getID());
+            System.out.println(st);
+            st.execute();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    public static List<CachLy> findCachLy(String key, String value){
+        String sql = null;
+        if(key.compareTo("*") == 0 || value.compareTo("") == 0){
+            sql = "select * from cach_ly";
+        }else {
+            sql = "select * from cach_ly " +
+                    "where cach_ly." + key + " like " + "'"+value+"%'";
+            // find all rows starting with `value`
+        }
+        List<CachLy> result = new ArrayList<>();
+        ResultSet rs = null;
+        PreparedStatement st = null;
+        System.out.println(sql);
+        try{
+            st = conn.prepareStatement(sql);
+            rs = st.executeQuery();
+
+            while(rs.next()){
+                String maCachLy = rs.getString("maCachLy");
+                int idNhanKhau = rs.getInt("idNhanKhau");
+                String thoiGianKhaibao = rs.getDate("thoiGianKhaiBao").toLocalDate().toString();
+                String diaDiemCachLy = rs.getString("diaDiemCachLy");
+                String tuNgay = rs.getDate("tuNgay").toLocalDate().toString();
+                String denNgay = rs.getDate("denNgay").toLocalDate().toString();
+                String mucDoCachLy = rs.getString("mucDoCachLy");
+                int ID = rs.getInt("ID");
+                CachLy cachLy = new CachLy(ID, maCachLy, idNhanKhau, thoiGianKhaibao, diaDiemCachLy, tuNgay, denNgay, mucDoCachLy);
+                result.add(cachLy);
+            }
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    public static void addOneKhaiBaoYTe(KhaiBaoYTe khaiBaoYTe){
+
+        String queryString = "INSERT INTO `phieu_khai_bao_y_te` (`maPhieuKhaiBaoYTe`, `idNhanKhau`, `thoiGianKhaiBao`, " +
+                "`tiepXucVoiNguoiBenh`, `diVeTuVungDich`, `tiepXucVoiNguoiDiVeTuVungDich`, `daDenQuocGia`, `sot`, `ho`, " +
+                "`khoTho`, `viemPhoi`, `dauHong`, `metMoi`, `benhGanManTinh`, `benhMauManTinh`, `benhPhoiManTinh`, " +
+                "`benhThanManTinh`, `benhTimMach`, `huyetApCao`, `HIVSuyGiamMienDich`, `nguoiNhanGhepTang`, `tieuDuong`, " +
+                "`ungThu`, `coThai`)" +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+        PreparedStatement st;
+        try {
+            st = conn.prepareStatement(queryString);
+            st.setString (1, khaiBaoYTe.getMaPhieuKhaiBaoYTe());
+            st.setInt(2, khaiBaoYTe.getIdNhanKhau());
+            st.setDate (3, Date.valueOf(khaiBaoYTe.getThoiGianKhaiBao()));
+            st.setBoolean (4, khaiBaoYTe.isTiepXucVoiNguoiBenhKhong());
+            st.setBoolean(5, khaiBaoYTe.isDiVeTuVungDichKhong());
+            st.setBoolean(6, khaiBaoYTe.isTiepXucVoiNguoiDiVeTuVungDichKhong());
+            st.setString(7, khaiBaoYTe.getDaDenQuocGia());
+            st.setBoolean (8, khaiBaoYTe.isSot());
+            st.setBoolean(9, khaiBaoYTe.isHo());
+            st.setBoolean(10, khaiBaoYTe.isKhoTho());
+            st.setBoolean (11, khaiBaoYTe.isViemPhoi());
+            st.setBoolean(12, khaiBaoYTe.isDauHong());
+            st.setBoolean(13, khaiBaoYTe.isMetMoi());
+            st.setBoolean (14, khaiBaoYTe.isBenhGanManTinh());
+            st.setBoolean(15, khaiBaoYTe.isBenhMauManTinh());
+            st.setBoolean(16, khaiBaoYTe.isBenhPhoiManTinh());
+            st.setBoolean (17, khaiBaoYTe.isBenhThanManTinh());
+            st.setBoolean(18, khaiBaoYTe.isBenhTimMach());
+            st.setBoolean(19, khaiBaoYTe.isHuyetApCao());
+            st.setBoolean (20, khaiBaoYTe.isHivSuyGiamMienDich());
+            st.setBoolean(21, khaiBaoYTe.isNguoiNhanGhepTang());
+            st.setBoolean(22, khaiBaoYTe.isTieuDuong());
+            st.setBoolean (23, khaiBaoYTe.isUngThu());
+            st.setBoolean(24, khaiBaoYTe.isCoThai());
             st.execute();
         } catch (SQLException e) {
             e.printStackTrace();
