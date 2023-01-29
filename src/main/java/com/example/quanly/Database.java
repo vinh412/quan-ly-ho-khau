@@ -681,4 +681,41 @@ public class Database {
             e.printStackTrace();
         }
     }
+
+    public static User findUser(String username, String password) {
+        String sql = "select * from users " +
+                     "where userName = \"" + username + "\" and passwd = \"" + password + "\" limit 1";
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        User result = null;
+        try{
+            st = conn.prepareStatement(sql);
+            System.out.println(st);
+            rs = st.executeQuery();
+            while(rs.next()){
+                User user = new User(rs.getInt("ID"), rs.getString("userName"), rs.getString("passwd"), rs.getInt("role"));
+                result = user;
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return result;
+    }
+    public static void insertDinhChinh(DinhChinh dinhChinh){
+        String sql = "insert into `dinh_chinh` (`idHoKhau`, `thongTinThayDoi`, `thayDoiTu`, `thayDoiThanh`, `ngayThayDoi`, `nguoiThayDoi`) values (?, ?, ?, ?, ?, ?)";
+        PreparedStatement st;
+        try{
+            st = conn.prepareStatement(sql);
+            st.setInt(1, dinhChinh.getIdHoKhau());
+            st.setString(2, dinhChinh.getThongTinThayDoi());
+            st.setString(3, dinhChinh.getThayDoiTu());
+            st.setString(4, dinhChinh.getThayDoiThanh());
+            st.setDate(5, Date.valueOf(dinhChinh.getNgayThayDoi()));
+            st.setInt(6, dinhChinh.getNguoiThayDoi());
+            System.out.println(st);
+            st.execute();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

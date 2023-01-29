@@ -1,6 +1,8 @@
 package com.example.quanly.controller.ho_khau;
 
 import com.example.quanly.Database;
+import com.example.quanly.controller.MainController;
+import com.example.quanly.models.DinhChinh;
 import com.example.quanly.models.HoKhau;
 import com.example.quanly.models.NhanKhau;
 import com.example.quanly.models.ThanhVienTrongHo;
@@ -12,11 +14,13 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
+import java.io.Console;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 public class TachHoController implements Initializable {
     private HoKhau hoKhau;
@@ -102,7 +106,11 @@ public class TachHoController implements Initializable {
         String maHoKhau = this.maHoKhauTF.getText();
         String maKhuVuc = this.maKhuVucTF.getText();
         String diaChi = this.diaChiTF.getText();
+
         HoKhau hoKhauMoi = new HoKhau(maHoKhau, this.chuHoMoi, maKhuVuc, diaChi, "", "");
+
+        System.out.println(this.thanhVien.stream().map(Object::toString).collect(Collectors.joining(", ")));
+        Database.insertDinhChinh(new DinhChinh(this.hoKhau.getID(), "tách hộ khẩu", this.thanhVien.stream().map(Object::toString).collect(Collectors.joining(", ")), this.nhanKhauTach.stream().map(Object::toString).collect(Collectors.joining(", ")), MainController.currentUser.getID()));
 
         Database.insertOneHoKhau(hoKhauMoi);
 
