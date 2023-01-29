@@ -4,26 +4,30 @@
 <?import javafx.scene.layout.*?>
 
 <VBox fx:id="nhan_khau_layout" prefHeight="600.0" prefWidth="880.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quanly.controller.nhan_khau.NhanKhauController">
-    <AnchorPane prefHeight="60.0" prefWidth="880.0">
-        <Button fx:id="themNhanKhauBtn" onAction="#onThemNhanKhauBtnClick" layoutX="14.0" layoutY="17.0" mnemonicParsing="false" text="Thêm nhân khẩu" textFill="#130fbd" />
-        <Button  fx:id="xoaNhanKhauBtn" layoutX="137.0" onAction="#onXoaNhanKhauBtnClick" layoutY="17.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="114.0" text="Xóa nhân khẩu" textFill="#130fbd"/>
-        <Button fx:id="capNhatNhanKhauBtn" onAction="#onCapNhatNhanKhauBtnClick" layoutX="271.0" layoutY="17.0" mnemonicParsing="false" text="Cập nhật nhân khẩu" textFill="#130fbd" />
-      <Button fx:id="tamTruBtn" onAction="#onTamTruBtnClick" layoutX="426.0" layoutY="17.0" mnemonicParsing="false" text="ĐK Tạm trú" />
-      <Button fx:id="tamVangBtn" onAction="#onTamVangBtnClick" layoutX="528.0" layoutY="18.0" mnemonicParsing="false" text="ĐK Tạm vắng" />
-      <Button fx:id="khaiTuBtn" onAction="#onKhaiTuBtnClick" layoutX="649.0" layoutY="18.0" mnemonicParsing="false" text="Khai tử" />
-    </AnchorPane>
-    <AnchorPane prefHeight="60.0" prefWidth="880.0">
-        <TextField fx:id="searchTF" layoutX="59.0" layoutY="8.0" prefHeight="46.0" prefWidth="388.0" />
-        <ComboBox fx:id="comboBox" layoutX="488.0" layoutY="7.0" prefHeight="46.0" prefWidth="150.0"/>
-        <Button fx:id="timKiemBtn" onAction="#onTimKiemBtnClick" layoutX="657.0" layoutY="8.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="113.0" text="Tìm kiếm" />
-    </AnchorPane>
+      <ToolBar layoutX="67.0" layoutY="12.0" prefWidth="666.0">
+         <items>
+              <Button fx:id="themNhanKhauBtn" mnemonicParsing="false" onAction="#onThemNhanKhauBtnClick" prefHeight="30.0" prefWidth="105.0" text="Thêm nhân khẩu" textFill="#130fbd" />
+              <Button mnemonicParsing="false" onAction="#onXoaNhanKhauBtnClick" prefHeight="30.0" prefWidth="114.0" text="Xóa nhân khẩu" textFill="#130fbd" fx:id="xoaNhanKhauBtn" />
+              <Button fx:id="capNhatNhanKhauBtn" mnemonicParsing="false" onAction="#onCapNhatNhanKhauBtnClick" prefHeight="30.0" text="Cập nhật nhân khẩu" textFill="#130fbd" />
+            <Button fx:id="tamTruBtn" mnemonicParsing="false" onAction="#onTamTruBtnClick" prefHeight="30.0" text="ĐK Tạm trú" />
+            <Button fx:id="tamVangBtn" mnemonicParsing="false" onAction="#onTamVangBtnClick" prefHeight="30.0" text="ĐK Tạm vắng" />
+            <Button fx:id="khaiTuBtn" mnemonicParsing="false" onAction="#onKhaiTuBtnClick" prefHeight="30.0" text="Khai tử" />
+         </items>
+      </ToolBar>
+      <ToolBar layoutX="-12.0" layoutY="3.0" prefWidth="725.0">
+         <items>
+              <TextField fx:id="searchTF" prefHeight="30.0" prefWidth="368.0" />
+              <ComboBox fx:id="comboBox" prefHeight="30.0" prefWidth="139.0" />
+              <Button fx:id="timKiemBtn" mnemonicParsing="false" onAction="#onTimKiemBtnClick" prefHeight="30.0" text="Tìm kiếm" />
+         </items>
+      </ToolBar>
     <TableView fx:id="tableView" prefHeight="464.0" prefWidth="880.0">
         <columns>
-            <TableColumn text="Mã nhân khẩu" fx:id="maNhanKhau"/>
-            <TableColumn text="Họ tên" fx:id="hoTen"/>
-            <TableColumn text="Giới tính" fx:id="gioiTinh"/>
-            <TableColumn text="Năm sinh" fx:id="namSinh" />
-            <TableColumn text="Địa chỉ hiện nay" fx:id="diaChiHienNay"/>
+            <TableColumn fx:id="maNhanKhau" text="Mã nhân khẩu" />
+            <TableColumn fx:id="hoTen" text="Họ tên" />
+            <TableColumn fx:id="gioiTinh" text="Giới tính" />
+            <TableColumn fx:id="namSinh" text="Năm sinh" />
+            <TableColumn fx:id="diaChiHienNay" text="Địa chỉ hiện nay" />
         </columns>
     </TableView>
 

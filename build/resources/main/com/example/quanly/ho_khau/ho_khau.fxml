@@ -1,25 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
 <VBox fx:id="ho_khau_layout" prefHeight="600.0" prefWidth="880.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quanly.controller.ho_khau.HoKhauController">
-    <AnchorPane prefHeight="60.0" prefWidth="880.0">
-        <Button fx:id="themHoBtn" layoutX="152.0" layoutY="17.0" mnemonicParsing="false" onAction="#onThemHoBtnClick" text="Thêm hộ khẩu" textFill="#130fbd" />
-        <Button fx:id="suaHoBtn" layoutX="308.0" layoutY="17.0" mnemonicParsing="false" onAction="#onSuaHoBtnClick" prefHeight="26.0" prefWidth="114.0" text="Sửa hộ khẩu" textFill="#130fbd" />
-        <Button layoutX="700.0" layoutY="17.0" mnemonicParsing="false" onAction="#onXoaHoBtnClick" text="Xóa hộ" textFill="#130fbd" fx:id="xoaHoBtn" />
-        <Button fx:id="tachHoBtn" onAction="#onTachHoBtnClick" layoutX="517.0" layoutY="17.0" mnemonicParsing="false" text="Tách hộ khẩu" />
-    </AnchorPane>
-    <AnchorPane prefHeight="60.0" prefWidth="880.0">
-        <TextField fx:id="searchTF" layoutX="59.0" layoutY="8.0" prefHeight="46.0" prefWidth="388.0" />
-        <ComboBox fx:id="comboBox" layoutX="488.0" layoutY="7.0" prefHeight="46.0" prefWidth="150.0" />
-        <Button fx:id="timKiemBtn" layoutX="657.0" layoutY="8.0" mnemonicParsing="false" onAction="#onTimKiemBtnClick" prefHeight="46.0" prefWidth="113.0" text="Tìm kiếm" />
-    </AnchorPane>
+      <ToolBar layoutX="14.0" layoutY="10.0" prefWidth="482.0">
+         <items>
+              <Button fx:id="themHoBtn" mnemonicParsing="false" onAction="#onThemHoBtnClick" prefHeight="30.0" prefWidth="92.0" text="Thêm hộ khẩu" textFill="#130fbd" />
+              <Button fx:id="suaHoBtn" mnemonicParsing="false" onAction="#onSuaHoBtnClick" prefHeight="30.0" prefWidth="114.0" text="Sửa hộ khẩu" textFill="#130fbd" />
+              <Button fx:id="tachHoBtn" mnemonicParsing="false" onAction="#onTachHoBtnClick" prefHeight="30.0" prefWidth="87.0" text="Tách hộ khẩu" />
+              <Button mnemonicParsing="false" onAction="#onXoaHoBtnClick" prefHeight="30.0" prefWidth="54.0" text="Xóa hộ" textFill="#130fbd" fx:id="xoaHoBtn" />
+         </items>
+      </ToolBar>
+      <ToolBar layoutX="37.0" layoutY="10.0" prefWidth="713.0">
+         <items>
+              <TextField fx:id="searchTF" prefHeight="30.0" prefWidth="361.0" />
+              <ComboBox fx:id="comboBox" prefHeight="30.0" prefWidth="129.0" />
+              <Button fx:id="timKiemBtn" mnemonicParsing="false" onAction="#onTimKiemBtnClick" prefHeight="30.0" prefWidth="70.0" text="Tìm kiếm" />
+         </items>
+      </ToolBar>
     <TableView fx:id="tableView" prefHeight="464.0" prefWidth="880.0">
         <columns>
             <TableColumn fx:id="maHoKhau" text="Mã hộ khẩu" />

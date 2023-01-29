@@ -5,17 +5,21 @@
 
 <VBox fx:id="covid_layout" prefHeight="600.0" prefWidth="880.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quanly.controller.covid.CovidController">
 
-    <AnchorPane prefHeight="60.0" prefWidth="880.0">
-        <Button layoutX="77.0" layoutY="17.0" mnemonicParsing="false" onAction="#onKhaiBaoYTeBtnClick" text="Khai báo y tế" textFill="#130fbd" />
-        <Button layoutX="245.0" layoutY="17.0" mnemonicParsing="false" onAction="#onGhiNhanThongTinCachLyBtnClick" prefHeight="26.0" prefWidth="158.0" text="Ghi nhận thông tin cách ly" textFill="#130fbd" />
-        <Button layoutX="484.0" layoutY="17.0" mnemonicParsing="false" onAction="#onThongKeKhaiBaoYTeBtnClick" text="Thống kê khai báo y tế" textFill="#130fbd" />
-        <Button layoutX="707.0" layoutY="17.0" mnemonicParsing="false" onAction="#onThongKeCachLyBtnClick" text="Thống kê cách ly" />
-    </AnchorPane>
-    <AnchorPane prefHeight="60.0" prefWidth="880.0">
-        <TextField fx:id="searchTF" layoutX="59.0" layoutY="8.0" prefHeight="46.0" prefWidth="388.0" />
-        <ComboBox fx:id="comboBox" layoutX="488.0" layoutY="7.0" prefHeight="46.0" prefWidth="150.0" />
-        <Button fx:id="timKiemBtn" layoutX="657.0" layoutY="8.0" mnemonicParsing="false" onAction="#onTimKiemBtnClick" prefHeight="46.0" prefWidth="113.0" text="Tìm kiếm" />
-    </AnchorPane>
+      <ToolBar layoutX="14.0" layoutY="10.0" prefWidth="526.0">
+         <items>
+              <Button mnemonicParsing="false" onAction="#onKhaiBaoYTeBtnClick" prefHeight="30.0" prefWidth="86.0" text="Khai báo y tế" textFill="#130fbd" />
+              <Button mnemonicParsing="false" onAction="#onGhiNhanThongTinCachLyBtnClick" prefHeight="30.0" prefWidth="158.0" text="Ghi nhận thông tin cách ly" textFill="#130fbd" />
+              <Button mnemonicParsing="false" onAction="#onThongKeKhaiBaoYTeBtnClick" prefHeight="30.0" prefWidth="137.0" text="Thống kê khai báo y tế" textFill="#130fbd" />
+              <Button mnemonicParsing="false" onAction="#onThongKeCachLyBtnClick" prefHeight="30.0" prefWidth="105.0" text="Thống kê cách ly" />
+         </items>
+      </ToolBar>
+      <ToolBar layoutX="163.0" layoutY="8.0" prefWidth="554.0">
+         <items>
+              <TextField fx:id="searchTF" prefHeight="33.0" prefWidth="308.0" />
+              <ComboBox fx:id="comboBox" prefHeight="30.0" prefWidth="115.0" />
+              <Button fx:id="timKiemBtn" mnemonicParsing="false" onAction="#onTimKiemBtnClick" prefHeight="30.0" prefWidth="68.0" text="Tìm kiếm" />
+         </items>
+      </ToolBar>
     <TableView fx:id="cachLyTableView" prefHeight="464.0" prefWidth="880.0">
         <columns>
             <TableColumn fx:id="maCachLyColumn" text="Mã cách ly" />
