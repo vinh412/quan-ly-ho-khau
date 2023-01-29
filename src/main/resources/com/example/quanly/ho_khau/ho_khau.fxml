@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox fx:id="ho_khau_layout" prefHeight="600.0" prefWidth="880.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quanly.controller.ho_khau.HoKhauController">
+<VBox fx:id="ho_khau_layout" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quanly.controller.ho_khau.HoKhauController">
       <ToolBar layoutX="14.0" layoutY="10.0" prefWidth="482.0">
          <items>
               <Button fx:id="themHoBtn" mnemonicParsing="false" onAction="#onThemHoBtnClick" prefHeight="30.0" prefWidth="92.0" text="Thêm hộ khẩu" textFill="#130fbd" />
@@ -19,7 +19,7 @@
               <Button fx:id="timKiemBtn" mnemonicParsing="false" onAction="#onTimKiemBtnClick" prefHeight="30.0" prefWidth="70.0" text="Tìm kiếm" />
          </items>
       </ToolBar>
-    <TableView fx:id="tableView" prefHeight="464.0" prefWidth="880.0">
+    <TableView fx:id="tableView" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="520.0" VBox.vgrow="ALWAYS">
         <columns>
             <TableColumn fx:id="maHoKhau" text="Mã hộ khẩu" />
             <TableColumn fx:id="idChuHo" text="ID chủ hộ" />

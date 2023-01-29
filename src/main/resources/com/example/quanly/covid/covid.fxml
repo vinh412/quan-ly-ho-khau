@@ -20,7 +20,7 @@
               <Button fx:id="timKiemBtn" mnemonicParsing="false" onAction="#onTimKiemBtnClick" prefHeight="30.0" prefWidth="68.0" text="Tìm kiếm" />
          </items>
       </ToolBar>
-    <TableView fx:id="cachLyTableView" prefHeight="464.0" prefWidth="880.0">
+    <TableView fx:id="cachLyTableView" prefHeight="464.0" prefWidth="880.0" VBox.vgrow="ALWAYS">
         <columns>
             <TableColumn fx:id="maCachLyColumn" text="Mã cách ly" />
             <TableColumn fx:id="idNhanKhauColumn" text="ID nhân khẩu" />

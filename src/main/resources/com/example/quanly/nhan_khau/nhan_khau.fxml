@@ -21,7 +21,7 @@
               <Button fx:id="timKiemBtn" mnemonicParsing="false" onAction="#onTimKiemBtnClick" prefHeight="30.0" text="Tìm kiếm" />
          </items>
       </ToolBar>
-    <TableView fx:id="tableView" prefHeight="464.0" prefWidth="880.0">
+    <TableView fx:id="tableView" maxHeight="1.7976931348623157E308" prefHeight="520.0" VBox.vgrow="ALWAYS">
         <columns>
             <TableColumn fx:id="maNhanKhau" text="Mã nhân khẩu" />
             <TableColumn fx:id="hoTen" text="Họ tên" />
