@@ -15,14 +15,30 @@ import java.util.ResourceBundle;
 
 public class MainController implements Initializable {
     public static User currentUser;
-    public MainController(User user){
-        this.currentUser = user;
-    }
+//    public MainController(User user){
+//        this.currentUser = user;
+//    }
     @FXML
     private BorderPane borderPane;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        onTrangChuBtnClick();
+    }
+    @FXML
+    private void onTrangChuBtnClick(){
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("trang_chu.fxml"));
+        Parent root = null;
+        try {
+            root = fxmlLoader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Node node = null;
+        if (root != null) {
+            node = root.lookup("#trang_chu_layout");
+        }
+        borderPane.setCenter(node);
     }
     @FXML
     private void onHoKhauBtnClick(){
@@ -75,5 +91,10 @@ public class MainController implements Initializable {
     @FXML
     private void onThongKeBtnClick(){
         System.out.println("Thong ke button clicked");
+    }
+
+    @FXML
+    private void exitApp(){
+        System.exit(0);
     }
 }

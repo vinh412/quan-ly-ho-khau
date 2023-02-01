@@ -1,11 +1,15 @@
 package com.example.quanly;
 
+import com.example.quanly.controller.LoginController;
 import com.example.quanly.controller.ho_khau.HoKhauController;
 import com.example.quanly.models.HoKhau;
+import com.example.quanly.models.User;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 

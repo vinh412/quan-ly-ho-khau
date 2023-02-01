@@ -1,40 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane fx:id="borderPane" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="borderPane" minHeight="630.0" minWidth="1080.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quanly.controller.MainController">
    <top>
-      <VBox prefHeight="120.0" prefWidth="1080.0" BorderPane.alignment="CENTER">
+      <AnchorPane minHeight="30.0" minWidth="1080.0" style="-fx-background-color: #120E43;" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" prefHeight="120.0" prefWidth="1080.0" style="-fx-background-color: #2ad1ce;" text="Quản Lý Hộ Khẩu" textFill="#233dd1">
-               <font>
-                  <Font size="55.0" />
-               </font>
-            </Label>
-         </children>
-      </VBox>
+            <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="1042.0" layoutY="3.0" onMouseClicked="#exitApp" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@drawable/cancel_96px.png" />
+               </image>
+            </ImageView>
+         </children></AnchorPane>
    </top>
    <left>
-      <VBox prefHeight="600.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="200.0" style="-fx-background-color: #538FFB #5B54FA;" BorderPane.alignment="CENTER">
+         <!--         <ToolBar orientation="VERTICAL" prefHeight="600.0" prefWidth="200.0">-->
+         <!--            <items>-->
+         <Button fx:id="trangChuBtn" alignment="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#onTrangChuBtnClick" prefWidth="200.0" style="-fx-background-color: #383CC1;" text="Trang Chủ">
+            <font>
+               <Font size="30.0" />
+            </font>
+            <VBox.margin>
+               <Insets bottom="20.0" right="10.0" top="20.0" />
+            </VBox.margin></Button>
+         <Button fx:id="hoKhauBtn" alignment="CENTER" mnemonicParsing="false" onAction="#onHoKhauBtnClick" prefHeight="66.0" prefWidth="200.0" text="Hộ Khẩu">
+            <font>
+               <Font size="30.0" />
+            </font>
+            <VBox.margin>
+               <Insets bottom="20.0" right="10.0" top="20.0" />
+            </VBox.margin></Button>
+         <Button fx:id="nhanKhauBtn" alignment="CENTER" mnemonicParsing="false" onAction="#onNhanKhauBtnClick" prefHeight="66.0" prefWidth="200.0" text="Nhân Khẩu">
+            <font>
+               <Font size="28.0" />
+            </font>
+            <VBox.margin>
+               <Insets bottom="20.0" right="10.0" top="20.0" />
+            </VBox.margin></Button>
+         <Button fx:id="covidBtn" alignment="CENTER" mnemonicParsing="false" onAction="#onCovidBtnClick" prefWidth="200.0" text="Covid">
+            <font>
+               <Font size="30.0" />
+            </font>
+            <VBox.margin>
+               <Insets bottom="20.0" right="10.0" top="20.0" />
+            </VBox.margin></Button>
+         <Button fx:id="thongKeBtn" alignment="CENTER" mnemonicParsing="false" onAction="#onThongKeBtnClick" prefWidth="200.0" text="Thống Kê">
+            <font>
+               <Font size="30.0" />
+            </font>
+            <VBox.margin>
+               <Insets bottom="20.0" right="10.0" top="20.0" />
+            </VBox.margin></Button>
+         <!--            </items>-->
+         <!--         </ToolBar>-->
          <children>
-            <Button fx:id="hoKhauBtn" mnemonicParsing="false" onAction="#onHoKhauBtnClick" prefHeight="150.0" prefWidth="200.0" text="Hộ Khẩu" textFill="#233dd1">
-               <font>
-                  <Font size="30.0" />
-               </font></Button>
-            <Button fx:id="nhanKhauBtn" mnemonicParsing="false" onAction="#onNhanKhauBtnClick" prefHeight="150.0" prefWidth="200.0" text="Nhân Khẩu" textFill="#233dd1">
-               <font>
-                  <Font size="30.0" />
-               </font></Button>
-            <Button fx:id="covidBtn" mnemonicParsing="false" onAction="#onCovidBtnClick" prefHeight="150.0" prefWidth="200.0" text="Covid" textFill="#233dd1">
-               <font>
-                  <Font size="30.0" />
-               </font></Button>
-            <Button fx:id="thongKeBtn" mnemonicParsing="false" onAction="#onThongKeBtnClick" prefHeight="150.0" prefWidth="200.0" text="Thống Kê" textFill="#233dd1">
-               <font>
-                  <Font size="30.0" />
-               </font></Button>
+            <!--            <Button fx:id="hoKhauBtn" mnemonicParsing="false" onAction="#onHoKhauBtnClick" prefHeight="150.0" prefWidth="200.0" text="Hộ Khẩu" textFill="#233dd1">-->
+            <!--               <font>-->
+            <!--                  <Font size="30.0" />-->
+            <!--               </font></Button>-->
+            <!--            <Button fx:id="nhanKhauBtn" mnemonicParsing="false" onAction="#onNhanKhauBtnClick" prefHeight="150.0" prefWidth="200.0" text="Nhân Khẩu" textFill="#233dd1">-->
+            <!--               <font>-->
+            <!--                  <Font size="30.0" />-->
+            <!--               </font></Button>-->
+            <!--            <Button fx:id="covidBtn" mnemonicParsing="false" onAction="#onCovidBtnClick" prefHeight="150.0" prefWidth="200.0" text="Covid" textFill="#233dd1">-->
+            <!--               <font>-->
+            <!--                  <Font size="30.0" />-->
+            <!--               </font></Button>-->
+            <!--            <Button fx:id="thongKeBtn" mnemonicParsing="false" onAction="#onThongKeBtnClick" prefHeight="150.0" prefWidth="200.0" text="Thống Kê" textFill="#233dd1">-->
+            <!--               <font>-->
+            <!--                  <Font size="30.0" />-->
+            <!--               </font></Button>-->
          </children>
       </VBox>
    </left>

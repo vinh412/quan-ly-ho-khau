@@ -3,7 +3,10 @@ package com.example.quanly.controller.ho_khau;
 import com.example.quanly.Database;
 import com.example.quanly.HelloApplication;
 import com.example.quanly.Popup;
+import com.example.quanly.controller.covid.GhiNhanThongTinCachLyController;
+import com.example.quanly.models.CachLy;
 import com.example.quanly.models.HoKhau;
+import com.example.quanly.models.ThanhVienTrongHo;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -18,6 +21,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class HoKhauController implements Initializable {
@@ -70,13 +74,35 @@ public class HoKhauController implements Initializable {
     @FXML
     private void onThemHoBtnClick() throws IOException {
         System.out.println("Them ho clicked");
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ho_khau/them_ho.fxml"));
-        Parent root = (Parent) fxmlLoader.load();
-        Node node = root.lookup("#them_ho_layout");
-        Popup popup = new Popup();
-        popup.setLayout(node);
-        popup.setTitle("Thêm hộ khẩu mới");
-        popup.show();
+        try {
+            // load the fxml file and create a new popup dialog
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ho_khau/them_ho.fxml"));
+            DialogPane themHoDialogPane = fxmlLoader.load();
+
+            Dialog<ButtonType> dialog = new Dialog<>();
+            dialog.setDialogPane(themHoDialogPane);
+            dialog.setTitle("Thêm hộ khẩu mới");
+
+            ThemHoController themHoController = fxmlLoader.getController();
+
+            Optional<ButtonType> clickedButton = dialog.showAndWait();
+            if(clickedButton.get() == ButtonType.OK){
+                if(themHoController.getChuHo() == null) return ;
+                String maHoKhau = themHoController.maHoKhauTF.getText();
+                String maKhuVuc = themHoController.maKhuVucTF.getText();
+                String diaChi = themHoController.diaChiTF.getText();
+                HoKhau hoKhau = new HoKhau(maHoKhau, themHoController.getChuHo(), maKhuVuc, diaChi, "", "");
+
+                Database.insertOneHoKhau(hoKhau);
+
+                for(int i=0;i<themHoController.getThanhVienTrongHo().size();i++){
+                    Database.insertOneThanhVienTrongHo(themHoController.getThanhVienTrongHo().get(i));
+                }
+                Database.insertOneThanhVienTrongHo(new ThanhVienTrongHo(themHoController.getChuHo(), themHoController.getChuHo(), "Chủ hộ"));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML

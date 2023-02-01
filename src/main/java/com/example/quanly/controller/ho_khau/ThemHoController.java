@@ -3,12 +3,14 @@ package com.example.quanly.controller.ho_khau;
 import com.example.quanly.Database;
 import com.example.quanly.HelloApplication;
 import com.example.quanly.Popup;
+import com.example.quanly.controller.nhan_khau.ChonNhanKhauController;
 import com.example.quanly.models.HoKhau;
 import com.example.quanly.models.NhanKhau;
 import com.example.quanly.models.ThanhVienTrongHo;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -22,10 +24,13 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class ThemHoController implements Initializable, IChonChuHo, IChonThanhVien {
 
+    @FXML
+    private DialogPane dialogPane;
     public TextField maHoKhauTF;
     public TextField maKhuVucTF;
     public TextField diaChiTF;
@@ -59,6 +64,14 @@ public class ThemHoController implements Initializable, IChonChuHo, IChonThanhVi
         listview.addAll(this.thanhVien);
         tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         tableView.setItems(listview);
+        dialogPane.lookupButton(ButtonType.OK).setDisable(true);
+        chuHoBtn.textProperty().addListener(observable -> {
+            if(this.chuHo == null){
+                dialogPane.lookupButton(ButtonType.OK).setDisable(true);
+            }
+            else
+                dialogPane.lookupButton(ButtonType.OK).setDisable(false);
+        });
     }
     @FXML
     private Button huyBtn;
@@ -108,17 +121,24 @@ public class ThemHoController implements Initializable, IChonChuHo, IChonThanhVi
         this.thanhVienTrongHo.add(new ThanhVienTrongHo(this.chuHo, thanhVien, quanHeVoiChuHo));
     }
     public void onChuHoBtnClick(ActionEvent actionEvent) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ho_khau/chon_chu_ho.fxml"));
-        ChonChuHoController chonChuHoController = new ChonChuHoController();
-        chonChuHoController.setParentController(this);
-        fxmlLoader.setController(chonChuHoController);
-        Parent root = fxmlLoader.load();
-        Node node = root.lookup("#chon_chu_ho_layout");
-        Popup popup = new Popup();
-        popup.setLayout(node);
-        popup.setTitle("Chọn chủ hộ");
-        popup.show();
-        System.out.println("Chon chu ho clicked");
+        try {
+            // load the fxml file and create a new popup dialog
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("nhan_khau/chon_nhan_khau.fxml"));
+            DialogPane chonNhanKhauDialogPane = fxmlLoader.load();
+
+            Dialog<ButtonType> dialog = new Dialog<>();
+            dialog.setDialogPane(chonNhanKhauDialogPane);
+            dialog.setTitle("Chọn nhân khẩu");
+
+            ChonNhanKhauController chonNhanKhauController = fxmlLoader.getController();
+            Optional<ButtonType> clickedButton = dialog.showAndWait();
+            if(clickedButton.get() == ButtonType.OK){
+                this.chuHo = chonNhanKhauController.getSelectedNhanKhau();
+                this.chuHoBtn.setText(this.chuHo.getHoTen());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void onThemBtnClick(ActionEvent actionEvent) throws IOException {
@@ -143,5 +163,12 @@ public class ThemHoController implements Initializable, IChonChuHo, IChonThanhVi
                 this.thanhVienTrongHo.remove(i);
             }
         }
+    }
+    public NhanKhau getChuHo(){
+        return this.chuHo;
+    }
+
+    public ArrayList<ThanhVienTrongHo> getThanhVienTrongHo() {
+        return thanhVienTrongHo;
     }
 }
