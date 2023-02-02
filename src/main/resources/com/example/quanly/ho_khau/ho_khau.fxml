@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="ho_khau_layout" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quanly.controller.ho_khau.HoKhauController">
+<VBox fx:id="ho_khau_layout" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quanly.controller.ho_khau.HoKhauController">
       <ToolBar layoutX="14.0" layoutY="10.0" prefWidth="482.0">
          <items>
-              <Button fx:id="themHoBtn" mnemonicParsing="false" onAction="#onThemHoBtnClick" prefHeight="30.0" prefWidth="92.0" text="Thêm hộ khẩu" textFill="#130fbd" />
-              <Button fx:id="suaHoBtn" mnemonicParsing="false" onAction="#onSuaHoBtnClick" prefHeight="30.0" prefWidth="114.0" text="Sửa hộ khẩu" textFill="#130fbd" />
+              <Button fx:id="themHoBtn" mnemonicParsing="false" onAction="#onThemHoBtnClick" prefHeight="30.0" prefWidth="92.0" text="Thêm hộ khẩu" />
+              <Button fx:id="suaHoBtn" mnemonicParsing="false" onAction="#onSuaHoBtnClick" prefHeight="30.0" prefWidth="114.0" text="Sửa hộ khẩu" />
               <Button fx:id="tachHoBtn" mnemonicParsing="false" onAction="#onTachHoBtnClick" prefHeight="30.0" prefWidth="87.0" text="Tách hộ khẩu" />
-              <Button mnemonicParsing="false" onAction="#onXoaHoBtnClick" prefHeight="30.0" prefWidth="54.0" text="Xóa hộ" textFill="#130fbd" fx:id="xoaHoBtn" />
+              <Button mnemonicParsing="false" onAction="#onXoaHoBtnClick" prefHeight="30.0" prefWidth="54.0" styleClass="btn-delete" stylesheets="@../css/btn-delete.css" text="Xóa hộ" textFill="#130fbd" fx:id="xoaHoBtn" />
          </items>
       </ToolBar>
       <ToolBar layoutX="37.0" layoutY="10.0" prefWidth="713.0">

@@ -4,7 +4,6 @@
 <?import javafx.scene.layout.*?>
 
 <VBox fx:id="covid_layout" prefHeight="600.0" prefWidth="880.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quanly.controller.covid.CovidController">
-
       <ToolBar layoutX="14.0" layoutY="10.0" prefWidth="526.0">
          <items>
               <Button mnemonicParsing="false" onAction="#onKhaiBaoYTeBtnClick" prefHeight="30.0" prefWidth="86.0" text="Khai báo y tế" textFill="#130fbd" />

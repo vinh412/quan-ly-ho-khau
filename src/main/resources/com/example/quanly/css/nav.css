@@ -1,0 +1,11 @@
+.nav-item{
+-fx-background-radius: 0;
+-fx-background-color: transparent;
+-fx-text-fill: #dcdde1;
+-fx-border-style: hidden hidden solid hidden;
+-fx-border-color: #353b48;
+}
+.nav-item:hover{
+-fx-background-color: #353b48;
+-fx-text-fill: #f5f6fa;
+}

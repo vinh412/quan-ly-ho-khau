@@ -471,7 +471,7 @@ public class Database {
         }
     }
 
-    public static List<CachLy> findCachLy(String key, String value){
+    public static ArrayList<CachLy> findCachLy(String key, String value){
         String sql = null;
         if(key.compareTo("*") == 0 || value.compareTo("") == 0){
             sql = "select * from cach_ly";
@@ -480,7 +480,7 @@ public class Database {
                     "where cach_ly." + key + " like " + "'"+value+"%'";
             // find all rows starting with `value`
         }
-        List<CachLy> result = new ArrayList<>();
+        ArrayList<CachLy> result = new ArrayList<>();
         ResultSet rs = null;
         PreparedStatement st = null;
         System.out.println(sql);
