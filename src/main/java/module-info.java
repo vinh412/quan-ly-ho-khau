@@ -14,6 +14,8 @@ module com.example.quanly {
     opens com.example.quanly.controller.ho_khau to javafx.fxml;
     exports com.example.quanly.controller.covid;
     opens com.example.quanly.controller.covid to javafx.fxml;
+    exports com.example.quanly.controller.thong_ke;
+    opens com.example.quanly.controller.thong_ke to javafx.fxml;
 
     opens com.example.quanly.models;
 }

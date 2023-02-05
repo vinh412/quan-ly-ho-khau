@@ -90,7 +90,18 @@ public class MainController implements Initializable {
 
     @FXML
     private void onThongKeBtnClick(){
-        System.out.println("Thong ke button clicked");
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("thong_ke/thong_ke.fxml"));
+        Parent root = null;
+        try {
+            root = fxmlLoader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Node node = null;
+        if (root != null) {
+            node = root.lookup("#thongke_layout");
+        }
+        borderPane.setCenter(node);
     }
 
     @FXML
