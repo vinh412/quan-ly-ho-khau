@@ -52,6 +52,7 @@ public class LoginController implements Initializable {
             accessRefusedLabel.setVisible(false);
             //
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("main.fxml"));
+            fxmlLoader.setController(new MainController(user));
             Scene scene = new Scene(fxmlLoader.load());
             Stage stage = (Stage) loginBtn.getScene().getWindow();
             stage.close();

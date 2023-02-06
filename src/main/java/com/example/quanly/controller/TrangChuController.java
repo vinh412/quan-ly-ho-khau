@@ -3,6 +3,7 @@ package com.example.quanly.controller;
 import com.example.quanly.Database;
 import com.example.quanly.HelloApplication;
 import com.example.quanly.models.GiayTamTru;
+import com.example.quanly.models.GiayTamVang;
 import com.example.quanly.models.HoKhau;
 import com.example.quanly.models.NhanKhau;
 import javafx.fxml.FXML;
@@ -24,12 +25,10 @@ public class TrangChuController {
     private Label tongTamVangLB;
     public void initialize(){
         ArrayList<HoKhau> hoKhauArrayList = Database.findHoKhau("*","");
-        tongHoKhauLB.setText(hoKhauArrayList.size()+"");
+        tongHoKhauLB.setText(String.valueOf(hoKhauArrayList.size()));
         ArrayList<NhanKhau> nhanKhauArrayList = Database.findNhanKhau("*","");
-        tongNhanKhauLB.setText(nhanKhauArrayList.size()+"");
-        //ArrayList<GiayTamTru> tamTruArrayList = Database.("*","");
-        //tongHoKhauLB.setText(hoKhauArrayList.size()+"");
-        //ArrayList<HoKhau> hoKhauArrayList = Database.findHoKhau("*","");
-        //tongHoKhauLB.setText(hoKhauArrayList.size()+"");
+        tongNhanKhauLB.setText(String.valueOf(nhanKhauArrayList.size()));
+        tongTamTruLB.setText(String.valueOf(Database.countTamTru()));
+        tongTamVangLB.setText(String.valueOf(Database.countTamVang()));
     }
 }

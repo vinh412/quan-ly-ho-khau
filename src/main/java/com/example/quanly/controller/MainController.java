@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
@@ -15,9 +16,9 @@ import java.util.ResourceBundle;
 
 public class MainController implements Initializable {
     public static User currentUser;
-//    public MainController(User user){
-//        this.currentUser = user;
-//    }
+    public MainController(User user){
+        this.currentUser = user;
+    }
     @FXML
     private BorderPane borderPane;
 
@@ -42,66 +43,94 @@ public class MainController implements Initializable {
     }
     @FXML
     private void onHoKhauBtnClick(){
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ho_khau/ho_khau.fxml"));
-        Parent root = null;
-        try {
-            root = fxmlLoader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
+        if(currentUser.getRole() == 0) {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ho_khau/ho_khau.fxml"));
+            Parent root = null;
+            try {
+                root = fxmlLoader.load();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Node node = null;
+            if (root != null) {
+                node = root.lookup("#ho_khau_layout");
+            }
+            borderPane.setCenter(node);
+        }else{
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("auth.permission.none");
+            alert.setContentText("You are not authorized to view this page");
+            alert.showAndWait();
         }
-        Node node = null;
-        if (root != null) {
-            node = root.lookup("#ho_khau_layout");
-        }
-        borderPane.setCenter(node);
     }
 
     @FXML
     private void onNhanKhauBtnClick(){
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("nhan_khau/nhan_khau.fxml"));
-        Parent root = null;
-        try {
-            root = fxmlLoader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
+        if(currentUser.getRole() == 0) {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("nhan_khau/nhan_khau.fxml"));
+            Parent root = null;
+            try {
+                root = fxmlLoader.load();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Node node = null;
+            if (root != null) {
+                node = root.lookup("#nhan_khau_layout");
+            }
+            borderPane.setCenter(node);
+        }else{
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("auth.permission.none");
+            alert.setContentText("You are not authorized to view this page");
+            alert.showAndWait();
         }
-        Node node = null;
-        if (root != null) {
-            node = root.lookup("#nhan_khau_layout");
-        }
-        borderPane.setCenter(node);
     }
 
     @FXML
     private void onCovidBtnClick(){
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("covid/covid.fxml"));
-        Parent root = null;
-        try {
-            root = fxmlLoader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
+        if(currentUser.getRole() == 1) {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("covid/covid.fxml"));
+            Parent root = null;
+            try {
+                root = fxmlLoader.load();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Node node = null;
+            if (root != null) {
+                node = root.lookup("#covid_layout");
+            }
+            borderPane.setCenter(node);
+        }else{
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("auth.permission.none");
+            alert.setContentText("You are not authorized to view this page");
+            alert.showAndWait();
         }
-        Node node = null;
-        if (root != null) {
-            node = root.lookup("#covid_layout");
-        }
-        borderPane.setCenter(node);
     }
 
     @FXML
     private void onThongKeBtnClick(){
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("thong_ke/thong_ke.fxml"));
-        Parent root = null;
-        try {
-            root = fxmlLoader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
+        if(currentUser.getRole() == 0) {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("thong_ke/thong_ke.fxml"));
+            Parent root = null;
+            try {
+                root = fxmlLoader.load();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Node node = null;
+            if (root != null) {
+                node = root.lookup("#thongke_layout");
+            }
+            borderPane.setCenter(node);
+        }else{
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("auth.permission.none");
+            alert.setContentText("You are not authorized to view this page");
+            alert.showAndWait();
         }
-        Node node = null;
-        if (root != null) {
-            node = root.lookup("#thongke_layout");
-        }
-        borderPane.setCenter(node);
     }
 
     @FXML

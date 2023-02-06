@@ -718,4 +718,34 @@ public class Database {
             throw new RuntimeException(e);
         }
     }
+    public static int countTamVang(){
+        String sql = "select * from tam_vang";
+        PreparedStatement st;
+        ResultSet rs;
+        int cnt = 0;
+        try{
+            st = conn.prepareStatement(sql);
+            System.out.println(st);
+            rs = st.executeQuery();
+            while(rs.next()) cnt+=1;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return cnt;
+    }
+    public static int countTamTru(){
+        String sql = "select * from tam_tru";
+        PreparedStatement st;
+        ResultSet rs;
+        int cnt = 0;
+        try{
+            st = conn.prepareStatement(sql);
+            System.out.println(st);
+            rs = st.executeQuery();
+            while(rs.next()) cnt+=1;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return cnt;
+    }
 }
