@@ -213,7 +213,7 @@ public class Database {
             sql = "select * from nhan_khau";
         }else {
             sql = "select * from nhan_khau " +
-                    "where nhan_khau." + key + " like " + "'"+value+"%'";
+                    "where nhan_khau." + key + " like " + "'"+ "%" +value+"%'";
             // find all rows starting with `value`
         }
         ArrayList<NhanKhau> result = new ArrayList<>();
