@@ -61,6 +61,7 @@ public class LoginController implements Initializable {
             Stage appStage = new Stage();
             appStage.resizableProperty().setValue(false);
             appStage.setScene(scene);
+            appStage.setTitle("Quản Lý Hộ Khẩu");
             appStage.show();
         }
     }
