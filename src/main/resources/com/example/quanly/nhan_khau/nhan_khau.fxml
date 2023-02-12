@@ -18,7 +18,6 @@
          <items>
               <TextField fx:id="searchTF" prefHeight="30.0" prefWidth="368.0" />
               <ComboBox fx:id="comboBox" prefHeight="30.0" prefWidth="139.0" />
-              <Button fx:id="timKiemBtn" mnemonicParsing="false" onAction="#onTimKiemBtnClick" prefHeight="30.0" text="Tìm kiếm" />
          </items>
       </ToolBar>
     <TableView fx:id="tableView" maxHeight="1.7976931348623157E308" prefHeight="520.0" VBox.vgrow="ALWAYS">
