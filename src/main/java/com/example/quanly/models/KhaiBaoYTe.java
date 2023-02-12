@@ -62,7 +62,38 @@ public class KhaiBaoYTe {
         this.ungThu = ungThu;
         this.coThai = coThai;
     }
-
+    public KhaiBaoYTe(String maPhieuKhaiBaoYTe, int idNhanKhau, String ngayKhaiBao,
+                      boolean tiepXucVoiNguoiBenhKhong, boolean diVeTuVungDichKhong,
+                      boolean tiepXucVoiNguoiDiVeTuVungDichKhong, String daDenQuocGia, boolean sot, boolean ho,
+                      boolean khoTho, boolean viemPhoi, boolean dauHong, boolean metMoi, boolean benhGanManTinh,
+                      boolean benhMauManTinh, boolean benhPhoiManTinh, boolean benhThanManTinh,
+                      boolean benhTimMach, boolean huyetApCao, boolean hivSuyGiamMienDich,
+                      boolean nguoiNhanGhepTang, boolean tieuDuong, boolean ungThu, boolean coThai){
+        this.maPhieuKhaiBaoYTe = maPhieuKhaiBaoYTe;
+        this.idNhanKhau = idNhanKhau;
+        this.thoiGianKhaiBao = ngayKhaiBao;
+        this.tiepXucVoiNguoiBenhKhong = tiepXucVoiNguoiBenhKhong;
+        this.diVeTuVungDichKhong = diVeTuVungDichKhong;
+        this.tiepXucVoiNguoiDiVeTuVungDichKhong = tiepXucVoiNguoiDiVeTuVungDichKhong;
+        this.daDenQuocGia = daDenQuocGia;
+        this.sot = sot;
+        this.ho = ho;
+        this.khoTho = khoTho;
+        this.viemPhoi = viemPhoi;
+        this.dauHong = dauHong;
+        this.metMoi = metMoi;
+        this.benhGanManTinh = benhGanManTinh;
+        this.benhMauManTinh = benhMauManTinh;
+        this.benhPhoiManTinh = benhPhoiManTinh;
+        this.benhThanManTinh = benhThanManTinh;
+        this.benhTimMach = benhTimMach;
+        this.huyetApCao = huyetApCao;
+        this.hivSuyGiamMienDich = hivSuyGiamMienDich;
+        this.nguoiNhanGhepTang = nguoiNhanGhepTang;
+        this.tieuDuong = tieuDuong;
+        this.ungThu = ungThu;
+        this.coThai = coThai;
+    }
     public int getID() {
         return id;
     }

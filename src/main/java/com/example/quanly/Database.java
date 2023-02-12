@@ -505,6 +505,59 @@ public class Database {
         }
         return result;
     }
+    public static ArrayList<KhaiBaoYTe> findKhaiBao(String key, String value){
+        String sql = null;
+        if(key.compareTo("*") == 0 || value.compareTo("") == 0){
+            sql = "select * from phieu_khai_bao_y_te";
+        }else {
+            sql = "select * from phieu_khai_bao_y_te " +
+                    "where cach_ly." + key + " like " + "'"+value+"%'";
+            // find all rows starting with `value`
+        }
+        ArrayList<KhaiBaoYTe> result = new ArrayList<>();
+        ResultSet rs = null;
+        PreparedStatement st = null;
+        System.out.println(sql);
+        try{
+            st = conn.prepareStatement(sql);
+            rs = st.executeQuery();
+
+            while(rs.next()){
+                int ID = rs.getInt("ID");
+                String maPhieuKhaiBaoYTe = rs.getString("maPhieuKhaiBaoYTe");
+                int idNhanKhau = rs.getInt("idNhanKhau");
+                String thoiGianKhaibao = rs.getDate("thoiGianKhaiBao").toLocalDate().toString();
+                boolean tiepXucVoiNguoiBenh = rs.getInt("tiepXucVoiNguoiBenh")!=0;
+                boolean diVeTuVungDich = rs.getInt("diVeTuVungDich")!=0;
+                boolean tiepXucVoiNguoiDiVeTuVungDich = rs.getInt("tiepXucVoiNguoiDiVeTuVungDich")!=0;
+                String daDenQuocGia = rs.getString("daDenQuocGia");
+                boolean sot = rs.getInt("sot")!=0;
+                boolean ho = rs.getInt("ho")!=0;
+                boolean khoTho = rs.getInt("khoTho")!=0;
+                boolean viemPhoi = rs.getInt("viemPhoi")!=0;
+                boolean dauHong = rs.getInt("dauHong")!=0;
+                boolean metMoi = rs.getInt("metMoi")!=0;
+                boolean benhGanManTinh = rs.getInt("benhGanManTinh")!=0;
+                boolean benhMauManTinh = rs.getInt("benhMauManTinh")!=0;
+                boolean benhPhoiManTinh = rs.getInt("benhPhoiManTinh")!=0;
+                boolean benhThanManTinh = rs.getInt("benhThanManTinh")!=0;
+                boolean benhTimMach = rs.getInt("benhTimMach")!=0;
+                boolean huyetApCao = rs.getInt("huyetApCao")!=0;
+                boolean HIVSuyGiamMienDich = rs.getInt("HIVSuyGiamMienDich")!=0;
+                boolean nguoiNhanGhepTang = rs.getInt("nguoiNhanGhepTang")!=0;
+                boolean tieuDuong = rs.getInt("TieuDuong")!=0;
+                boolean ungThu = rs.getInt("ungThu")!=0;
+                boolean coThai = rs.getInt("coThai")!=0;
+                KhaiBaoYTe khaiBaoYTe = new KhaiBaoYTe(ID, maPhieuKhaiBaoYTe, idNhanKhau, thoiGianKhaibao, tiepXucVoiNguoiBenh, diVeTuVungDich, tiepXucVoiNguoiDiVeTuVungDich, daDenQuocGia, sot, ho, khoTho, viemPhoi, dauHong, metMoi, benhGanManTinh,
+                        benhMauManTinh, benhPhoiManTinh, benhThanManTinh, benhTimMach, huyetApCao, HIVSuyGiamMienDich,
+                        nguoiNhanGhepTang, tieuDuong, ungThu, coThai);
+                result.add(khaiBaoYTe);
+            }
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
 
     public static void addOneKhaiBaoYTe(KhaiBaoYTe khaiBaoYTe){
 
@@ -541,6 +594,7 @@ public class Database {
             st.setBoolean(22, khaiBaoYTe.isTieuDuong());
             st.setBoolean (23, khaiBaoYTe.isUngThu());
             st.setBoolean(24, khaiBaoYTe.isCoThai());
+            System.out.println(st);
             st.execute();
         } catch (SQLException e) {
             e.printStackTrace();

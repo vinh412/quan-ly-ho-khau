@@ -69,7 +69,7 @@ public class KhaiBaoYTeController {
         boolean ungThu = ungThuCB.isSelected();
         boolean coThai = coThaiCB.isSelected();
 
-        return new KhaiBaoYTe(-1, null, selectedNhanKhau.getID(), LocalDate.now().toString(),
+        return new KhaiBaoYTe(null, selectedNhanKhau.getID(), LocalDate.now().toString(),
                 tiepXucNguoiBenhKhong, diVeTuVungDichKhong, tiepXucNguoiDiVeTuVungDichKhong, daDenQuocGia, sot,
                 ho, khoTho, viemPhoi, dauHong, metMoi, benhGanManTinh, benhMauManTinh, benhPhoiManTinh, benhThanManTinh,
                 benhTimMach, huyetApCao, hivSuyGiamMienDich, nguoiNhanGhepTang, tieuDuong, ungThu, coThai);

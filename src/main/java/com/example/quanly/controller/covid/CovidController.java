@@ -10,17 +10,22 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.ResourceBundle;
 
-public class CovidController {
+public class CovidController implements Initializable {
     @FXML
     private TableView<CachLy> cachLyTableView;
     @FXML
@@ -41,22 +46,22 @@ public class CovidController {
     private ArrayList<CachLy> cachLyList;
     @FXML
     private ComboBox<String> comboBox;
-    public void initialize(){
-        String[] items = {"Mã cách ly", "Địa điểm cách ly", "ID nhân khẩu", "Thời gian khai báo", "Mức độ cách ly"};
-        comboBox.getItems().addAll(items);
-        comboBox.setValue(items[0]);
-
-        maCachLyColumn.setCellValueFactory(new PropertyValueFactory<>("maCachLy"));
-        idNhanKhauColumn.setCellValueFactory(new PropertyValueFactory<>("idNhanKhau"));
-        thoiGianKhaiBaoColumn.setCellValueFactory(new PropertyValueFactory<>("thoiGianKhaiBao"));
-        diaDiemCachLyColumn.setCellValueFactory(new PropertyValueFactory<>("diaDiemCachLy"));
-        tuNgayColumn.setCellValueFactory(new PropertyValueFactory<>("tuNgay"));
-        denNgayColumn.setCellValueFactory(new PropertyValueFactory<>("denNgay"));
-        mucDoCachLyColumn.setCellValueFactory(new PropertyValueFactory<>("mucDoCachLy"));
-        cachLyList = Database.findCachLy("*","");
-        cachLyObservableList.addAll(cachLyList);
-        cachLyTableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
-        cachLyTableView.setItems(cachLyObservableList);
+    @FXML
+    private BorderPane borderPane;
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        FXMLLoader fxmlLoader_center = new FXMLLoader(HelloApplication.class.getResource("covid/covid_main.fxml"));
+        Parent root_center = null;
+        try {
+            root_center = fxmlLoader_center.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Node node_center = null;
+        if (root_center != null) {
+            node_center = root_center.lookup("#trang_chu_layout");
+        }
+        borderPane.setCenter(node_center);
     }
     @FXML
     private void onKhaiBaoYTeBtnClick(){
@@ -109,12 +114,33 @@ public class CovidController {
 
     @FXML
     private void onThongKeKhaiBaoYTeBtnClick(){
-
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("covid/thong_ke_khai_bao.fxml"));
+        Parent root = null;
+        try {
+            root = fxmlLoader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Node node = null;
+        if (root != null) {
+            node = root.lookup("#tk_kb_layout");
+        }
+        borderPane.setCenter(node);
     }
-
     @FXML
     private void onThongKeCachLyBtnClick(){
-
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("covid/thong_ke_cach_ly.fxml"));
+        Parent root = null;
+        try {
+            root = fxmlLoader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Node node = null;
+        if (root != null) {
+            node = root.lookup("#tk_cl_layout");
+        }
+        borderPane.setCenter(node);
     }
     @FXML
     private TextField searchTF;
@@ -136,4 +162,5 @@ public class CovidController {
         cachLyTableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         cachLyTableView.setItems(cachLyObservableList);
     }
+
 }
