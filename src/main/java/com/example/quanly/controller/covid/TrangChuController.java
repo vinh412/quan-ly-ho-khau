@@ -19,6 +19,8 @@ public class TrangChuController {
     private Label tongDaKhaiBao;
     @FXML
     private Label tongChuaKhaiBao;
+    @FXML
+    private Label tongNhanKhauMac;
     public void initialize(){
         ArrayList<CachLy> cachLyArrayList = Database.findCachLy("*", "");
         ArrayList<KhaiBaoYTe> khaiBaoYTeArrayList = Database.findKhaiBao("*", "");
@@ -29,8 +31,12 @@ public class TrangChuController {
         for(KhaiBaoYTe x: khaiBaoYTeArrayList){
             idNhanKhauSet.add(x.getID());
         }
+        int t=0;
+        for(CachLy c: cachLyArrayList){
+            if(c.getMucDoCachLy().equals("F0")) t+=1;
+        }
         this.tongDaKhaiBao.setText(String.valueOf(idNhanKhauSet.size()));
         this.tongChuaKhaiBao.setText(String.valueOf(nhanKhauArrayList.size() - idNhanKhauSet.size()));
-
+        this.tongNhanKhauMac.setText(String.valueOf(t));
     }
 }
