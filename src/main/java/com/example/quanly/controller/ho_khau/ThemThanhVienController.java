@@ -17,6 +17,8 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class ThemThanhVienController implements Initializable {
+
+    private ArrayList<NhanKhau> list;
     @FXML
     private TextField searchTF;
     @FXML
@@ -51,10 +53,45 @@ public class ThemThanhVienController implements Initializable {
         gioiTinh.setCellValueFactory(new PropertyValueFactory<>("gioiTinh"));
         namSinh.setCellValueFactory(new PropertyValueFactory<>("namSinh"));
         diaChiHienNay.setCellValueFactory(new PropertyValueFactory<>("diaChiHienNay"));
-        ArrayList<NhanKhau> list = Database.findNhanKhau("*", "");
+        list = Database.findNhanKhau("*", "");
         listview.addAll(list);
         tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         tableView.setItems(listview);
+
+        searchTF.textProperty().addListener((observable, oldValue, newValue) -> {
+            ObservableList<NhanKhau> filterList = FXCollections.observableArrayList();
+            switch (comboBox.getValue()){
+                case "Họ tên":
+                    for(NhanKhau nhanKhau : list){
+                        if(nhanKhau.getHoTen().toLowerCase().contains(newValue.toLowerCase())){
+                            filterList.add(nhanKhau);
+                        }
+                    }
+                    tableView.getItems().clear();
+                    tableView.setItems(filterList);
+                    break;
+
+                case "Mã nhân khẩu":
+                    for(NhanKhau nhanKhau : list){
+                        if(nhanKhau.getMaNhanKhau().toLowerCase().contains(newValue.toLowerCase())){
+                            filterList.add(nhanKhau);
+                        }
+                    }
+                    tableView.getItems().clear();
+                    tableView.setItems(filterList);
+                    break;
+
+                case "Địa chỉ hiện nay":
+                    for(NhanKhau nhanKhau : list){
+                        if(nhanKhau.getDiaChiHienNay().toLowerCase().contains(newValue.toLowerCase())){
+                            filterList.add(nhanKhau);
+                        }
+                    }
+                    tableView.getItems().clear();
+                    tableView.setItems(filterList);
+                    break;
+            }
+        });
     }
     IChonThanhVien themHoController;
     public void setParentController(IChonThanhVien themHoController) {
@@ -67,25 +104,25 @@ public class ThemThanhVienController implements Initializable {
         Stage stage = (Stage) chonBtn.getScene().getWindow();
         stage.close();
     }
-    @FXML
-    public void onTimKiemBtnClick(ActionEvent actionEvent) {
-        System.out.println("search by" + comboBox.getValue() + searchTF.getText());
-        String field = null;
-        switch (comboBox.getValue()){
-            case "Họ tên":
-                field = "hoTen";
-                break;
-            case "Mã nhân khẩu":
-                field = "maNhanKhau";
-                break;
-            case "Địa chỉ hiện nay":
-                field = "diaChiHienNay";
-                break;
-        }
-        ArrayList<NhanKhau> list = Database.findNhanKhau(field, searchTF.getText());
-        listview = FXCollections.observableArrayList();
-        listview.addAll(list);
-        tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
-        tableView.setItems(listview);
-    }
+//    @FXML
+//    public void onTimKiemBtnClick(ActionEvent actionEvent) {
+//        System.out.println("search by" + comboBox.getValue() + searchTF.getText());
+//        String field = null;
+//        switch (comboBox.getValue()){
+//            case "Họ tên":
+//                field = "hoTen";
+//                break;
+//            case "Mã nhân khẩu":
+//                field = "maNhanKhau";
+//                break;
+//            case "Địa chỉ hiện nay":
+//                field = "diaChiHienNay";
+//                break;
+//        }
+//        ArrayList<NhanKhau> list = Database.findNhanKhau(field, searchTF.getText());
+//        listview = FXCollections.observableArrayList();
+//        listview.addAll(list);
+//        tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+//        tableView.setItems(listview);
+//    }
 }

@@ -17,6 +17,8 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class ChonNhanKhauController {
+
+    private ArrayList<NhanKhau> list;
     @FXML
     private DialogPane dialogPane;
     @FXML
@@ -50,11 +52,47 @@ public class ChonNhanKhauController {
         gioiTinh.setCellValueFactory(new PropertyValueFactory<>("gioiTinh"));
         namSinh.setCellValueFactory(new PropertyValueFactory<>("namSinh"));
         diaChiHienNay.setCellValueFactory(new PropertyValueFactory<>("diaChiHienNay"));
-        ArrayList<NhanKhau> list = Database.findNhanKhau("*", "");
+        list = Database.findNhanKhau("*", "");
         listview.addAll(list);
         tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         tableView.setItems(listview);
         dialogPane.lookupButton(ButtonType.OK).setDisable(true);
+
+        searchTF.textProperty().addListener((observable, oldValue, newValue) -> {
+            ObservableList<NhanKhau> filterList = FXCollections.observableArrayList();
+            switch (comboBox.getValue()){
+                case "Họ tên":
+                    for(NhanKhau nhanKhau : list){
+                        if(nhanKhau.getHoTen().toLowerCase().contains(newValue.toLowerCase())){
+                            filterList.add(nhanKhau);
+                        }
+                    }
+                    tableView.getItems().clear();
+                    tableView.setItems(filterList);
+                    break;
+
+                case "Mã nhân khẩu":
+                    for(NhanKhau nhanKhau : list){
+                        if(nhanKhau.getMaNhanKhau().toLowerCase().contains(newValue.toLowerCase())){
+                            filterList.add(nhanKhau);
+                        }
+                    }
+                    tableView.getItems().clear();
+                    tableView.setItems(filterList);
+                    break;
+
+                case "Địa chỉ hiện nay":
+                    for(NhanKhau nhanKhau : list){
+                        if(nhanKhau.getDiaChiHienNay().toLowerCase().contains(newValue.toLowerCase())){
+                            filterList.add(nhanKhau);
+                        }
+                    }
+                    tableView.getItems().clear();
+                    tableView.setItems(filterList);
+                    break;
+            }
+        });
+
         tableView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
             @Override
             public void changed(ObservableValue observableValue, Object oldValue, Object newValue) {

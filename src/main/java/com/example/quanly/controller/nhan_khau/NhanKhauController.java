@@ -21,6 +21,8 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class NhanKhauController implements Initializable {
+
+    private ArrayList<NhanKhau> list;
     @FXML
     private TextField searchTF;
     @FXML
@@ -52,10 +54,46 @@ public class NhanKhauController implements Initializable {
         gioiTinh.setCellValueFactory(new PropertyValueFactory<>("gioiTinh"));
         namSinh.setCellValueFactory(new PropertyValueFactory<>("namSinh"));
         diaChiHienNay.setCellValueFactory(new PropertyValueFactory<>("diaChiHienNay"));
-        ArrayList<NhanKhau> list = Database.findNhanKhau("*", "");
+        list = Database.findNhanKhau("*", "");
         listview.addAll(list);
+
         tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         tableView.setItems(listview);
+
+        searchTF.textProperty().addListener((observable, oldValue, newValue) -> {
+            ObservableList<NhanKhau> filterList = FXCollections.observableArrayList();
+            switch (comboBox.getValue()){
+                case "Họ tên":
+                    for(NhanKhau nhanKhau : list){
+                        if(nhanKhau.getHoTen().toLowerCase().contains(newValue.toLowerCase())){
+                            filterList.add(nhanKhau);
+                        }
+                    }
+                    tableView.getItems().clear();
+                    tableView.setItems(filterList);
+                    break;
+
+                case "Mã nhân khẩu":
+                    for(NhanKhau nhanKhau : list){
+                        if(nhanKhau.getMaNhanKhau().toLowerCase().contains(newValue.toLowerCase())){
+                            filterList.add(nhanKhau);
+                        }
+                    }
+                    tableView.getItems().clear();
+                    tableView.setItems(filterList);
+                    break;
+
+                case "Địa chỉ hiện nay":
+                    for(NhanKhau nhanKhau : list){
+                        if(nhanKhau.getDiaChiHienNay().toLowerCase().contains(newValue.toLowerCase())){
+                            filterList.add(nhanKhau);
+                        }
+                    }
+                    tableView.getItems().clear();
+                    tableView.setItems(filterList);
+                    break;
+            }
+        });
     }
 
     public void onThemNhanKhauBtnClick() {

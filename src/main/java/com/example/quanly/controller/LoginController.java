@@ -23,6 +23,7 @@ import java.time.temporal.Temporal;
 import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
+    double x,y = 0;
     @FXML
     public TextField usernameTF;
     @FXML
@@ -56,8 +57,9 @@ public class LoginController implements Initializable {
             Scene scene = new Scene(fxmlLoader.load());
             Stage stage = (Stage) loginBtn.getScene().getWindow();
             stage.close();
+
             Stage appStage = new Stage();
-            appStage.initStyle(StageStyle.UNDECORATED);
+            appStage.resizableProperty().setValue(false);
             appStage.setScene(scene);
             appStage.show();
         }

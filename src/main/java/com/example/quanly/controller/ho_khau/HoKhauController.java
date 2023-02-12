@@ -6,6 +6,7 @@ import com.example.quanly.Popup;
 import com.example.quanly.controller.covid.GhiNhanThongTinCachLyController;
 import com.example.quanly.models.CachLy;
 import com.example.quanly.models.HoKhau;
+import com.example.quanly.models.NhanKhau;
 import com.example.quanly.models.ThanhVienTrongHo;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -25,6 +26,8 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class HoKhauController implements Initializable {
+
+    private ArrayList<HoKhau> list;
     @FXML
     private TextField searchTF;
     @FXML
@@ -65,10 +68,66 @@ public class HoKhauController implements Initializable {
         ngayChuyenDi.setCellValueFactory(new PropertyValueFactory<>("ngayChuyenDi"));
         lyDoChuyen.setCellValueFactory(new PropertyValueFactory<>("lyDoChuyen"));
         nguoiThucHien.setCellValueFactory(new PropertyValueFactory<>("nguoiThucHien"));
-        ArrayList<HoKhau> list = Database.findHoKhau("*", "");
+        list = Database.findHoKhau("*", "");
         listview.addAll(list);
         tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         tableView.setItems(listview);
+
+        searchTF.textProperty().addListener((observable, oldValue, newValue) -> {
+            ObservableList<HoKhau> filterList = FXCollections.observableArrayList();
+            switch (comboBox.getValue()){
+                case "Mã hộ khẩu":
+                    for(HoKhau hoKhau : list){
+                        if(hoKhau.getMaHoKhau().toLowerCase().contains(newValue.toLowerCase())){
+                            filterList.add(hoKhau);
+                        }
+                    }
+                    tableView.getItems().clear();
+                    tableView.setItems(filterList);
+                    break;
+
+                case "ID chủ hộ":
+                    for(HoKhau hoKhau : list){
+                        String idChuHo = hoKhau.getIdChuHo() + "";
+                        if(idChuHo.toLowerCase().contains(newValue.toLowerCase())){
+                            filterList.add(hoKhau);
+                        }
+                    }
+                    tableView.getItems().clear();
+                    tableView.setItems(filterList);
+                    break;
+
+                case "Mã khu vực":
+                    for(HoKhau hoKhau : list){
+                        if(hoKhau.getMaKhuVuc().toLowerCase().contains(newValue.toLowerCase())){
+                            filterList.add(hoKhau);
+                        }
+                    }
+                    tableView.getItems().clear();
+                    tableView.setItems(filterList);
+                    break;
+
+                case "Địa chỉ":
+                    for(HoKhau hoKhau : list){
+                        if(hoKhau.getDiaChi().toLowerCase().contains(newValue.toLowerCase())){
+                            filterList.add(hoKhau);
+                        }
+                    }
+                    tableView.getItems().clear();
+                    tableView.setItems(filterList);
+                    break;
+
+                case "Ngày lập":
+                    for(HoKhau hoKhau : list){
+                        if(hoKhau.getNgayLap().toLowerCase().contains(newValue.toLowerCase())){
+                            filterList.add(hoKhau);
+                        }
+                    }
+                    tableView.getItems().clear();
+                    tableView.setItems(filterList);
+                    break;
+            }
+        });
     }
 
     @FXML
