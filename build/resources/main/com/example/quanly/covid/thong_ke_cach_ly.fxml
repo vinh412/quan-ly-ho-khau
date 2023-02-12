@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.text.Font?>
+<VBox fx:id="tk_cl_layout" prefHeight="600.0" prefWidth="880.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quanly.controller.covid.ThongKeCachLyController">
+      <ToolBar layoutX="163.0" layoutY="8.0" prefWidth="554.0">
+         <items>
+              <TextField fx:id="searchTF" prefHeight="33.0" prefWidth="308.0" />
+              <ComboBox fx:id="comboBox" prefHeight="30.0" prefWidth="115.0" />
+              <Button fx:id="timKiemBtn" mnemonicParsing="false" onAction="#onTimKiemBtnClick" prefHeight="30.0" prefWidth="68.0" text="Tìm kiếm" />
+         </items>
+      </ToolBar>
+    <TableView fx:id="cachLyTableView" prefHeight="464.0" prefWidth="880.0" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="maCachLyColumn" text="Mã cách ly" />
+            <TableColumn fx:id="idNhanKhauColumn" text="ID nhân khẩu" />
+            <TableColumn fx:id="thoiGianKhaiBaoColumn" text="Thời gian khai báo" />
+            <TableColumn fx:id="diaDiemCachLyColumn" text="Địa điểm cách ly" />
+            <TableColumn fx:id="tuNgayColumn" text="Từ ngày" />
+            <TableColumn fx:id="denNgayColumn" text="Đến ngày" />
+            <TableColumn fx:id="mucDoCachLyColumn" text="Mức độ cách ly" />
+        </columns>
+    </TableView>
+</VBox>

@@ -99,7 +99,7 @@ public class MainController implements Initializable {
             }
             Node node = null;
             if (root != null) {
-                node = root.lookup("#covid_layout");
+                node = root.lookup("#borderPane");
             }
             borderPane.setCenter(node);
         }else{
