@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="trang_chu_layout" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quanly.controller.covid.TrangChuController">
+<AnchorPane fx:id="trang_chu_layout" prefHeight="560.0" prefWidth="880.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quanly.controller.covid.TrangChuController">
     <children>
-        <GridPane alignment="CENTER_LEFT" layoutX="0" layoutY="0" maxWidth="1.7976931348623157E308">
+        <GridPane alignment="CENTER_LEFT" layoutX="87.0" layoutY="96.0" maxWidth="1.7976931348623157E308">
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="408.800048828125" minWidth="10.0" prefWidth="385.6000244140625" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="363.9999755859374" />
@@ -34,7 +34,7 @@
                     <children>
                         <ImageView fitHeight="96.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true" GridPane.rowSpan="2">
                             <image>
-                                <Image url="@drawable/home_96px.png" />
+                                <Image url="@../drawable/hospital_3_96px.png" />
                             </image>
                         </ImageView>
                         <Label alignment="BOTTOM_LEFT" prefHeight="98.0" prefWidth="225.0" text="Số lượng cách ly" GridPane.columnIndex="1">
@@ -61,10 +61,10 @@
                     <children>
                         <ImageView fitHeight="96.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true" GridPane.rowSpan="2">
                             <image>
-                                <Image url="@drawable/condo_96px.png" />
+                                <Image url="@../drawable/treatment_96px.png" />
                             </image>
                         </ImageView>
-                        <Label alignment="BOTTOM_LEFT" prefHeight="41.0" prefWidth="150.0" text="Số lượng nhân khẩu chưa khai báo" GridPane.columnIndex="1">
+                        <Label alignment="BOTTOM_LEFT" prefHeight="41.0" prefWidth="150.0" text="Nhân khẩu đã khai báo" GridPane.columnIndex="1">
                             <font>
                                 <Font size="18.0" />
                             </font>
@@ -88,10 +88,10 @@
                     <children>
                         <ImageView fitHeight="96.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true" GridPane.rowSpan="2">
                             <image>
-                                <Image url="@drawable/family_96px.png" />
+                                <Image url="@../drawable/coronavirus_96px.png" />
                             </image>
                         </ImageView>
-                        <Label alignment="BOTTOM_LEFT" prefHeight="42.0" prefWidth="168.0" text="Số lượng nhân khẩu đã khai báo " GridPane.columnIndex="1">
+                        <Label alignment="BOTTOM_LEFT" prefHeight="42.0" prefWidth="168.0" text="Nhân khẩu mắc covid-19" GridPane.columnIndex="1">
                             <font>
                                 <Font size="18.0" />
                             </font>
@@ -103,6 +103,33 @@
                         </Label>
                     </children>
                 </GridPane>
+            <GridPane maxHeight="90.0" maxWidth="276.0" prefHeight="90.0" prefWidth="387.0" style="-fx-background-color: #3944F7;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="96.0" minWidth="10.0" prefWidth="96.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="180.0" minWidth="10.0" prefWidth="180.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="46.799993896484374" minHeight="10.0" prefHeight="37.40000610351562" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="74.5999969482422" minHeight="10.0" prefHeight="58.19999389648437" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <ImageView fitHeight="96.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true" GridPane.rowSpan="2">
+                     <image>
+                        <Image url="@../drawable/not_treatment_96px.png" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="BOTTOM_LEFT" prefHeight="98.0" prefWidth="225.0" text="Nhân khẩu chưa khai báo" GridPane.columnIndex="1">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="52.0" prefWidth="148.0" text="18" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="System Bold" size="40.0" />
+                     </font>
+                  </Label>
+               </children>
+            </GridPane>
             </children>
         </GridPane>
     </children>
