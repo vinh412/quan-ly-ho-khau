@@ -1,5 +1,6 @@
 package com.example.quanly.controller.covid;
 
+import com.example.quanly.Database;
 import com.example.quanly.HelloApplication;
 import com.example.quanly.controller.nhan_khau.ChonNhanKhauController;
 import com.example.quanly.models.KhaiBaoYTe;
@@ -97,5 +98,140 @@ public class KhaiBaoYTeController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void showKhaiBaoYTe(KhaiBaoYTe khaiBaoYTe){
+        NhanKhau nhanKhau = Database.findNhanKhau("ID", khaiBaoYTe.getIdNhanKhau()).get(0);
+        if(nhanKhau != null){
+            this.selectedNhanKhau = nhanKhau;
+            this.hoTenLB.setText(nhanKhau.getHoTen());
+            this.namSinhLB.setText(nhanKhau.getNamSinh().toString());
+            gioiTinhLB.setText(nhanKhau.getGioiTinh());
+            diaChiThuongTruLB.setText(nhanKhau.getDiaChiHienNay());
+        }
+        if(khaiBaoYTe.isTiepXucVoiNguoiBenhKhong()) {
+            coTiepXucF0RB.setSelected(true);
+            khongTiepXucF0RB.setSelected(false);
+        }
+        else{
+            coTiepXucF0RB.setSelected(true);
+            khongTiepXucF0RB.setSelected(false);
+        }
+        if(khaiBaoYTe.isDiVeTuVungDichKhong()) {
+            coDiVeRB.setSelected(true);
+            khongDiVeRB.setSelected(false);
+        }
+        else{
+            coDiVeRB.setSelected(true);
+            khongDiVeRB.setSelected(false);
+        }
+        if(khaiBaoYTe.isTiepXucVoiNguoiDiVeTuVungDichKhong()) {
+            coTiepXucVungDichRB.setSelected(true);
+            khongTiepXucVungDichRB.setSelected(false);
+        }
+        else{
+            coTiepXucVungDichRB.setSelected(true);
+            khongTiepXucVungDichRB.setSelected(false);
+        }
+        daDenQuocGiaTF.setText(khaiBaoYTe.getDaDenQuocGia());
+        if(khaiBaoYTe.isSot())
+            sotCB.setSelected(true);
+        else
+            sotCB.setSelected(false);
+        if(khaiBaoYTe.isHo())
+            hoCB.setSelected(true);
+        else
+            hoCB.setSelected(false);
+        if(khaiBaoYTe.isKhoTho())
+            khoThoCB.setSelected(true);
+        else
+            khoThoCB.setSelected(false);
+        if(khaiBaoYTe.isViemPhoi())
+            viemPhoiCB.setSelected(true);
+        else
+            viemPhoiCB.setSelected(false);
+        if(khaiBaoYTe.isDauHong())
+            dauHongCB.setSelected(true);
+        else
+            dauHongCB.setSelected(false);
+        if(khaiBaoYTe.isMetMoi())
+            metMoiCB.setSelected(true);
+        else
+            metMoiCB.setSelected(false);
+        if(khaiBaoYTe.isBenhGanManTinh())
+            benhGanManTinhCB.setSelected(true);
+        else
+            benhGanManTinhCB.setSelected(false);
+        if(khaiBaoYTe.isBenhMauManTinh())
+            benhMauManTinhCB.setSelected(true);
+        else
+            benhMauManTinhCB.setSelected(false);
+        if(khaiBaoYTe.isBenhPhoiManTinh())
+            benhPhoiManTinhCB.setSelected(true);
+        else
+            benhPhoiManTinhCB.setSelected(false);
+        if(khaiBaoYTe.isBenhThanManTinh())
+            benhThanManTinhCB.setSelected(true);
+        else
+            benhThanManTinhCB.setSelected(false);
+        if(khaiBaoYTe.isBenhTimMach())
+            benhTimMachCB.setSelected(true);
+        else
+            benhTimMachCB.setSelected(false);
+        if(khaiBaoYTe.isHuyetApCao())
+            huyetApCaoCB.setSelected(true);
+        else
+            huyetApCaoCB.setSelected(false);
+        if(khaiBaoYTe.isHivSuyGiamMienDich())
+            hivSuyGiamMienDichCB.setSelected(true);
+        else
+            hivSuyGiamMienDichCB.setSelected(false);
+        if(khaiBaoYTe.isNguoiNhanGhepTang())
+            nguoiNhanGhepTangCB.setSelected(true);
+        else
+            nguoiNhanGhepTangCB.setSelected(false);
+        if(khaiBaoYTe.isTieuDuong())
+            tieuDuongCB.setSelected(true);
+        else
+            tieuDuongCB.setSelected(false);
+        if(khaiBaoYTe.isUngThu())
+            ungThuCB.setSelected(true);
+        else
+            ungThuCB.setSelected(false);
+        if(khaiBaoYTe.isCoThai())
+            coThaiCB.setSelected(true);
+        else
+            coThaiCB.setSelected(false);
+        camKetCB.setSelected(true);
+        chonNhanKhauBtn.setVisible(false);
+        coTiepXucF0RB.setDisable(true);
+        khongTiepXucF0RB.setDisable(true);
+        coDiVeRB.setDisable(true);
+        khongDiVeRB.setDisable(true);
+        coTiepXucVungDichRB.setDisable(true);
+        khongTiepXucVungDichRB.setDisable(true);
+        daDenQuocGiaTF.setDisable(true);
+
+        sotCB.setDisable(true);
+        hoCB.setDisable(true);
+        khoThoCB.setDisable(true);
+        viemPhoiCB.setDisable(true);
+        dauHongCB.setDisable(true);
+        metMoiCB.setDisable(true);
+
+        benhGanManTinhCB.setDisable(true);
+        benhMauManTinhCB.setDisable(true);
+        benhPhoiManTinhCB.setDisable(true);
+        benhThanManTinhCB.setDisable(true);
+        benhTimMachCB.setDisable(true);
+        huyetApCaoCB.setDisable(true);
+        hivSuyGiamMienDichCB.setDisable(true);
+        nguoiNhanGhepTangCB.setDisable(true);
+        tieuDuongCB.setDisable(true);
+        ungThuCB.setDisable(true);
+        coThaiCB.setDisable(true);
+
+        camKetCB.setDisable(true);
+
     }
 }

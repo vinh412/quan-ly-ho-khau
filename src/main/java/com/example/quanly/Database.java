@@ -264,7 +264,7 @@ public class Database {
         }
         return result;
     }
-    public static ArrayList findNhanKhau(String key, int value){
+    public static ArrayList<NhanKhau> findNhanKhau(String key, int value){
         String sql = null;
         if(key.compareTo("*") == 0){
             sql = "select * from nhan_khau";

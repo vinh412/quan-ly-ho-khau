@@ -132,9 +132,4 @@ public class MainController implements Initializable {
             alert.showAndWait();
         }
     }
-
-    @FXML
-    private void exitApp(){
-        System.exit(0);
-    }
 }
