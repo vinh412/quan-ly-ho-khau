@@ -19,7 +19,7 @@ public class ThongKeKhaiBaoController implements Initializable {
     @FXML
     private TableView<KhaiBaoYTe> khaiBaoYTeTableView;
     @FXML
-    private TableColumn<KhaiBaoYTe, String> maCachLyColumn;
+    private TableColumn<KhaiBaoYTe, String> maPhieuKhaiBaoYTeColumn;
     @FXML
     private TableColumn<KhaiBaoYTe, Integer> idNhanKhauColumn;
     @FXML
@@ -40,7 +40,7 @@ public class ThongKeKhaiBaoController implements Initializable {
     private ArrayList<KhaiBaoYTe> khaiBaoYTeArrayList;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        maCachLyColumn.setCellValueFactory(new PropertyValueFactory<>("maCachLy"));
+        maPhieuKhaiBaoYTeColumn.setCellValueFactory(new PropertyValueFactory<>("maPhieuKhaiBaoYTe"));
         idNhanKhauColumn.setCellValueFactory(new PropertyValueFactory<>("idNhanKhau"));
         thoiGianKhaiBaoColumn.setCellValueFactory(new PropertyValueFactory<>("thoiGianKhaiBao"));
         sotColumn.setCellValueFactory(new PropertyValueFactory<>("sot"));

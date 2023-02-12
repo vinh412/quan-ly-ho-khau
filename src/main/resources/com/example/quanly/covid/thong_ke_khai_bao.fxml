@@ -9,7 +9,7 @@
 <VBox fx:id="tk_kb_layout" prefHeight="600.0" prefWidth="880.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quanly.controller.covid.ThongKeKhaiBaoController">
     <TableView fx:id="khaiBaoYTeTableView" prefHeight="464.0" prefWidth="880.0" VBox.vgrow="ALWAYS">
         <columns>
-            <TableColumn fx:id="maCachLyColumn" text="Mã cách ly" />
+            <TableColumn fx:id="maPhieuKhaiBaoYTeColumn" text="Mã khai báo" />
             <TableColumn fx:id="idNhanKhauColumn" text="ID nhân khẩu" />
             <TableColumn fx:id="thoiGianKhaiBaoColumn" text="Thời gian khai báo" />
             <TableColumn fx:id="sotColumn" text="Sốt" />
