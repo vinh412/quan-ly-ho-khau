@@ -843,7 +843,7 @@ public class Database {
 
     public static User findUser(String username, String password) {
         String sql = "select * from users " +
-                     "where userName = \"" + username + "\" and passwd = \"" + password + "\" limit 1";
+                     "where binary `userName` = \"" + username + "\" and binary `passwd` = \"" + password + "\"  limit 1";
         PreparedStatement st = null;
         ResultSet rs = null;
         User result = null;
