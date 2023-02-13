@@ -15,6 +15,9 @@ public class CachLy {
     private String thoiDiemTest;
     private String ketQuaCacLanTest;
 
+    public CachLy() {
+    }
+
     public CachLy(int id, String maCachLy, int idNhanKhau, String thoiGianKhaiBao, String diaDiemCachLy, String tuNgay, String denNgay, String mucDoCachLy, boolean daTestCovidChua, String hinhThucTest, int soLanTest, String thoiDiemTest, String ketQuaCacLanTest) {
         this.id = id;
         this.maCachLy = maCachLy;
@@ -29,20 +32,6 @@ public class CachLy {
         this.soLanTest = soLanTest;
         this.thoiDiemTest = thoiDiemTest;
         this.ketQuaCacLanTest = ketQuaCacLanTest;
-    }
-
-    public CachLy() {
-    }
-
-    public CachLy(int id, String maCachLy, int idNhanKhau, String thoiGianKhaiBao, String diaDiemCachLy, String tuNgay, String denNgay, String mucDoCachLy) {
-        this.id = id;
-        this.maCachLy = maCachLy;
-        this.idNhanKhau = idNhanKhau;
-        this.thoiGianKhaiBao = thoiGianKhaiBao;
-        this.diaDiemCachLy = diaDiemCachLy;
-        this.tuNgay = tuNgay;
-        this.denNgay = denNgay;
-        this.mucDoCachLy = mucDoCachLy;
     }
 
     public int getID() {

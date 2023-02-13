@@ -172,5 +172,7 @@ public class GhiNhanThongTinCachLyController {
         soLanTestSpinner.setDisable(true);
         thoiDiemTestDatePicker.setDisable(true);
         ketQuaCacLanTestTF.setDisable(true);
+
+        dialogPane.lookupButton(ButtonType.OK).setDisable(true);
     }
 }
