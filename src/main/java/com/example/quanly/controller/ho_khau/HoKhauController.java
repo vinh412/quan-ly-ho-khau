@@ -210,21 +210,42 @@ public class HoKhauController implements Initializable {
 
     @FXML
     private void onSuaHoBtnClick() throws IOException {
-        HoKhau selectedItem = tableView.getSelectionModel().getSelectedItem();
-        if(selectedItem == null) return ;
+//        HoKhau selectedItem = tableView.getSelectionModel().getSelectedItem();
+//        if(selectedItem == null) return ;
+//
+//        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ho_khau/sua_ho.fxml"));
+//        SuaHoController suaHoController = new SuaHoController(selectedItem);
+//        fxmlLoader.setController(suaHoController);
+//        Parent root = (Parent) fxmlLoader.load();
+//        Node node = null;
+//        if (root != null) {
+//            node = root.lookup("#sua_ho_layout");
+//        }
+//        Popup popup = new Popup();
+//        popup.setLayout(node);
+//        popup.setTitle("Thêm hộ khẩu mới");
+//        popup.show();
 
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ho_khau/sua_ho.fxml"));
-        SuaHoController suaHoController = new SuaHoController(selectedItem);
-        fxmlLoader.setController(suaHoController);
-        Parent root = (Parent) fxmlLoader.load();
-        Node node = null;
-        if (root != null) {
-            node = root.lookup("#sua_ho_layout");
+        HoKhau selectedHoKhau = tableView.getSelectionModel().getSelectedItem();
+        try {
+            // load the fxml file and create a new popup dialog
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ho_khau/them_ho.fxml"));
+            DialogPane themHoDialogPane = fxmlLoader.load();
+
+            Dialog<ButtonType> dialog = new Dialog<>();
+            dialog.setDialogPane(themHoDialogPane);
+            dialog.setTitle("Sửa hộ");
+
+            ThemHoController themHoController = fxmlLoader.getController();
+            themHoController.showSuaHo(selectedHoKhau);
+
+            Optional<ButtonType> clickedButton = dialog.showAndWait();
+            if(clickedButton.get() == ButtonType.OK){
+
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        Popup popup = new Popup();
-        popup.setLayout(node);
-        popup.setTitle("Thêm hộ khẩu mới");
-        popup.show();
     }
 
     @FXML

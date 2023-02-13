@@ -210,4 +210,24 @@ public class ThemHoController implements Initializable, IChonChuHo, IChonThanhVi
         diaChiTF.setDisable(true);
 
     }
+
+    public void showSuaHo(HoKhau hoKhau){
+        NhanKhau chuHo = Database.findNhanKhau("ID", hoKhau.getIdChuHo()).get(0);
+        hoTenChuHoLB.setText(chuHo.getHoTen());
+        namSinhChuHoLB.setText(chuHo.getNamSinh().toString());
+        maHoKhauTF.setText(hoKhau.getMaHoKhau());
+        maKhuVucTF.setText(hoKhau.getMaKhuVuc());
+        diaChiTF.setText(hoKhau.getDiaChi());
+
+        ArrayList<NhanKhau> thanhVienCuaHo = Database.getThanhVienList(hoKhau.getID());
+        ObservableList<NhanKhau> listView = FXCollections.observableArrayList();
+        listView.addAll(thanhVienCuaHo);
+
+        TableColumn<NhanKhau, String> quanHeVoiChuHo = new TableColumn<>();
+        quanHeVoiChuHo.setText("Quan hệ với chủ hộ");
+        quanHeVoiChuHo.setCellValueFactory(new PropertyValueFactory<>("quanHeVoiChuHo"));
+        tableView.getColumns().add(quanHeVoiChuHo);
+        tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+        tableView.setItems(listView);
+    }
 }
