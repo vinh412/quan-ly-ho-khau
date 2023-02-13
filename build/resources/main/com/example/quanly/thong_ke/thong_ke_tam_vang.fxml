@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="thongke_layout" xmlns="http://javafx.com/javafx"
+            prefHeight="600.0" prefWidth="880.0"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.quanly.controller.thong_ke.ThongKeTamVangController">
+    <TableView fx:id="tableView" VBox.vgrow="ALWAYS" prefHeight="520.0" prefWidth="880.0" >
+        <columns>
+            <TableColumn fx:id="idNhanKhau" text="Mã nhân khẩu" />
+            <TableColumn fx:id="hoTen" text="Họ tên" />
+            <TableColumn fx:id="namSinh" text="Năm sinh" />
+            <TableColumn fx:id="noiTamTru" text="Nơi tạm trú" />
+            <TableColumn fx:id="tuNgay" text="Từ ngày" />
+            <TableColumn fx:id="denNgay" text="Đến ngày" />
+            <TableColumn fx:id="lyDo" text="Lý do" />
+        </columns>
+    </TableView>
+</AnchorPane>

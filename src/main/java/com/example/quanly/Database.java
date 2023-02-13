@@ -172,6 +172,74 @@ public class Database {
         }
         return result;
     }
+    public static ArrayList<GiayTamTru> findGiayTamTru(String key, String value) {
+        String sql = null;
+        if (key.compareTo("*") == 0 || value.compareTo("") == 0) {
+            sql = "select * from tam_tru";
+        } else {
+            sql = "select * from tam_tru " +
+                    "where tam_tru." + key + " like " + "'" + value + "%'";
+            // find all rows starting with `value`
+        }
+        ArrayList<GiayTamTru> result = new ArrayList<>();
+        ResultSet rs = null;
+        PreparedStatement st = null;
+        System.out.println(sql);
+        try {
+            st = conn.prepareStatement(sql);
+            rs = st.executeQuery();
+
+            while (rs.next()) {
+                int ID = rs.getInt("ID");
+                int idNhanKhau = rs.getInt("idNhanKhau");
+                String maGiayTamTru = rs.getString("maGiayTamTru");
+                String sdt = rs.getString("soDienThoaiNguoiDangKy");
+                LocalDate tuNgay = rs.getDate("tuNgay").toLocalDate();
+                LocalDate denNgay = rs.getDate("denNgay").toLocalDate();
+                String lyDo = rs.getString("lyDo");
+                String diaChiThuongTru = rs.getString("diaChiThuongTru");
+                String diaChiTamTru = rs.getString("diaChiTamTru");
+                GiayTamTru giayTamTru = new GiayTamTru(ID, idNhanKhau, maGiayTamTru, diaChiThuongTru, diaChiTamTru, sdt, tuNgay, denNgay, lyDo);
+                result.add(giayTamTru);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+    public static ArrayList<GiayTamVang> findGiayTamVang(String key, String value) {
+        String sql = null;
+        if (key.compareTo("*") == 0 || value.compareTo("") == 0) {
+            sql = "select * from tam_vang";
+        } else {
+            sql = "select * from tam_vang " +
+                    "where tam_vang." + key + " like " + "'" + value + "%'";
+            // find all rows starting with `value`
+        }
+        ArrayList<GiayTamVang> result = new ArrayList<>();
+        ResultSet rs = null;
+        PreparedStatement st = null;
+        System.out.println(sql);
+        try {
+            st = conn.prepareStatement(sql);
+            rs = st.executeQuery();
+
+            while (rs.next()) {
+                int ID = rs.getInt("ID");
+                int idNhanKhau = rs.getInt("idNhanKhau");
+                String maGiayTamVang = rs.getString("maGiayTamVang");
+                String noiTamTru = rs.getString("noiTamTru");
+                LocalDate tuNgay = rs.getDate("tuNgay").toLocalDate();
+                LocalDate denNgay = rs.getDate("denNgay").toLocalDate();
+                String lyDo = rs.getString("lyDo");
+                GiayTamVang giayTamVang = new GiayTamVang(ID, idNhanKhau, maGiayTamVang, noiTamTru, tuNgay, denNgay, lyDo);
+                result.add(giayTamVang);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
     public static ArrayList findHoKhau(String key, int value){
         String sql = null;
         if(key.compareTo("*") == 0){
@@ -641,7 +709,7 @@ public class Database {
     public static void insertOneGiayTamVang(GiayTamVang giayTamVang) {
         int idNhanKhau = giayTamVang.getNhanKhau().getID();
         String maGiayTamVang = giayTamVang.getMaGiayTamVang();
-        String noiTamtru = giayTamVang.getNoiTamtru();
+        String noiTamtru = giayTamVang.getNoiTamTru();
         LocalDate tuNgay = giayTamVang.getTuNgay();
         LocalDate denNgay = giayTamVang.getDenNgay();
         String lyDo = giayTamVang.getLyDo();
