@@ -16,6 +16,7 @@ import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -26,7 +27,13 @@ public class ThongKeKhaiBaoController implements Initializable {
     @FXML
     private TableColumn<KhaiBaoYTe, String> maPhieuKhaiBaoYTeColumn;
     @FXML
-    private TableColumn<KhaiBaoYTe, Integer> idNhanKhauColumn;
+    private TableColumn<KhaiBaoYTe, String> hoTenColumn;
+    @FXML
+    private TableColumn<KhaiBaoYTe, String> idNhanKhauColumn;
+    @FXML
+    private TableColumn<KhaiBaoYTe, LocalDate> namSinhColumn;
+    @FXML
+    private TableColumn<KhaiBaoYTe, String> diaChiColumn;
     @FXML
     private TableColumn<KhaiBaoYTe, String> thoiGianKhaiBaoColumn;
 
@@ -34,15 +41,17 @@ public class ThongKeKhaiBaoController implements Initializable {
     private ArrayList<KhaiBaoYTe> khaiBaoYTeArrayList;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        maPhieuKhaiBaoYTeColumn.setCellValueFactory(new PropertyValueFactory<>("maPhieuKhaiBaoYTe"));
-        idNhanKhauColumn.setCellValueFactory(new PropertyValueFactory<>("idNhanKhau"));
-        thoiGianKhaiBaoColumn.setCellValueFactory(new PropertyValueFactory<>("thoiGianKhaiBao"));
-
         khaiBaoYTeArrayList = Database.findKhaiBao("*", "");
         khaiBaoYTeObservableList.addAll(khaiBaoYTeArrayList);
         khaiBaoYTeTableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         khaiBaoYTeTableView.setItems(khaiBaoYTeObservableList);
 
+        maPhieuKhaiBaoYTeColumn.setCellValueFactory(new PropertyValueFactory<>("maPhieuKhaiBaoYTe"));
+        idNhanKhauColumn.setCellValueFactory(new PropertyValueFactory<>("idNhanKhau"));
+        hoTenColumn.setCellValueFactory(new PropertyValueFactory<>("hoTen"));
+        namSinhColumn.setCellValueFactory(new PropertyValueFactory<>("namSinh"));
+        diaChiColumn.setCellValueFactory(new PropertyValueFactory<>("diaChi"));
+        thoiGianKhaiBaoColumn.setCellValueFactory(new PropertyValueFactory<>("thoiGianKhaiBao"));
 
         khaiBaoYTeTableView.setOnMouseClicked((MouseEvent event) -> {
             if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2){

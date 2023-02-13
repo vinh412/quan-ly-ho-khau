@@ -1,5 +1,10 @@
 package com.example.quanly.models;
 
+import com.example.quanly.Database;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+
 public class KhaiBaoYTe {
     private int id;
     private String maPhieuKhaiBaoYTe;
@@ -26,9 +31,10 @@ public class KhaiBaoYTe {
     private boolean tieuDuong;
     private boolean ungThu;
     private boolean coThai;
-
-    public KhaiBaoYTe() {
-    }
+    private NhanKhau nhanKhau;
+    private String hoTen;
+    private LocalDate namSinh;
+    private String diaChi;
     public KhaiBaoYTe(int id, String maPhieuKhaiBaoYTe, int idNhanKhau, String ngayKhaiBao,
                       boolean tiepXucVoiNguoiBenhKhong, boolean diVeTuVungDichKhong,
                       boolean tiepXucVoiNguoiDiVeTuVungDichKhong, String daDenQuocGia, boolean sot, boolean ho,
@@ -36,6 +42,7 @@ public class KhaiBaoYTe {
                       boolean benhMauManTinh, boolean benhPhoiManTinh, boolean benhThanManTinh,
                       boolean benhTimMach, boolean huyetApCao, boolean hivSuyGiamMienDich,
                       boolean nguoiNhanGhepTang, boolean tieuDuong, boolean ungThu, boolean coThai) {
+        System.out.println("constructed from database");
         this.id = id;
         this.maPhieuKhaiBaoYTe = maPhieuKhaiBaoYTe;
         this.idNhanKhau = idNhanKhau;
@@ -61,6 +68,14 @@ public class KhaiBaoYTe {
         this.tieuDuong = tieuDuong;
         this.ungThu = ungThu;
         this.coThai = coThai;
+        ArrayList<NhanKhau> nhanKhauArrayList = Database.findNhanKhau("ID", idNhanKhau);
+        System.out.println(nhanKhauArrayList.size());
+        for (NhanKhau nhanKhau: nhanKhauArrayList){
+            if(nhanKhau.getID() == idNhanKhau){
+                this.nhanKhau = nhanKhau;
+                break;
+            }
+        }
     }
     public KhaiBaoYTe(String maPhieuKhaiBaoYTe, int idNhanKhau, String ngayKhaiBao,
                       boolean tiepXucVoiNguoiBenhKhong, boolean diVeTuVungDichKhong,
@@ -117,7 +132,15 @@ public class KhaiBaoYTe {
     public void setIdNhanKhau(int idNhanKhau) {
         this.idNhanKhau = idNhanKhau;
     }
-
+    public String getHoTen(){
+        return this.nhanKhau.getHoTen();
+    }
+    public LocalDate getNamSinh(){
+        return this.nhanKhau.getNamSinh();
+    }
+    public String getDiaChi(){
+        return this.nhanKhau.getDiaChiHienNay();
+    }
     public String getThoiGianKhaiBao() {
         return thoiGianKhaiBao;
     }
