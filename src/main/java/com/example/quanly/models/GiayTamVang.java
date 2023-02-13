@@ -1,6 +1,9 @@
 package com.example.quanly.models;
 
+import com.example.quanly.Database;
+
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class GiayTamVang {
     private int ID;
@@ -11,6 +14,15 @@ public class GiayTamVang {
     private LocalDate denNgay;
     private String lyDo;
     private NhanKhau nhanKhau;
+    // nhan khau properties
+    private String hoTen;
+    private LocalDate namSinh;
+    public String getHoTen(){
+        return this.nhanKhau.getHoTen();
+    }
+    public LocalDate getNamSinh(){
+        return this.nhanKhau.getNamSinh();
+    }
     // construct object with data from database
     public GiayTamVang(int ID, int idNhanKhau, String maGiayTamVang, String noiTamtru, LocalDate tuNgay, LocalDate denNgay, String lyDo){
         this.ID = ID;
@@ -20,6 +32,8 @@ public class GiayTamVang {
         this.tuNgay = tuNgay;
         this.denNgay = denNgay;
         this.lyDo = lyDo;
+        ArrayList<NhanKhau> nhanKhauArrayList = Database.findNhanKhau("ID", idNhanKhau);
+        this.nhanKhau = nhanKhauArrayList.get(0);
     }
     // construct object with data from application
     public GiayTamVang(NhanKhau nhanKhau, String maGiayTamVang, String noiTamtru, LocalDate tuNgay, LocalDate denNgay, String lyDo){
@@ -64,7 +78,7 @@ public class GiayTamVang {
         this.maGiayTamVang = maGiayTamVang;
     }
 
-    public String getNoiTamtru() {
+    public String getNoiTamTru() {
         return noiTamtru;
     }
 

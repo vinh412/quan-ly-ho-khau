@@ -3,31 +3,17 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox fx:id="thongke_layout" prefHeight="600.0" prefWidth="880.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quanly.controller.thong_ke.ThongKeController">
-   <AnchorPane>
-      <children>
-         <ToolBar layoutY="2.0" prefHeight="40.0" prefWidth="880.0">
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.text.Font?>
+<BorderPane fx:id="borderPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quanly.controller.thong_ke.ThongKeController">
+    <top>
+        <ToolBar>
             <items>
-               <Label id="gioiTinhLabel" text="Giới tính" textAlignment="CENTER" />
-               <ComboBox fx:id="comboBox" prefHeight="25.0" prefWidth="73.0" />
-               <Label text="Tuổi từ" />
-               <TextField fx:id="fromTF" prefHeight="25.0" prefWidth="58.0" />
-               <Label text="đến" />
-               <TextField id="toTF" fx:id="toTF" prefHeight="25.0" prefWidth="58.0" />
-               <Button id="searchBtn" fx:id="timKiemBtn" mnemonicParsing="false" onAction="#onTimKiemBtnClick" prefHeight="30.0" text="Tìm kiếm" />
+                <Button mnemonicParsing="false" onAction="#onTKNhanKhauClick" prefHeight="30.0" prefWidth="150.0" text="Thống kê nhân khẩu"/>
+                <Button mnemonicParsing="false" onAction="#onTKTamTruBtnClick" prefHeight="30.0" prefWidth="150.0" text="Thống kê tạm trú"/>
+                <Button mnemonicParsing="false" onAction="#onTKTamVangClick" prefHeight="30.0" prefWidth="150.0" text="Thống kê tạm vắng"/>
             </items>
-         </ToolBar>
-      </children>
-   </AnchorPane>
-    <TableView fx:id="tableView" maxHeight="1.7976931348623157E308" prefHeight="520.0" VBox.vgrow="ALWAYS">
-        <columns>
-            <TableColumn fx:id="maNhanKhau" text="Mã nhân khẩu" />
-            <TableColumn fx:id="hoTen" text="Họ tên" />
-            <TableColumn fx:id="gioiTinh" text="Giới tính" />
-            <TableColumn fx:id="namSinh" text="Năm sinh" />
-            <TableColumn fx:id="diaChiHienNay" text="Địa chỉ hiện nay" />
-        </columns>
-    </TableView>
-
-
-</VBox>
+        </ToolBar>
+    </top>
+</BorderPane>

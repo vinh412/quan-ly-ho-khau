@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="thongke_layout" prefHeight="600.0" prefWidth="880.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quanly.controller.thong_ke.ThongKeNhanKhauController">
+    <AnchorPane>
+        <children>
+            <ToolBar layoutY="2.0" prefHeight="40.0" prefWidth="880.0">
+                <items>
+                    <Label id="gioiTinhLabel" text="Giới tính" textAlignment="CENTER" />
+                    <ComboBox fx:id="comboBox" prefHeight="25.0" prefWidth="73.0" />
+                    <Label text="Tuổi từ" />
+                    <TextField fx:id="fromTF" prefHeight="25.0" prefWidth="58.0" />
+                    <Label text="đến" />
+                    <TextField id="toTF" fx:id="toTF" prefHeight="25.0" prefWidth="58.0" />
+                    <Button id="searchBtn" fx:id="timKiemBtn" mnemonicParsing="false" onAction="#onTimKiemBtnClick" prefHeight="30.0" text="Tìm kiếm" />
+                </items>
+            </ToolBar>
+        </children>
+    </AnchorPane>
+    <TableView fx:id="tableView" maxHeight="1.7976931348623157E308" prefHeight="520.0" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="maNhanKhau" text="Mã nhân khẩu" />
+            <TableColumn fx:id="hoTen" text="Họ tên" />
+            <TableColumn fx:id="gioiTinh" text="Giới tính" />
+            <TableColumn fx:id="namSinh" text="Năm sinh" />
+            <TableColumn fx:id="diaChiHienNay" text="Địa chỉ hiện nay" />
+        </columns>
+    </TableView>
+</VBox>
