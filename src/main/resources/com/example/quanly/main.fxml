@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.effect.Blend?>
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -38,6 +40,19 @@
                <Font name="Roboto Light" size="25.0" />
             </font>
          </ToggleButton>
+         <VBox alignment="BOTTOM_CENTER" prefHeight="415.0" prefWidth="235.0">
+            <children>
+               <Button onAction="#onLogoutBtnClick" mnemonicParsing="false" prefHeight="41.0" prefWidth="244.0" styleClass="logout-btn" text="Đăng xuất" textAlignment="CENTER">
+                  <font>
+                     <Font name="Roboto Light" size="20.0" />
+                  </font>
+                  <stylesheets>
+                     <URL value="@css/nav.css" />
+                     <URL value="@css/nav.css" />
+                  </stylesheets>
+               </Button>
+            </children>
+         </VBox>
          <!--            </items>-->
          <!--         </ToolBar>-->
          <children>
@@ -63,6 +78,9 @@
          </effect>
       </VBox>
    </left>
+   <bottom>
+      <HBox />
+   </bottom>
    <effect>
       <Glow />
    </effect>

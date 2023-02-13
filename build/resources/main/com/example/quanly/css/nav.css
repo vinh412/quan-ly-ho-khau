@@ -19,3 +19,13 @@
 -fx-border-style: hidden hidden solid hidden;
 -fx-border-color: #353b48;
 }
+.logout-btn{
+-fx-background-color: #e74c3c;
+-fx-text-fill: #f5f6fa;
+-fx-background-radius: 0;
+}
+.logout-btn:hover{
+-fx-background-color: #c0392b;
+-fx-text-fill: #f5f6fa;
+-fx-background-radius: 0;
+}

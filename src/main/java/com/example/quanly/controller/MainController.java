@@ -7,10 +7,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -39,6 +42,7 @@ public class MainController implements Initializable {
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         ToggleGroup toggleGroup = new ToggleGroup();
         trangChuToggleBtn.setToggleGroup(toggleGroup);
         hoKhauToggleBtn.setToggleGroup(toggleGroup);
@@ -198,5 +202,19 @@ public class MainController implements Initializable {
             alert.setContentText("You are not authorized to view this page");
             alert.showAndWait();
         }
+    }
+    @FXML
+    private void onLogoutBtnClick() throws IOException {
+        System.out.println("logout");
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("login.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = (Stage) borderPane.getScene().getWindow();
+        stage.close();
+
+        Stage appStage = new Stage();
+        appStage.resizableProperty().setValue(false);
+        appStage.setScene(scene);
+        appStage.setTitle("Đăng nhập");
+        appStage.show();
     }
 }
