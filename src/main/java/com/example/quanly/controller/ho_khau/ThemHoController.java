@@ -69,7 +69,7 @@ public class ThemHoController implements Initializable, IChonChuHo, IChonThanhVi
         tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         tableView.setItems(listview);
         dialogPane.lookupButton(ButtonType.OK).setDisable(true);
-        chuHoBtn.textProperty().addListener(observable -> {
+        hoTenChuHoLB.textProperty().addListener(observable -> {
             if(this.chuHo == null){
                 dialogPane.lookupButton(ButtonType.OK).setDisable(true);
             }
@@ -138,7 +138,8 @@ public class ThemHoController implements Initializable, IChonChuHo, IChonThanhVi
             Optional<ButtonType> clickedButton = dialog.showAndWait();
             if(clickedButton.get() == ButtonType.OK){
                 this.chuHo = chonNhanKhauController.getSelectedNhanKhau();
-                this.chuHoBtn.setText(this.chuHo.getHoTen());
+                hoTenChuHoLB.setText(chuHo.getHoTen());
+                namSinhChuHoLB.setText(chuHo.getNamSinh().toString());
             }
         } catch (IOException e) {
             e.printStackTrace();

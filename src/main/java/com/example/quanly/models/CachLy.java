@@ -9,6 +9,27 @@ public class CachLy {
     private String tuNgay;
     private String denNgay;
     private String mucDoCachLy;
+    private boolean daTestCovidChua;
+    private String hinhThucTest;
+    private int soLanTest;
+    private String thoiDiemTest;
+    private String ketQuaCacLanTest;
+
+    public CachLy(int id, String maCachLy, int idNhanKhau, String thoiGianKhaiBao, String diaDiemCachLy, String tuNgay, String denNgay, String mucDoCachLy, boolean daTestCovidChua, String hinhThucTest, int soLanTest, String thoiDiemTest, String ketQuaCacLanTest) {
+        this.id = id;
+        this.maCachLy = maCachLy;
+        this.idNhanKhau = idNhanKhau;
+        this.thoiGianKhaiBao = thoiGianKhaiBao;
+        this.diaDiemCachLy = diaDiemCachLy;
+        this.tuNgay = tuNgay;
+        this.denNgay = denNgay;
+        this.mucDoCachLy = mucDoCachLy;
+        this.daTestCovidChua = daTestCovidChua;
+        this.hinhThucTest = hinhThucTest;
+        this.soLanTest = soLanTest;
+        this.thoiDiemTest = thoiDiemTest;
+        this.ketQuaCacLanTest = ketQuaCacLanTest;
+    }
 
     public CachLy() {
     }
@@ -86,5 +107,45 @@ public class CachLy {
 
     public void setMucDoCachLy(String mucDoCachLy) {
         this.mucDoCachLy = mucDoCachLy;
+    }
+
+    public boolean isDaTestCovidChua() {
+        return daTestCovidChua;
+    }
+
+    public void setDaTestCovidChua(boolean daTestCovidChua) {
+        this.daTestCovidChua = daTestCovidChua;
+    }
+
+    public String getHinhThucTest() {
+        return hinhThucTest;
+    }
+
+    public void setHinhThucTest(String hinhThucTest) {
+        this.hinhThucTest = hinhThucTest;
+    }
+
+    public int getSoLanTest() {
+        return soLanTest;
+    }
+
+    public void setSoLanTest(int soLanTest) {
+        this.soLanTest = soLanTest;
+    }
+
+    public String getThoiDiemTest() {
+        return thoiDiemTest;
+    }
+
+    public void setThoiDiemTest(String thoiDiemTest) {
+        this.thoiDiemTest = thoiDiemTest;
+    }
+
+    public String getKetQuaCacLanTest() {
+        return ketQuaCacLanTest;
+    }
+
+    public void setKetQuaCacLanTest(String ketQuaCacLanTest) {
+        this.ketQuaCacLanTest = ketQuaCacLanTest;
     }
 }

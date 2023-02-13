@@ -465,8 +465,9 @@ public class Database {
 
     public static void addOneCachLy(CachLy cachLy){
 
-        String queryString = "INSERT INTO `cach_ly` (`maCachLy`, `idNhanKhau`, `thoiGianKhaiBao`, `diaDiemCachLy`, `tuNgay`, `denNgay`, `mucDoCachLy`)" +
-                "VALUES (?, ?, ?, ?, ?, ?, ?);";
+        String queryString = "INSERT INTO `cach_ly` (`maCachLy`, `idNhanKhau`, `thoiGianKhaiBao`, `diaDiemCachLy`, " +
+                "`tuNgay`, `denNgay`, `mucDoCachLy`, `daTestCovidChua`, `hinhThucTest`, `soLanTest`, `thoiDiemTest`, `ketQuaCacLanTest`)" +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
         PreparedStatement st;
         try {
             st = conn.prepareStatement(queryString);
@@ -477,6 +478,11 @@ public class Database {
             st.setDate(5, Date.valueOf(cachLy.getTuNgay()));
             st.setDate(6, Date.valueOf(cachLy.getDenNgay()));
             st.setString(7, cachLy.getMucDoCachLy());
+            st.setBoolean(8, cachLy.isDaTestCovidChua());
+            st.setString(9, cachLy.getHinhThucTest());
+            st.setInt(10, cachLy.getSoLanTest());
+            st.setDate(11, Date.valueOf(cachLy.getThoiDiemTest()));
+            st.setString(12, cachLy.getKetQuaCacLanTest());
             st.execute();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -514,6 +520,7 @@ public class Database {
             rs = st.executeQuery();
 
             while(rs.next()){
+                int ID = rs.getInt("ID");
                 String maCachLy = rs.getString("maCachLy");
                 int idNhanKhau = rs.getInt("idNhanKhau");
                 String thoiGianKhaibao = rs.getDate("thoiGianKhaiBao").toLocalDate().toString();
@@ -521,8 +528,13 @@ public class Database {
                 String tuNgay = rs.getDate("tuNgay").toLocalDate().toString();
                 String denNgay = rs.getDate("denNgay").toLocalDate().toString();
                 String mucDoCachLy = rs.getString("mucDoCachLy");
-                int ID = rs.getInt("ID");
-                CachLy cachLy = new CachLy(ID, maCachLy, idNhanKhau, thoiGianKhaibao, diaDiemCachLy, tuNgay, denNgay, mucDoCachLy);
+                boolean daTestCovidChua = rs.getBoolean("daTestCovidChua");
+                String hinhThucTest = rs.getString("hinhThucTest");
+                int soLanTest = rs.getInt("soLanTest");
+                String thoiDiemTest = rs.getDate("thoiDiemTest").toLocalDate().toString();
+                String ketQuaCacLanTest = rs.getString("ketQuaCacLanTest");
+                CachLy cachLy = new CachLy(ID, maCachLy, idNhanKhau, thoiGianKhaibao, diaDiemCachLy, tuNgay, denNgay,
+                        mucDoCachLy, daTestCovidChua, hinhThucTest, soLanTest, thoiDiemTest, ketQuaCacLanTest);
                 result.add(cachLy);
             }
         }catch (SQLException e) {

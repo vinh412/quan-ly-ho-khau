@@ -1,19 +1,24 @@
 package com.example.quanly.controller.covid;
 
 import com.example.quanly.Database;
+import com.example.quanly.HelloApplication;
+import com.example.quanly.controller.nhan_khau.ThemNhanKhauController;
 import com.example.quanly.models.CachLy;
+import com.example.quanly.models.NhanKhau;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class ThongKeCachLyController implements Initializable {
@@ -112,6 +117,28 @@ public class ThongKeCachLyController implements Initializable {
                     tableView.setItems(filterList);
                     break;
 
+            }
+        });
+
+        tableView.setOnMouseClicked((MouseEvent event) -> {
+            if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2){
+                try {
+                    // load the fxml file and create a new popup dialog
+                    FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("covid/ghi_nhan_thong_tin_cach_ly.fxml"));
+                    DialogPane dialogPane = fxmlLoader.load();
+
+                    Dialog<ButtonType> dialog = new Dialog<>();
+                    dialog.setDialogPane(dialogPane);
+                    dialog.setTitle("Thông tin cách ly");
+
+                    CachLy cachLy = tableView.getSelectionModel().getSelectedItem();
+                    GhiNhanThongTinCachLyController controller = fxmlLoader.getController();
+                    controller.showThongTinCachLy(cachLy);
+                    Optional<ButtonType> clickedButton = dialog.showAndWait();
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
     }
