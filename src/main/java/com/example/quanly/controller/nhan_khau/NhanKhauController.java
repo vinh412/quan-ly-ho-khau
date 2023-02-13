@@ -14,10 +14,13 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class NhanKhauController implements Initializable {
@@ -94,25 +97,49 @@ public class NhanKhauController implements Initializable {
                     break;
             }
         });
+
+        tableView.setOnMouseClicked((MouseEvent event) -> {
+            if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2){
+                try {
+                    // load the fxml file and create a new popup dialog
+                    FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("nhan_khau/them_nhan_khau.fxml"));
+                    DialogPane themNhanKhauDiaLog = fxmlLoader.load();
+
+                    Dialog<ButtonType> dialog = new Dialog<>();
+                    dialog.setDialogPane(themNhanKhauDiaLog);
+                    dialog.setTitle("Thông tin nhân khẩu");
+
+                    NhanKhau nhanKhau = tableView.getSelectionModel().getSelectedItem();
+                    ThemNhanKhauController themNhanKhauController = fxmlLoader.getController();
+                    themNhanKhauController.showThongTinNhanKhau(nhanKhau);
+                    Optional<ButtonType> clickedButton = dialog.showAndWait();
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
     }
 
     public void onThemNhanKhauBtnClick() {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("nhan_khau/them_nhan_khau.fxml"));
-        Parent root = null;
         try {
-            root = fxmlLoader.load();
+            // load the fxml file and create a new popup dialog
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("nhan_khau/them_nhan_khau.fxml"));
+            DialogPane themNhanKhauDialogPane = fxmlLoader.load();
+
+            Dialog<ButtonType> dialog = new Dialog<>();
+            dialog.setDialogPane(themNhanKhauDialogPane);
+            dialog.setTitle("Thêm nhân khẩu mới");
+
+            ThemNhanKhauController themNhanKhauController = fxmlLoader.getController();
+            Optional<ButtonType> clickedButton = dialog.showAndWait();
+            if(clickedButton.get() == ButtonType.OK){
+                themNhanKhauController.onXacNhanBtnClick();
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Node node = null;
-        if (root != null) {
-            node = root.lookup("#them_nhan_khau_layout");
-        }
-        Popup popup = new Popup();
-        popup.setLayout(node);
-        popup.setTitle("Thêm nhân khẩu mới");
-        popup.show();
-        System.out.println("Them nhan khau clicked");
     }
 
     public void onXoaNhanKhauBtnClick() {

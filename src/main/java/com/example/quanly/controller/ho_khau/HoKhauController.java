@@ -4,6 +4,7 @@ import com.example.quanly.Database;
 import com.example.quanly.HelloApplication;
 import com.example.quanly.Popup;
 import com.example.quanly.controller.covid.GhiNhanThongTinCachLyController;
+import com.example.quanly.controller.nhan_khau.ThemNhanKhauController;
 import com.example.quanly.models.CachLy;
 import com.example.quanly.models.HoKhau;
 import com.example.quanly.models.NhanKhau;
@@ -18,6 +19,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 import java.net.URL;
@@ -126,6 +129,29 @@ public class HoKhauController implements Initializable {
                     tableView.getItems().clear();
                     tableView.setItems(filterList);
                     break;
+            }
+        });
+
+        tableView.setOnMouseClicked((MouseEvent event) -> {
+            if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2){
+                try {
+                    // load the fxml file and create a new popup dialog
+                    FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ho_khau/them_ho.fxml"));
+                    DialogPane dialogPane = fxmlLoader.load();
+
+                    Dialog<ButtonType> dialog = new Dialog<>();
+                    dialog.setDialogPane(dialogPane);
+                    dialog.setTitle("Thông tin hộ khẩu");
+
+                    HoKhau hoKhau = tableView.getSelectionModel().getSelectedItem();
+                    ThemHoController themHoController = fxmlLoader.getController();
+                    themHoController.showThongTinHoKhau(hoKhau);
+
+                    Optional<ButtonType> clickedButton = dialog.showAndWait();
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
     }

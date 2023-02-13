@@ -4,13 +4,13 @@ import com.example.quanly.Database;
 import com.example.quanly.HelloApplication;
 import com.example.quanly.Popup;
 import com.example.quanly.controller.nhan_khau.ChonNhanKhauController;
+import com.example.quanly.controller.nhan_khau.NhanKhauController;
 import com.example.quanly.models.HoKhau;
 import com.example.quanly.models.NhanKhau;
 import com.example.quanly.models.ThanhVienTrongHo;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -38,6 +38,10 @@ public class ThemHoController implements Initializable, IChonChuHo, IChonThanhVi
     @FXML
     private Button chuHoBtn;
 
+    public Label hoTenChuHoLB;
+    public Label namSinhChuHoLB;
+    public Button themBtn;
+    public Button xoaBtn;
     // table view
     @FXML
     private TableView<NhanKhau> tableView;
@@ -170,5 +174,39 @@ public class ThemHoController implements Initializable, IChonChuHo, IChonThanhVi
 
     public ArrayList<ThanhVienTrongHo> getThanhVienTrongHo() {
         return thanhVienTrongHo;
+    }
+
+    public void showThongTinHoKhau(HoKhau hoKhau){
+        ObservableList<NhanKhau> listView = FXCollections.observableArrayList();
+        ArrayList<NhanKhau> thanhVienTrongHo = Database.getThanhVienList(hoKhau.getID());
+        listView.addAll(thanhVienTrongHo);
+
+        maHoKhauTF.setText(hoKhau.getMaHoKhau());
+        maKhuVucTF.setText(hoKhau.getMaKhuVuc());
+        diaChiTF.setText(hoKhau.getDiaChi());
+
+        NhanKhau chuHo = Database.findNhanKhau("ID",hoKhau.getIdChuHo()).get(0);
+        hoTenChuHoLB.setText(chuHo.getHoTen());
+        namSinhChuHoLB.setText(chuHo.getNamSinh().toString());
+
+        hoTen.setCellValueFactory(new PropertyValueFactory<>("hoTen"));
+        gioiTinh.setCellValueFactory(new PropertyValueFactory<>("gioiTinh"));
+        namSinh.setCellValueFactory(new PropertyValueFactory<>("namSinh"));
+        diaChiHienNay.setCellValueFactory(new PropertyValueFactory<>("diaChiHienNay"));
+
+        TableColumn<NhanKhau, String> quanHeVoiChuHo = new TableColumn<>();
+        quanHeVoiChuHo.setText("Quan hệ với chủ hộ");
+        quanHeVoiChuHo.setCellValueFactory(new PropertyValueFactory<>("quanHeVoiChuHo"));
+        tableView.getColumns().add(quanHeVoiChuHo);
+        tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+        tableView.setItems(listView);
+
+        themBtn.setVisible(false);
+        xoaBtn.setVisible(false);
+        chuHoBtn.setVisible(false);
+        maHoKhauTF.setDisable(true);
+        maKhuVucTF.setDisable(true);
+        diaChiTF.setDisable(true);
+
     }
 }

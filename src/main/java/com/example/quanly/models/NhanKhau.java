@@ -105,6 +105,42 @@ public class NhanKhau {
         this.diaChiMoi = diaChiMoi;
         this.ghiChu = ghiChu;
     }
+    public NhanKhau(int ID, String maNhanKhau, String hoTen, String bietDanh, LocalDate namSinh, String gioiTinh,
+                    String noiSinh, String nguyenQuan, String danToc, String tonGiao, String quocTich,
+                    String soHoChieu, String noiThuongTru, String diaChiHienNay, String trinhDoHocVan,
+                    String trinhDoChuyenMon, String bietTiengDanToc, String trinhDoNgoaiNgu, String ngheNghiep,
+                    String noiLamViec, String tienAn, String ngayChuyenDen, String lyDoChuyenDen,
+                    String ngayChuyenDi, String lyDoChuyenDi, String diaChiMoi, String ngayTao, String ghiChu, String quanHeVoiChuHo) {
+        this.ID = ID;
+        this.maNhanKhau = maNhanKhau;
+        this.hoTen = hoTen;
+        this.bietDanh = bietDanh;
+        this.namSinh = namSinh;
+        this.gioiTinh = gioiTinh;
+        this.noiSinh = noiSinh;
+        this.nguyenQuan = nguyenQuan;
+        this.danToc = danToc;
+        this.tonGiao = tonGiao;
+        this.quocTich = quocTich;
+        this.soHoChieu = soHoChieu;
+        this.noiThuongTru = noiThuongTru;
+        this.diaChiHienNay = diaChiHienNay;
+        this.trinhDoHocVan = trinhDoHocVan;
+        this.trinhDoChuyenMon = trinhDoChuyenMon;
+        this.bietTiengDanToc = bietTiengDanToc;
+        this.trinhDoNgoaiNgu = trinhDoNgoaiNgu;
+        this.ngheNghiep = ngheNghiep;
+        this.noiLamViec = noiLamViec;
+        this.tienAn = tienAn;
+        this.ngayChuyenDen = ngayChuyenDen;
+        this.lyDoChuyenDen = lyDoChuyenDen;
+        this.ngayChuyenDi = ngayChuyenDi;
+        this.lyDoChuyenDi = lyDoChuyenDi;
+        this.diaChiMoi = diaChiMoi;
+        this.ngayTao = ngayTao;
+        this.ghiChu = ghiChu;
+        this.quanHeVoiChuHo = quanHeVoiChuHo;
+    }
     private String quanHeVoiChuHo;
 
     public String getQuanHeVoiChuHo() {

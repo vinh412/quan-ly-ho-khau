@@ -334,10 +334,35 @@ public class Database {
             rs = st.executeQuery();
             while(rs.next()){
                 int ID = rs.getInt("ID");
+                String maNhanKhau = rs.getString("maNhanKhau");
                 String hoTen = rs.getString("hoTen");
+                String bietDanh = rs.getString("bietDanh");
+                String gioiTinh = rs.getString("gioiTinh");
                 LocalDate namSinh = rs.getDate("namSinh").toLocalDate();
+                String noiSinh = rs.getString("noiSinh");
+                String diaChiHienNay = rs.getString("diaChiHienNay");
+                String nguyenQuan = rs.getString("nguyenQuan");
+                String danToc = rs.getString("danToc");
+                String tonGiao = rs.getString("tonGiao");
+                String quocTich = rs.getString("quocTich");
+                String soHoChieu = rs.getString("soHoChieu");
+                String noiThuongTru = rs.getString("noiThuongTru");
+                String trinhDoHocVan = rs.getString("trinhDoHocVan");
+                String trinhDoChuyenMon = rs.getString("trinhDoChuyenMon");
+                String bietTiengDanToc = rs.getString("bietTiengDanToc");
+                String trinhDoNgoaiNgu = rs.getString("trinhDoNgoaiNgu");
+                String ngheNghiep = rs.getString("ngheNghiep");
+                String noiLamViec = rs.getString("noiLamViec");
+                String tienAn = rs.getString("tienAn");
+                String ngayChuyenDen = rs.getString("ngayChuyenDen");
+                String lyDoChuyenDen = rs.getString("lyDoChuyenDen");
+                String ngayChuyenDi = rs.getString("ngayChuyenDi");
+                String lyDoChuyenDi = rs.getString("lyDoChuyenDi");
+                String diaChiMoi = rs.getString("diaChiMoi");
+                String ngayTao = rs.getString("ngayTao");
+                String ghiChu = rs.getString("ghiChu");
                 String quanHe = rs.getString("quanHeVoiCHuHo");
-                NhanKhau thanhVien = new NhanKhau(ID, hoTen, namSinh, quanHe);
+                NhanKhau thanhVien = new NhanKhau(ID, maNhanKhau, hoTen, bietDanh, namSinh, gioiTinh, noiSinh, nguyenQuan, danToc, tonGiao, quocTich, soHoChieu, noiThuongTru, diaChiHienNay, trinhDoHocVan, trinhDoChuyenMon, bietTiengDanToc, trinhDoNgoaiNgu, ngheNghiep, noiLamViec, tienAn, ngayChuyenDen, lyDoChuyenDen, ngayChuyenDi, lyDoChuyenDi, diaChiMoi, ngayTao, ghiChu, quanHe);
                 result.add(thanhVien);
             }
         }catch (SQLException e){
