@@ -8,6 +8,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Toggle;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
@@ -21,10 +23,71 @@ public class MainController implements Initializable {
     }
     @FXML
     private BorderPane borderPane;
+    @FXML
+    private Toggle trangChuToggleBtn;
+    @FXML
+    private Toggle hoKhauToggleBtn;
+    @FXML
+    private Toggle nhanKhauToggleBtn;
+    @FXML
+    private Toggle covidToggleBtn;
+    @FXML
+    private Toggle thongKeToggleBtn;
+    private boolean check(){
+        return !trangChuToggleBtn.isSelected() && !hoKhauToggleBtn.isSelected() && !nhanKhauToggleBtn.isSelected() && !covidToggleBtn.isSelected() && !thongKeToggleBtn.isSelected();
 
+    }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        onTrangChuBtnClick();
+        ToggleGroup toggleGroup = new ToggleGroup();
+        trangChuToggleBtn.setToggleGroup(toggleGroup);
+        hoKhauToggleBtn.setToggleGroup(toggleGroup);
+        nhanKhauToggleBtn.setToggleGroup(toggleGroup);
+        covidToggleBtn.setToggleGroup(toggleGroup);
+        thongKeToggleBtn.setToggleGroup(toggleGroup);
+
+        trangChuToggleBtn.selectedProperty().addListener((observable, oldValue, newValue) -> {
+            if(newValue){
+                onTrangChuBtnClick();
+            }
+            if(check()){
+                trangChuToggleBtn.setSelected(true);
+            }
+        });
+        hoKhauToggleBtn.selectedProperty().addListener((observable, oldValue, newValue) -> {
+            if(newValue){
+                onHoKhauBtnClick();
+            }
+            if(check()){
+                hoKhauToggleBtn.setSelected(true);
+            }
+        });
+        nhanKhauToggleBtn.selectedProperty().addListener((observable, oldValue, newValue) -> {
+            if(newValue){
+                onNhanKhauBtnClick();
+            }
+            if(check()){
+                nhanKhauToggleBtn.setSelected(true);
+            }
+        });
+        covidToggleBtn.selectedProperty().addListener((observable, oldValue, newValue) -> {
+            if(newValue){
+                onCovidBtnClick();
+            }
+            if(check()){
+                covidToggleBtn.setSelected(true);
+            }
+        });
+        thongKeToggleBtn.selectedProperty().addListener((observable, oldValue, newValue) -> {
+            if(newValue){
+                onThongKeBtnClick();
+            }
+            if(check()){
+                thongKeToggleBtn.setSelected(true);
+            }
+        });
+
+        trangChuToggleBtn.setSelected(true);
     }
     @FXML
     private void onTrangChuBtnClick(){
@@ -57,6 +120,7 @@ public class MainController implements Initializable {
             }
             borderPane.setCenter(node);
         }else{
+//            hoKhauToggleBtn.setSelected(false);
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("auth.permission.none");
             alert.setContentText("You are not authorized to view this page");
@@ -80,6 +144,7 @@ public class MainController implements Initializable {
             }
             borderPane.setCenter(node);
         }else{
+//            nhanKhauToggleBtn.setSelected(false);
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("auth.permission.none");
             alert.setContentText("You are not authorized to view this page");
@@ -103,6 +168,7 @@ public class MainController implements Initializable {
             }
             borderPane.setCenter(node);
         }else{
+//            covidToggleBtn.setSelected(false);
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("auth.permission.none");
             alert.setContentText("You are not authorized to view this page");
@@ -126,6 +192,7 @@ public class MainController implements Initializable {
             }
             borderPane.setCenter(node);
         }else{
+//            thongKeToggleBtn.setSelected(false);
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("auth.permission.none");
             alert.setContentText("You are not authorized to view this page");
