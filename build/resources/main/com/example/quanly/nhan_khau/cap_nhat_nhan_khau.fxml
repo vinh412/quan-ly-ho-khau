@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane fx:id="them_nhan_khau_layout" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="them_nhan_khau_layout" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
     <ScrollPane layoutX="8.0" layoutY="7.0" prefHeight="435.0" prefWidth="787.0" vbarPolicy="ALWAYS">
         <content>
             <GridPane alignment="CENTER" prefHeight="623.0" prefWidth="772.0">
@@ -48,15 +48,6 @@
                 <Label text="Trình độ học vấn" GridPane.rowIndex="7" />
                 <Label text="Trình độ ngoại ngữ" GridPane.rowIndex="8" />
                 <Label text="Nghề nghiệp" GridPane.rowIndex="9" />
-                <Label text="(*)" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                <Label text="(*)" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                <Label text="(*)" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                <Label text="(*)" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-                <Label text="(*)" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-                <Label text="(*)" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-                <Label text="(*)" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="7" />
-                <Label text="(*)" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="8" />
-                <Label text="(*)" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="9" />
                 <Label text="Biệt danh" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                 <Label text="Giới tính" GridPane.columnIndex="3" GridPane.rowIndex="2" />
                 <Label text="Tôn giáo" GridPane.columnIndex="3" GridPane.rowIndex="3" />
@@ -67,12 +58,6 @@
                 <Label text="Biết tiếng dân tộc" GridPane.columnIndex="3" GridPane.rowIndex="8" />
                 <Label text="Nơi làm việc" GridPane.columnIndex="3" GridPane.rowIndex="9" />
                 <Label GridPane.columnIndex="5" GridPane.rowIndex="1" />
-                <Label text="(*)" textFill="RED" GridPane.columnIndex="5" GridPane.rowIndex="3" />
-                <Label text="(*)" textFill="RED" GridPane.columnIndex="5" GridPane.rowIndex="4" />
-                <Label text="(*)" textFill="RED" GridPane.columnIndex="5" GridPane.rowIndex="6" />
-                <Label text="(*)" textFill="RED" GridPane.columnIndex="5" GridPane.rowIndex="7" />
-                <Label text="(*)" textFill="RED" GridPane.columnIndex="5" GridPane.rowIndex="8" />
-                <Label text="(*)" textFill="RED" GridPane.columnIndex="5" GridPane.rowIndex="9" />
                 <TextField fx:id="hoTenTF" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                 <TextField fx:id="nguyenQuanTF" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                 <TextField fx:id="danTocTF" GridPane.columnIndex="1" GridPane.rowIndex="4" />
@@ -113,5 +98,5 @@
         </content>
     </ScrollPane>
     <Button fx:id="huyBtn" layoutX="611.0" layoutY="452.0" mnemonicParsing="false" onAction="#onHuyBtnClick" prefHeight="26.0" prefWidth="63.0" text="Hủy" />
-    <Button layoutX="692.0" layoutY="452.0" mnemonicParsing="false" onAction="#onCapNhatBtnClick" text="Cập nhật" fx:id="capNhanBtn" />
+    <Button fx:id="capNhanBtn" layoutX="692.0" layoutY="452.0" mnemonicParsing="false" onAction="#onCapNhatBtnClick" text="Cập nhật" />
 </AnchorPane>

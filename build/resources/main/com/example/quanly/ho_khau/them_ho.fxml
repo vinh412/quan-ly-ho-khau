@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<DialogPane fx:id="dialogPane" prefHeight="536.0" prefWidth="744.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quanly.controller.ho_khau.ThemHoController">
+<DialogPane fx:id="dialogPane" prefHeight="536.0" prefWidth="744.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quanly.controller.ho_khau.ThemHoController">
    <content>
       <AnchorPane fx:id="them_ho_layout" prefHeight="478.0" prefWidth="744.0">
           <children>

@@ -53,6 +53,7 @@ public class ThemNhanKhauController implements Initializable {
     public Button huyBtn;
     public void initialize(URL location, ResourceBundle resources) {
         gioiTinhChoiceBox.setItems(FXCollections.observableArrayList("Nam", "Nữ"));
+        gioiTinhChoiceBox.setValue("Nam");
         namSinhDatePicker.setValue(LocalDate.now());
 
         // Converter

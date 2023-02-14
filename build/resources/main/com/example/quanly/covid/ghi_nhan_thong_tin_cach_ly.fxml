@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<DialogPane fx:id="dialogPane" maxHeight="-Infinity" prefHeight="318.0" prefWidth="669.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quanly.controller.covid.GhiNhanThongTinCachLyController">
+<DialogPane fx:id="dialogPane" maxHeight="-Infinity" prefHeight="318.0" prefWidth="669.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quanly.controller.covid.GhiNhanThongTinCachLyController">
    <content>
       <AnchorPane prefHeight="394.0" prefWidth="498.0">
          <children>

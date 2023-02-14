@@ -40,6 +40,8 @@ public class MainController implements Initializable {
         return !trangChuToggleBtn.isSelected() && !hoKhauToggleBtn.isSelected() && !nhanKhauToggleBtn.isSelected() && !covidToggleBtn.isSelected() && !thongKeToggleBtn.isSelected();
 
     }
+    @FXML
+    private Button logoutBtn;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -92,6 +94,8 @@ public class MainController implements Initializable {
         });
 
         trangChuToggleBtn.setSelected(true);
+
+        logoutBtn.setText(this.currentUser.getUsername() + "\n" + "Đăng xuất");
     }
     @FXML
     private void onTrangChuBtnClick(){

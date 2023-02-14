@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<DialogPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quanly.controller.nhan_khau.ThemNhanKhauController">
+<DialogPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quanly.controller.nhan_khau.ThemNhanKhauController">
    <content>
       <AnchorPane fx:id="them_nhan_khau_layout" prefHeight="457.0" prefWidth="815.0">
          <ScrollPane layoutX="8.0" layoutY="7.0" prefHeight="435.0" prefWidth="787.0" vbarPolicy="ALWAYS">
@@ -51,15 +51,6 @@
                     <Label text="Trình độ học vấn" GridPane.rowIndex="7" />
                     <Label text="Trình độ ngoại ngữ" GridPane.rowIndex="8" />
                     <Label text="Nghề nghiệp" GridPane.rowIndex="9" />
-                    <Label text="(*)" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                    <Label text="(*)" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                    <Label text="(*)" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                    <Label text="(*)" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-                    <Label text="(*)" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-                    <Label text="(*)" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-                    <Label text="(*)" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="7" />
-                    <Label text="(*)" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="8" />
-                    <Label text="(*)" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="9" />
                     <Label text="Biệt danh" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                     <Label text="Giới tính" GridPane.columnIndex="3" GridPane.rowIndex="2" />
                     <Label text="Tôn giáo" GridPane.columnIndex="3" GridPane.rowIndex="3" />
@@ -70,12 +61,6 @@
                     <Label text="Biết tiếng dân tộc" GridPane.columnIndex="3" GridPane.rowIndex="8" />
                     <Label text="Nơi làm việc" GridPane.columnIndex="3" GridPane.rowIndex="9" />
                     <Label GridPane.columnIndex="5" GridPane.rowIndex="1" />
-                    <Label text="(*)" textFill="RED" GridPane.columnIndex="5" GridPane.rowIndex="3" />
-                    <Label text="(*)" textFill="RED" GridPane.columnIndex="5" GridPane.rowIndex="4" />
-                    <Label text="(*)" textFill="RED" GridPane.columnIndex="5" GridPane.rowIndex="6" />
-                    <Label text="(*)" textFill="RED" GridPane.columnIndex="5" GridPane.rowIndex="7" />
-                    <Label text="(*)" textFill="RED" GridPane.columnIndex="5" GridPane.rowIndex="8" />
-                    <Label text="(*)" textFill="RED" GridPane.columnIndex="5" GridPane.rowIndex="9" />
                     <TextField fx:id="hoTenTF" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                     <TextField fx:id="nguyenQuanTF" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                     <TextField fx:id="danTocTF" GridPane.columnIndex="1" GridPane.rowIndex="4" />

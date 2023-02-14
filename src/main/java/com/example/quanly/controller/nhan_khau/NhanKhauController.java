@@ -170,7 +170,7 @@ public class NhanKhauController implements Initializable {
         }
         Popup popup = new Popup();
         popup.setLayout(node);
-        popup.setTitle("Thêm nhân khẩu mới");
+        popup.setTitle("Cập nhật nhân khẩu");
         popup.show();
         System.out.println("Them nhan khau clicked");
     }
