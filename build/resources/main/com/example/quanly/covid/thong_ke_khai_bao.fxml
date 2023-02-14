@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.text.Font?>
+<VBox fx:id="tk_kb_layout" prefHeight="600.0" prefWidth="880.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quanly.controller.covid.ThongKeKhaiBaoController">
+    <TableView fx:id="khaiBaoYTeTableView" prefHeight="464.0" prefWidth="880.0" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="maPhieuKhaiBaoYTeColumn" text="Mã phiếu khai báo y tế" />
+            <TableColumn fx:id="idNhanKhauColumn" text="ID nhan khau"/>
+            <TableColumn fx:id="hoTenColumn" text="Họ tên" />
+            <TableColumn fx:id="namSinhColumn" text="Năm sinh" />
+            <TableColumn fx:id="diaChiColumn" text="Địa chỉ" />
+            <TableColumn fx:id="thoiGianKhaiBaoColumn" text="Thời gian khai báo" />
+        </columns>
+    </TableView>
+</VBox>

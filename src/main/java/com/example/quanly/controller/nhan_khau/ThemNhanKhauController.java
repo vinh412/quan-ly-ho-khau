@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 import javafx.util.StringConverter;
 
 import java.net.URL;
+import java.sql.Date;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
@@ -48,10 +49,11 @@ public class ThemNhanKhauController implements Initializable {
     public TextField lyDoChuyenDiTF;
     public TextField diaChiMoiTF;
     public TextField ghiChuTF;
-
+    public TextField soCmtTF;
     public Button huyBtn;
     public void initialize(URL location, ResourceBundle resources) {
         gioiTinhChoiceBox.setItems(FXCollections.observableArrayList("Nam", "Nữ"));
+        gioiTinhChoiceBox.setValue("Nam");
         namSinhDatePicker.setValue(LocalDate.now());
 
         // Converter
@@ -78,11 +80,11 @@ public class ThemNhanKhauController implements Initializable {
     }
 
     @FXML
-    private void onXacNhanBtnClick(){
+    public void onXacNhanBtnClick(){
         String maNhanKhau = maNhanKhauTF.getText();
         String hoTen = hoTenTF.getText();
         String bietDanh = bietDanhTF.getText();
-        String namSinh = namSinhDatePicker.getValue().toString();
+        LocalDate namSinh = namSinhDatePicker.getValue();
         String gioiTinh = gioiTinhChoiceBox.getValue();
         String noiSinh = noiSinhTF.getText();
         String nguyenQuan = nguyenQuanTF.getText();
@@ -109,9 +111,8 @@ public class ThemNhanKhauController implements Initializable {
                 danToc, tonGiao, quocTich, soHoChieu, noiThuongTru, diaChiHienNay, trinhDoHocVan, trinhDoChuyenMon,
                 bietTiengDanToc, trinhDoNgoaiNgu, ngheNghiep, noiLamViec, tienAn, ngayChuyenDen,
                 lyDoChuyenDen, ngayChuyenDi, lyDoChuyenDi, diaChiMoi, ghiChu);
-        Database.connect();
-        Database.insertNhanKhau(nhanKhauMoi);
-        Database.close();
+
+        Database.insertOneNhanKhau(nhanKhauMoi);
 
         }
 
@@ -119,5 +120,62 @@ public class ThemNhanKhauController implements Initializable {
     public void onHuyBtnClick(ActionEvent actionEvent) {
         Stage stage  = (Stage) huyBtn.getScene().getWindow();
         stage.close();
+    }
+
+    public void showThongTinNhanKhau(NhanKhau nhanKhau){
+        maNhanKhauTF.setText(nhanKhau.getMaNhanKhau());
+        hoTenTF.setText(nhanKhau.getHoTen());
+        bietDanhTF.setText(nhanKhau.getBietDanh());
+        namSinhDatePicker.setValue(nhanKhau.getNamSinh());
+        gioiTinhChoiceBox.setValue(nhanKhau.getGioiTinh());
+        nguyenQuanTF.setText(nhanKhau.getNguyenQuan());
+        danTocTF.setText(nhanKhau.getDanToc());
+        tonGiaoTF.setText(nhanKhau.getTonGiao());
+        quocTichTF.setText(nhanKhau.getQuocTich());
+        soHoChieuTF.setText(nhanKhau.getSoHoChieu());
+        noiThuongTruTF.setText(nhanKhau.getNoiThuongTru());
+        diaChiHienNayTF.setText(nhanKhau.getDiaChiHienNay());
+        trinhDoHocVanTF.setText(nhanKhau.getTrinhDoHocVan());
+        trinhDoChuyenMonTF.setText(nhanKhau.getTrinhDoChuyenMon());
+        bietTiengDanTocTF.setText(nhanKhau.getBietTiengDanToc());
+        trinhDoNgoaiNguTF.setText(nhanKhau.getTrinhDoNgoaiNgu());
+        ngheNghiepTF.setText(nhanKhau.getNgheNghiep());
+        noiLamViecTF.setText(nhanKhau.getNoiLamViec());
+        noiSinhTF.setText(nhanKhau.getNoiSinh());
+        tienAnTF.setText(nhanKhau.getTienAn());
+        ngayChuyenDenTF.setText(nhanKhau.getNgayChuyenDen());
+        lyDoChuyenDenTF.setText(nhanKhau.getLyDoChuyenDen());
+        ngayChuyenDiTF.setText(nhanKhau.getNgayChuyenDi());
+        lyDoChuyenDiTF.setText(nhanKhau.getLyDoChuyenDi());
+        diaChiMoiTF.setText(nhanKhau.getDiaChiMoi());
+        ghiChuTF.setText(nhanKhau.getGhiChu());
+
+        maNhanKhauTF.setDisable(true);
+        hoTenTF.setDisable(true);
+        bietDanhTF.setDisable(true);
+        namSinhDatePicker.setDisable(true);
+        gioiTinhChoiceBox.setDisable(true);
+        nguyenQuanTF.setDisable(true);
+        danTocTF.setDisable(true);
+        tonGiaoTF.setDisable(true);
+        quocTichTF.setDisable(true);
+        soHoChieuTF.setDisable(true);
+        noiThuongTruTF.setDisable(true);
+        diaChiHienNayTF.setDisable(true);
+        trinhDoHocVanTF.setDisable(true);
+        trinhDoChuyenMonTF.setDisable(true);
+        bietTiengDanTocTF.setDisable(true);
+        trinhDoNgoaiNguTF.setDisable(true);
+        ngheNghiepTF.setDisable(true);
+        noiLamViecTF.setDisable(true);
+        noiSinhTF.setDisable(true);
+        tienAnTF.setDisable(true);
+        ngayChuyenDenTF.setDisable(true);
+        lyDoChuyenDenTF.setDisable(true);
+        ngayChuyenDiTF.setDisable(true);
+        lyDoChuyenDiTF.setDisable(true);
+        diaChiMoiTF.setDisable(true);
+        ghiChuTF.setDisable(true);
+        soCmtTF.setDisable(true);
     }
 }

@@ -1,0 +1,9 @@
+.btn-delete{
+-fx-background-color: #ff4d4d;
+-fx-text-fill:  #ebeced;
+}
+.btn-delete:hover{
+-fx-background-color: #ff3838;
+-fx-text-fill:  #ebeced;
+
+}

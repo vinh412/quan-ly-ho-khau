@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.text.Font?>
+<BorderPane fx:id="borderPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quanly.controller.thong_ke.ThongKeController">
+    <top>
+        <ToolBar>
+            <items>
+                <Button mnemonicParsing="false" onAction="#onTKNhanKhauClick" prefHeight="30.0" prefWidth="150.0" text="Thống kê nhân khẩu"/>
+                <Button mnemonicParsing="false" onAction="#onTKTamTruBtnClick" prefHeight="30.0" prefWidth="150.0" text="Thống kê tạm trú"/>
+                <Button mnemonicParsing="false" onAction="#onTKTamVangClick" prefHeight="30.0" prefWidth="150.0" text="Thống kê tạm vắng"/>
+            </items>
+        </ToolBar>
+    </top>
+</BorderPane>

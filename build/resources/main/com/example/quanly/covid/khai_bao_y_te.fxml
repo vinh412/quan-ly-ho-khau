@@ -4,175 +4,198 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<ScrollPane fx:id="khai_bao_y_te_layout" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="623.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<DialogPane fx:id="dialogPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quanly.controller.covid.KhaiBaoYTeController">
    <content>
-      <AnchorPane prefHeight="840.0" prefWidth="606.0">
-         <children>
-            <Label layoutX="14.0" layoutY="14.0" text="1. Thông tin cá nhân">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font></Label>
-            <GridPane hgap="5.0" layoutX="48.0" layoutY="42.0" prefHeight="60.0" prefWidth="542.0" vgap="5.0">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="113.39996337890625" minWidth="10.0" prefWidth="103.6" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="183.80001220703122" minWidth="10.0" prefWidth="183.80001220703122" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="102.0" minWidth="10.0" prefWidth="54.199987792968784" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="166.800048828125" minWidth="10.0" prefWidth="86.39998779296877" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="147.39993286132812" minWidth="10.0" prefWidth="50.79998779296875" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="91.4000244140625" minWidth="10.0" prefWidth="41.80002441406248" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-              </rowConstraints>
+      <ScrollPane fx:id="khai_bao_y_te_layout" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="623.0">
+         <content>
+            <AnchorPane prefHeight="840.0" prefWidth="606.0">
                <children>
-                  <Label text="Họ và tên" />
-                  <Label text="Địa chỉ thường chú" GridPane.rowIndex="1" />
-                  <Label prefHeight="18.0" prefWidth="58.0" text="Năm sinh" GridPane.columnIndex="2" />
-                  <Label text="Giới tính" GridPane.columnIndex="4" />
-                  <TextArea minHeight="10.0" prefHeight="10.0" prefWidth="100.0" GridPane.columnIndex="1" />
-                  <TextArea minHeight="10.0" prefHeight="10.0" prefWidth="500.0" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.rowIndex="1" />
-                  <TextArea minHeight="10.0" prefHeight="10.0" prefWidth="179.0" GridPane.columnIndex="3" />
-                  <TextArea minHeight="10.0" prefHeight="10.0" prefWidth="100.0" GridPane.columnIndex="5" />
-               </children>
-            </GridPane>
-            <Label layoutX="14.0" layoutY="114.0" text="2. Thông tin bệnh cá nhân">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font></Label>
-            <GridPane layoutX="48.0" layoutY="165.0" prefHeight="111.0" prefWidth="542.0">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="459.00001525878906" minWidth="10.0" prefWidth="439.00001525878906" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="343.4000244140625" minWidth="10.0" prefWidth="45.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="176.20001220703125" minWidth="10.0" prefWidth="44.19999999999999" />
-              </columnConstraints>
-              <rowConstraints>
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <Label text="Có tiếp xúc với trường hợp bệnh hoặc nghi ngờ mắc bệnh COVID-19 không?" GridPane.rowIndex="1" />
-                  <Label text="Có" GridPane.columnIndex="1" />
-                  <Label text="Không" GridPane.columnIndex="2" />
-                  <Label text="Có đi về từ vùng có dịch COVID-19 không?" GridPane.rowIndex="2" />
-                  <Label text="Có tiếp xúc với trường hợp đi về từ vùng dịch không?" GridPane.rowIndex="3" />
-                  <RadioButton mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <RadioButton mnemonicParsing="false" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                  <RadioButton mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <RadioButton mnemonicParsing="false" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                  <RadioButton mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <RadioButton mnemonicParsing="false" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-               </children>
-            </GridPane>
-            <Label layoutX="48.0" layoutY="147.0" text="Trong vòng 14 ngày, Anh/chị:">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Label>
-            <Label layoutX="48.0" layoutY="299.0" text="Trong 14 ngày, Anh/chị có đến Quốc gia/Vùng lãnh thổ nào (có thể đi qua nhiều quốc gia)?">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Label>
-            <TextField layoutX="48.0" layoutY="324.0" prefHeight="26.0" prefWidth="484.0" />
-            <SplitPane dividerPositions="0.4999999999999999" layoutX="6.0" layoutY="356.0" prefHeight="425.0" prefWidth="600.0">
-              <items>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="300.0" prefWidth="300.0">
+                  <Label layoutX="14.0" layoutY="14.0" text="1. Thông tin cá nhân">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <GridPane hgap="5.0" layoutX="48.0" layoutY="42.0" prefHeight="60.0" prefWidth="542.0" vgap="5.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="113.39996337890625" minWidth="10.0" prefWidth="103.6" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="183.80001220703122" minWidth="10.0" prefWidth="183.80001220703122" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="102.0" minWidth="10.0" prefWidth="54.199987792968784" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="166.800048828125" minWidth="10.0" prefWidth="86.39998779296877" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="147.39993286132812" minWidth="10.0" prefWidth="50.79998779296875" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="91.4000244140625" minWidth="10.0" prefWidth="41.80002441406248" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
                      <children>
-                        <Label contentDisplay="CENTER" layoutX="43.0" layoutY="14.0" prefHeight="39.0" prefWidth="240.0" text="Trong vòng 14 ngày, Anh/chị có thấy xuất hiện dấu hiệu nào sau đây không?" wrapText="true">
-                           <font>
-                              <Font name="System Bold" size="12.0" />
-                           </font>
-                        </Label>
-                        <GridPane layoutX="43.0" layoutY="75.0">
-                          <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="180.79998779296875" minWidth="10.0" prefWidth="173.5999755859375" />
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="98.40003662109376" minWidth="10.0" prefWidth="27.20002441406251" />
-                          </columnConstraints>
-                          <rowConstraints>
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                          </rowConstraints>
-                           <children>
-                              <Label text="Sốt" />
-                              <Label text="Ho" GridPane.rowIndex="1" />
-                              <Label text="Khó thở" GridPane.rowIndex="2" />
-                              <Label text="Viêm phổi" GridPane.rowIndex="3" />
-                              <Label text="Đau họng" GridPane.rowIndex="4" />
-                              <Label text="Mệt mỏi" GridPane.rowIndex="5" />
-                              <CheckBox mnemonicParsing="false" GridPane.columnIndex="1" />
-                              <CheckBox mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                              <CheckBox mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                              <CheckBox mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                              <CheckBox mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                              <CheckBox mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                           </children>
-                        </GridPane>
+                        <Label text="Họ và tên" />
+                        <Label text="Địa chỉ thường chú" GridPane.rowIndex="1" />
+                        <Label prefHeight="18.0" prefWidth="58.0" text="Năm sinh" GridPane.columnIndex="2" />
+                        <Label text="Giới tính" GridPane.columnIndex="4" />
+                        <Label fx:id="hoTenLB" GridPane.columnIndex="1" />
+                        <Label fx:id="diaChiThuongTruLB" prefHeight="18.0" prefWidth="297.0" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.rowIndex="1" />
+                        <Label fx:id="namSinhLB" GridPane.columnIndex="3" />
+                        <Label fx:id="gioiTinhLB" GridPane.columnIndex="5" />
                      </children>
-                  </AnchorPane>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="301.0" prefWidth="300.0">
+                  </GridPane>
+                  <Label layoutX="14.0" layoutY="114.0" text="2. Thông tin bệnh cá nhân">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <GridPane layoutX="48.0" layoutY="165.0" prefHeight="111.0" prefWidth="542.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="459.00001525878906" minWidth="10.0" prefWidth="439.00001525878906" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="343.4000244140625" minWidth="10.0" prefWidth="45.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="176.20001220703125" minWidth="10.0" prefWidth="44.19999999999999" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
                      <children>
-                        <Label layoutX="14.0" layoutY="14.0" prefHeight="26.0" prefWidth="243.0" text="Hiện tại Anh/chị có các bệnh nào dưới đây:">
-                           <font>
-                              <Font name="System Bold" size="12.0" />
-                           </font>
-                        </Label>
-                        <GridPane layoutX="14.0" layoutY="74.0" prefHeight="334.0" prefWidth="221.0">
-                          <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="195.9999755859375" minWidth="10.0" prefWidth="195.9999755859375" />
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="93.60003662109375" minWidth="10.0" prefWidth="24.800024414062506" />
-                          </columnConstraints>
-                          <rowConstraints>
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                          </rowConstraints>
-                           <children>
-                              <Label text="Bệnh gan mãn tính" />
-                              <Label text="Bệnh máu mãn tính" GridPane.rowIndex="1" />
-                              <Label text="Bệnh phổi mãn tính" GridPane.rowIndex="2" />
-                              <Label text="Bệnh thận mãn tính" GridPane.rowIndex="3" />
-                              <Label text="Bệnh tim mạch" GridPane.rowIndex="4" />
-                              <Label text="Huyết áp cao" GridPane.rowIndex="5" />
-                              <Label text="HIV hoặc suy giảm miễn dịch" GridPane.rowIndex="6" />
-                              <Label text="Người nhận ghép tạng, tủy xương" GridPane.rowIndex="7" />
-                              <Label text="Tiểu đường" GridPane.rowIndex="8" />
-                              <Label text="Có thai" GridPane.rowIndex="10" />
-                              <Label text="Ung thư" GridPane.rowIndex="9" />
-                              <CheckBox mnemonicParsing="false" GridPane.columnIndex="1" />
-                              <CheckBox mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                              <CheckBox mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                              <CheckBox mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                              <CheckBox mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                              <CheckBox mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                              <CheckBox mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                              <CheckBox mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-                              <CheckBox mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-                              <CheckBox mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="10" />
-                              <CheckBox mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="9" />
-                           </children>
-                        </GridPane>
+                        <Label text="Có tiếp xúc với trường hợp bệnh hoặc nghi ngờ mắc bệnh COVID-19 không?" GridPane.rowIndex="1" />
+                        <Label text="Có" GridPane.columnIndex="1" />
+                        <Label text="Không" GridPane.columnIndex="2" />
+                        <Label text="Có đi về từ vùng có dịch COVID-19 không?" GridPane.rowIndex="2" />
+                        <Label text="Có tiếp xúc với trường hợp đi về từ vùng dịch không?" GridPane.rowIndex="3" />
+                        <RadioButton fx:id="coTiepXucF0RB" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="row1" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="khongTiepXucF0RB" mnemonicParsing="false" selected="true" toggleGroup="$row1" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <RadioButton fx:id="coDiVeRB" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="row2" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="khongDiVeRB" mnemonicParsing="false" selected="true" toggleGroup="$row2" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <RadioButton fx:id="coTiepXucVungDichRB" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="row3" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="khongTiepXucVungDichRB" mnemonicParsing="false" selected="true" toggleGroup="$row3" GridPane.columnIndex="2" GridPane.rowIndex="3" />
                      </children>
-                  </AnchorPane>
-              </items>
-            </SplitPane>
-            <CheckBox layoutX="14.0" layoutY="801.0" mnemonicParsing="false" text="Tôi cam kết những thông tin khai báo là đúng sự thật" />
-         </children>
-
-      </AnchorPane>
+                  </GridPane>
+                  <Label layoutX="48.0" layoutY="147.0" text="Trong vòng 14 ngày, Anh/chị:">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="48.0" layoutY="299.0" text="Trong 14 ngày, Anh/chị có đến Quốc gia/Vùng lãnh thổ nào (có thể đi qua nhiều quốc gia)?">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="daDenQuocGiaTF" layoutX="48.0" layoutY="324.0" prefHeight="26.0" prefWidth="484.0" />
+                  <SplitPane dividerPositions="0.4999999999999999" layoutX="6.0" layoutY="356.0" prefHeight="425.0" prefWidth="600.0">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="300.0" prefWidth="300.0">
+                           <children>
+                              <Label contentDisplay="CENTER" layoutX="43.0" layoutY="14.0" prefHeight="39.0" prefWidth="240.0" text="Trong vòng 14 ngày, Anh/chị có thấy xuất hiện dấu hiệu nào sau đây không?" wrapText="true">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <GridPane layoutX="43.0" layoutY="75.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="180.79998779296875" minWidth="10.0" prefWidth="173.5999755859375" />
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="98.40003662109376" minWidth="10.0" prefWidth="27.20002441406251" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label text="Sốt" />
+                                    <Label text="Ho" GridPane.rowIndex="1" />
+                                    <Label text="Khó thở" GridPane.rowIndex="2" />
+                                    <Label text="Viêm phổi" GridPane.rowIndex="3" />
+                                    <Label text="Đau họng" GridPane.rowIndex="4" />
+                                    <Label text="Mệt mỏi" GridPane.rowIndex="5" />
+                                    <CheckBox fx:id="sotCB" mnemonicParsing="false" GridPane.columnIndex="1" />
+                                    <CheckBox fx:id="hoCB" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <CheckBox fx:id="khoThoCB" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <CheckBox fx:id="viemPhoiCB" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <CheckBox fx:id="dauHongCB" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                    <CheckBox fx:id="metMoiCB" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="301.0" prefWidth="300.0">
+                           <children>
+                              <Label layoutX="14.0" layoutY="14.0" prefHeight="26.0" prefWidth="243.0" text="Hiện tại Anh/chị có các bệnh nào dưới đây:">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <GridPane layoutX="14.0" layoutY="74.0" prefHeight="334.0" prefWidth="221.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="195.9999755859375" minWidth="10.0" prefWidth="195.9999755859375" />
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="93.60003662109375" minWidth="10.0" prefWidth="24.800024414062506" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label text="Bệnh gan mãn tính" />
+                                    <Label text="Bệnh máu mãn tính" GridPane.rowIndex="1" />
+                                    <Label text="Bệnh phổi mãn tính" GridPane.rowIndex="2" />
+                                    <Label text="Bệnh thận mãn tính" GridPane.rowIndex="3" />
+                                    <Label text="Bệnh tim mạch" GridPane.rowIndex="4" />
+                                    <Label text="Huyết áp cao" GridPane.rowIndex="5" />
+                                    <Label text="HIV hoặc suy giảm miễn dịch" GridPane.rowIndex="6" />
+                                    <Label text="Người nhận ghép tạng, tủy xương" GridPane.rowIndex="7" />
+                                    <Label text="Tiểu đường" GridPane.rowIndex="8" />
+                                    <Label text="Có thai" GridPane.rowIndex="10" />
+                                    <Label text="Ung thư" GridPane.rowIndex="9" />
+                                    <CheckBox fx:id="benhGanManTinhCB" mnemonicParsing="false" GridPane.columnIndex="1" />
+                                    <CheckBox fx:id="benhMauManTinhCB" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <CheckBox fx:id="benhPhoiManTinhCB" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <CheckBox fx:id="benhThanManTinhCB" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <CheckBox fx:id="benhTimMachCB" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                    <CheckBox fx:id="huyetApCaoCB" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                    <CheckBox fx:id="hivSuyGiamMienDichCB" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                    <CheckBox fx:id="nguoiNhanGhepTangCB" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                    <CheckBox fx:id="tieuDuongCB" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                                    <CheckBox fx:id="coThaiCB" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                                    <CheckBox fx:id="ungThuCB" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+                  <CheckBox fx:id="camKetCB" layoutX="14.0" layoutY="801.0" mnemonicParsing="false" text="Tôi cam kết những thông tin khai báo là đúng sự thật" />
+                  <Button fx:id="chonNhanKhauBtn" layoutX="153.0" layoutY="10.0" mnemonicParsing="false" onAction="#onChonNhanKhauBtnClick" text="Chọn..." />
+               </children>
+      
+            </AnchorPane>
+         </content>
+      </ScrollPane>
    </content>
-</ScrollPane>
+   <buttonTypes>
+      <ButtonType fx:constant="OK" />
+      <ButtonType fx:constant="CANCEL" />
+   </buttonTypes>
+</DialogPane>

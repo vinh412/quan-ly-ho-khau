@@ -2,24 +2,19 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="covid_layout" prefHeight="600.0" prefWidth="880.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quanly.controller.covid.CovidController">
-
-    <Button layoutX="286.0" layoutY="65.0" onAction="#onKhaiBaoYTeBtnClick" prefHeight="100.0" prefWidth="300.0" text="Khai báo y tế">
-      <font>
-         <Font name="System Bold" size="20.0" />
-      </font></Button>
-    <Button layoutX="286.0" layoutY="200.0" onAction="#onGhiNhanThongTinCachLyBtnClick" prefHeight="100.0" prefWidth="300.0" text="Ghi nhận thông tin cách ly">
-      <font>
-         <Font name="System Bold" size="20.0" />
-      </font></Button>
-    <Button layoutX="286.0" layoutY="338.0" onAction="#onThongKeKhaiBaoYTeBtnClick" prefHeight="100.0" prefWidth="300.0" text="Thống kê khai báo y tế">
-      <font>
-         <Font name="System Bold" size="20.0" />
-      </font></Button>
-    <Button layoutX="286.0" layoutY="475.0" onAction="#onThongKeCachLyBtnClick" prefHeight="100.0" prefWidth="300.0" text="Thống kê cách ly">
-      <font>
-         <Font name="System Bold" size="20.0" />
-      </font></Button>
-</AnchorPane>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.text.Font?>
+<BorderPane fx:id="borderPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quanly.controller.covid.CovidController">
+<top>
+    <ToolBar>
+        <items>
+            <Button mnemonicParsing="false" onAction="#onKhaiBaoYTeBtnClick" prefHeight="30.0" prefWidth="86.0" text="Khai báo y tế"/>
+            <Button mnemonicParsing="false" onAction="#onGhiNhanThongTinCachLyBtnClick" prefHeight="30.0" prefWidth="158.0" text="Ghi nhận thông tin cách ly"/>
+            <Button mnemonicParsing="false" onAction="#onThongKeKhaiBaoYTeBtnClick" prefHeight="30.0" prefWidth="137.0" text="Thống kê khai báo y tế"/>
+            <Button mnemonicParsing="false" onAction="#onThongKeCachLyBtnClick" prefHeight="30.0" prefWidth="105.0" text="Thống kê cách ly" />
+        </items>
+    </ToolBar>
+</top>
+</BorderPane>

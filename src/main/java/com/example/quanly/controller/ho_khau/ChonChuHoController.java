@@ -79,12 +79,12 @@ public class ChonChuHoController implements Initializable {
     public void onChonBtnClick(ActionEvent actionEvent) {
         NhanKhau selectedItem = tableView.getSelectionModel().getSelectedItem();
         if(selectedItem == null) return;
-        themHoController.onDataReceived(selectedItem);
+        themHoController.onChuHoReceived(selectedItem);
         Stage stage = (Stage) chonBtn.getScene().getWindow();
         stage.close();
     }
-    private ThemHoController themHoController;
-    public void setParentController(ThemHoController themHoController) {
+    private IChonChuHo themHoController;
+    public void setParentController(IChonChuHo themHoController) {
         this.themHoController = themHoController;
     }
 }

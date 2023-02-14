@@ -1,41 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="borderPane" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quanly.controller.MainController">
-   <top>
-      <VBox prefHeight="120.0" prefWidth="1080.0" BorderPane.alignment="CENTER">
-         <children>
-            <Label alignment="CENTER" prefHeight="120.0" prefWidth="1080.0" style="-fx-background-color: #2ad1ce;" text="Quản Lý Hộ Khẩu" textFill="#233dd1">
-               <font>
-                  <Font size="55.0" />
-               </font>
-            </Label>
-         </children>
-      </VBox>
-   </top>
+<BorderPane fx:id="borderPane" minHeight="630.0" minWidth="1080.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <left>
-      <VBox prefHeight="600.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <VBox alignment="TOP_CENTER" blendMode="DARKEN" cache="true" cacheHint="QUALITY" prefHeight="600.0" prefWidth="196.0" style="-fx-background-color: #2f3640;" BorderPane.alignment="CENTER">
+         <!--         <ToolBar orientation="VERTICAL" prefHeight="600.0" prefWidth="200.0">-->
+         <!--            <items>-->
+         <ToggleButton fx:id="trangChuToggleBtn" mnemonicParsing="false" prefHeight="24.0" prefWidth="296.0" styleClass="nav-item-toggle" stylesheets="@css/nav.css" text="Trang Chủ">
+            <font>
+               <Font name="Roboto Light" size="25.0" />
+            </font>
+         </ToggleButton>
+         <ToggleButton fx:id="hoKhauToggleBtn" mnemonicParsing="false" prefHeight="24.0" prefWidth="296.0" styleClass="nav-item-toggle" stylesheets="@css/nav.css" text="Hộ Khẩu">
+            <font>
+               <Font name="Roboto Light" size="25.0" />
+            </font>
+         </ToggleButton>
+         <ToggleButton fx:id="nhanKhauToggleBtn" mnemonicParsing="false" prefHeight="24.0" prefWidth="296.0" styleClass="nav-item-toggle" stylesheets="@css/nav.css" text="Nhân Khẩu">
+            <font>
+               <Font name="Roboto Light" size="25.0" />
+            </font>
+         </ToggleButton>
+         <ToggleButton fx:id="covidToggleBtn" mnemonicParsing="false" prefHeight="24.0" prefWidth="296.0" styleClass="nav-item-toggle" stylesheets="@css/nav.css" text="COVID">
+            <font>
+               <Font name="Roboto Light" size="25.0" />
+            </font>
+         </ToggleButton>
+         <ToggleButton fx:id="thongKeToggleBtn" mnemonicParsing="false" prefHeight="24.0" prefWidth="296.0" styleClass="nav-item-toggle" stylesheets="@css/nav.css" text="Thống kê">
+            <font>
+               <Font name="Roboto Light" size="25.0" />
+            </font>
+         </ToggleButton>
+         <VBox alignment="BOTTOM_CENTER" prefHeight="415.0" prefWidth="235.0">
+            <children>
+               <Button fx:id="logoutBtn" mnemonicParsing="false" onAction="#onLogoutBtnClick" prefHeight="76.0" prefWidth="194.0" styleClass="logout-btn" text="Đăng xuất" textAlignment="CENTER">
+                  <font>
+                     <Font name="Roboto Light" size="20.0" />
+                  </font>
+                  <stylesheets>
+                     <URL value="@css/nav.css" />
+                     <URL value="@css/nav.css" />
+                  </stylesheets>
+               </Button>
+            </children>
+         </VBox>
+         <!--            </items>-->
+         <!--         </ToolBar>-->
          <children>
-            <Button fx:id="hoKhauBtn" mnemonicParsing="false" onAction="#onHoKhauBtnClick" prefHeight="150.0" prefWidth="200.0" text="Hộ Khẩu" textFill="#233dd1">
-               <font>
-                  <Font size="30.0" />
-               </font></Button>
-            <Button fx:id="nhanKhauBtn" mnemonicParsing="false" onAction="#onNhanKhauBtnClick" prefHeight="150.0" prefWidth="200.0" text="Nhân Khẩu" textFill="#233dd1">
-               <font>
-                  <Font size="30.0" />
-               </font></Button>
-            <Button fx:id="covidBtn" mnemonicParsing="false" onAction="#onCovidBtnClick" prefHeight="150.0" prefWidth="200.0" text="Covid" textFill="#233dd1">
-               <font>
-                  <Font size="30.0" />
-               </font></Button>
-            <Button fx:id="thongKeBtn" mnemonicParsing="false" onAction="#onThongKeBtnClick" prefHeight="150.0" prefWidth="200.0" text="Thống Kê" textFill="#233dd1">
-               <font>
-                  <Font size="30.0" />
-               </font></Button>
+            <!--            <Button fx:id="hoKhauBtn" mnemonicParsing="false" onAction="#onHoKhauBtnClick" prefHeight="150.0" prefWidth="200.0" text="Hộ Khẩu" textFill="#233dd1">-->
+            <!--               <font>-->
+            <!--                  <Font size="30.0" />-->
+            <!--               </font></Button>-->
+            <!--            <Button fx:id="nhanKhauBtn" mnemonicParsing="false" onAction="#onNhanKhauBtnClick" prefHeight="150.0" prefWidth="200.0" text="Nhân Khẩu" textFill="#233dd1">-->
+            <!--               <font>-->
+            <!--                  <Font size="30.0" />-->
+            <!--               </font></Button>-->
+            <!--            <Button fx:id="covidBtn" mnemonicParsing="false" onAction="#onCovidBtnClick" prefHeight="150.0" prefWidth="200.0" text="Covid" textFill="#233dd1">-->
+            <!--               <font>-->
+            <!--                  <Font size="30.0" />-->
+            <!--               </font></Button>-->
+            <!--            <Button fx:id="thongKeBtn" mnemonicParsing="false" onAction="#onThongKeBtnClick" prefHeight="150.0" prefWidth="200.0" text="Thống Kê" textFill="#233dd1">-->
+            <!--               <font>-->
+            <!--                  <Font size="30.0" />-->
+            <!--               </font></Button>-->
          </children>
+         <effect>
+            <Blend />
+         </effect>
       </VBox>
    </left>
+   <bottom>
+      <HBox />
+   </bottom>
+   <effect>
+      <Glow />
+   </effect>
 </BorderPane>

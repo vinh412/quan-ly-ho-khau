@@ -1,0 +1,31 @@
+.nav-item-toggle{
+-fx-background-radius: 0;
+-fx-background-color: transparent;
+-fx-text-fill: #dcdde1;
+-fx-border-style: hidden hidden solid hidden;
+-fx-border-color: #353b48;
+}
+.nav-item-toggle:hover{
+-fx-background-color: #353b48;
+-fx-text-fill: #f5f6fa;
+-fx-background-radius: 0;
+-fx-border-style: hidden hidden solid hidden;
+-fx-border-color: #353b48;
+}
+.nav-item-toggle:selected{
+-fx-background-color: rgba(0, 0, 0, 0.25);
+-fx-background-radius: 0;
+-fx-text-fill: #dcdde1;
+-fx-border-style: hidden hidden solid hidden;
+-fx-border-color: #353b48;
+}
+.logout-btn{
+-fx-background-color: #e74c3c;
+-fx-text-fill: #f5f6fa;
+-fx-background-radius: 0;
+}
+.logout-btn:hover{
+-fx-background-color: #c0392b;
+-fx-text-fill: #f5f6fa;
+-fx-background-radius: 0;
+}

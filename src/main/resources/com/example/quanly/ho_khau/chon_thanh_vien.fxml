@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="chon_thanh_vien_layout" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+    <AnchorPane prefHeight="40.0" prefWidth="880.0">
+      <ToolBar layoutY="2.0" prefHeight="40.0" prefWidth="880.0">
+         <items>
+              <TextField fx:id="searchTF" prefHeight="30.0" prefWidth="282.0" />
+              <ComboBox fx:id="comboBox" prefHeight="30.0" prefWidth="150.0" />
+            <Label text="Quan hệ với chủ hộ" />
+            <TextField fx:id="quanHeTF" prefHeight="30.0" prefWidth="156.0" />
+         </items>
+      </ToolBar>
+    </AnchorPane>
+    <TableView fx:id="tableView" prefHeight="464.0" prefWidth="880.0">
+        <columns>
+            <TableColumn fx:id="maNhanKhau" text="Mã nhân khẩu" />
+            <TableColumn fx:id="hoTen" text="Họ tên" />
+            <TableColumn fx:id="gioiTinh" text="Giới tính" />
+            <TableColumn fx:id="namSinh" text="Năm sinh" />
+            <TableColumn fx:id="diaChiHienNay" text="Địa chỉ hiện nay" />
+        </columns>
+    </TableView>
+    <Button fx:id="chonBtn" layoutX="657.0" layoutY="8.0" mnemonicParsing="false" onAction="#onChonBtnClick" prefHeight="30.0" prefWidth="63.0" text="Chọn" />
+</VBox>

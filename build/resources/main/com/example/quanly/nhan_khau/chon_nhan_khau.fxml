@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<DialogPane fx:id="dialogPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quanly.controller.nhan_khau.ChonNhanKhauController">
+   <content>
+      <VBox prefHeight="400.0" prefWidth="600.0">
+            <ToolBar layoutX="-16.0" layoutY="-6.0" prefWidth="494.0">
+               <items>
+                    <TextField fx:id="searchTF" prefHeight="30.0" prefWidth="347.0" />
+                    <ComboBox fx:id="comboBox" prefHeight="30.0" prefWidth="122.0" />
+               </items>
+            </ToolBar>
+          <TableView fx:id="tableView" prefHeight="464.0" prefWidth="880.0">
+              <columns>
+                  <TableColumn fx:id="maNhanKhau" text="Mã nhân khẩu" />
+                  <TableColumn fx:id="hoTen" text="Họ tên" />
+                  <TableColumn fx:id="gioiTinh" text="Giới tính" />
+                  <TableColumn fx:id="namSinh" text="Năm sinh" />
+                  <TableColumn fx:id="diaChiHienNay" text="Địa chỉ hiện nay" />
+              </columns>
+          </TableView>
+      
+      </VBox>
+   </content>
+   <buttonTypes>
+      <ButtonType fx:constant="OK" />
+      <ButtonType fx:constant="CANCEL" />
+   </buttonTypes>
+</DialogPane>
